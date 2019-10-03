@@ -5,6 +5,8 @@
  */
 package lojademanga;
 
+import view.MainView;
+
 /**
  *
  * @author raphaela.crwagner
@@ -15,7 +17,9 @@ public class LojaDeManga {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        MainView view = new MainView();
+        view.setVisible(true);
+        view.setResizable(false);
     }
     
 }
