@@ -5,6 +5,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author raphaela.crwagner
@@ -16,6 +18,8 @@ public class MainView extends javax.swing.JFrame {
      */
     public MainView() {
         initComponents();
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     /**
@@ -38,11 +42,11 @@ public class MainView extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
+        bttPesquisaCliente = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jTextField2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        bttPesquisaProdVendas = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -63,7 +67,7 @@ public class MainView extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
+        bttPesquisaProdProd = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
@@ -180,11 +184,16 @@ public class MainView extends javax.swing.JFrame {
         jFormattedTextField1.setForeground(new java.awt.Color(68, 53, 48));
         jFormattedTextField1.setToolTipText("CPF do cliente");
 
-        jButton1.setBackground(new java.awt.Color(153, 216, 207));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(68, 53, 48));
-        jButton1.setText("Pesquisar");
-        jButton1.setBorder(null);
+        bttPesquisaCliente.setBackground(new java.awt.Color(153, 216, 207));
+        bttPesquisaCliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        bttPesquisaCliente.setForeground(new java.awt.Color(68, 53, 48));
+        bttPesquisaCliente.setText("Pesquisar");
+        bttPesquisaCliente.setBorder(null);
+        bttPesquisaCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttPesquisaClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -198,7 +207,7 @@ public class MainView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
+                        .addComponent(bttPesquisaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -211,7 +220,7 @@ public class MainView extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttPesquisaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
@@ -231,10 +240,15 @@ public class MainView extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(68, 53, 48));
         jLabel4.setText("Código:");
 
-        jButton2.setBackground(new java.awt.Color(153, 216, 207));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(68, 53, 48));
-        jButton2.setText("Pesquisar");
+        bttPesquisaProdVendas.setBackground(new java.awt.Color(153, 216, 207));
+        bttPesquisaProdVendas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        bttPesquisaProdVendas.setForeground(new java.awt.Color(68, 53, 48));
+        bttPesquisaProdVendas.setText("Pesquisar");
+        bttPesquisaProdVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttPesquisaProdVendasActionPerformed(evt);
+            }
+        });
 
         jLabel5.setForeground(new java.awt.Color(68, 53, 48));
         jLabel5.setText("Produto:");
@@ -297,7 +311,7 @@ public class MainView extends javax.swing.JFrame {
                             .addComponent(jTextField3)
                             .addComponent(jTextField2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(bttPesquisaProdVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46)
@@ -311,7 +325,7 @@ public class MainView extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel4)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bttPesquisaProdVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel5)
@@ -370,12 +384,22 @@ public class MainView extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton4.setForeground(new java.awt.Color(68, 53, 48));
         jButton4.setText("CANCELAR VENDA");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setBackground(new java.awt.Color(153, 216, 207));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton5.setForeground(new java.awt.Color(68, 53, 48));
         jButton5.setText("PAGAMENTO");
         jButton5.setToolTipText("");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -439,10 +463,15 @@ public class MainView extends javax.swing.JFrame {
         jTextField7.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
         jTextField7.setCaretColor(new java.awt.Color(68, 53, 48));
 
-        jButton6.setBackground(new java.awt.Color(153, 216, 207));
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(68, 53, 48));
-        jButton6.setText("Pesquisar produto");
+        bttPesquisaProdProd.setBackground(new java.awt.Color(153, 216, 207));
+        bttPesquisaProdProd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        bttPesquisaProdProd.setForeground(new java.awt.Color(68, 53, 48));
+        bttPesquisaProdProd.setText("Pesquisar produto");
+        bttPesquisaProdProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttPesquisaProdProdActionPerformed(evt);
+            }
+        });
 
         jLabel14.setForeground(new java.awt.Color(68, 53, 48));
         jLabel14.setText("Preço:");
@@ -516,7 +545,7 @@ public class MainView extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
                                         .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jButton6)
+                                        .addComponent(bttPesquisaProdProd)
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
                                         .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -536,7 +565,7 @@ public class MainView extends javax.swing.JFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel12)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bttPesquisaProdProd, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
@@ -574,7 +603,6 @@ public class MainView extends javax.swing.JFrame {
         jButton9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton9.setForeground(new java.awt.Color(68, 53, 48));
         jButton9.setText("Alterar");
-        jButton9.setActionCommand("Alterar");
         jButton9.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1004,6 +1032,34 @@ public class MainView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton11ActionPerformed
 
+    private void bttPesquisaProdProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttPesquisaProdProdActionPerformed
+        PesquisaProduto pp = new PesquisaProduto();
+    }//GEN-LAST:event_bttPesquisaProdProdActionPerformed
+
+    private void bttPesquisaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttPesquisaClienteActionPerformed
+       PesquisaCliente pe = new PesquisaCliente();
+    }//GEN-LAST:event_bttPesquisaClienteActionPerformed
+
+    private void bttPesquisaProdVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttPesquisaProdVendasActionPerformed
+        PesquisaProduto pp = new PesquisaProduto();
+    }//GEN-LAST:event_bttPesquisaProdVendasActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        int input = JOptionPane.showConfirmDialog(null, "Cancelar Compra?",
+                "Cancelando compra", JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.ERROR_MESSAGE);
+        if(input == 0){
+            //Limpa tudo
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        int input = JOptionPane.showConfirmDialog(null, "Finalizar Compra?");
+        if(input == 0){
+            new MetodoPagamento();
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1040,16 +1096,16 @@ public class MainView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton bttPesquisaCliente;
+    private javax.swing.JButton bttPesquisaProdProd;
+    private javax.swing.JButton bttPesquisaProdVendas;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;

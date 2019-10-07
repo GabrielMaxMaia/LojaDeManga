@@ -262,7 +262,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jTextField1" min="-2" pref="227" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jButton1" pref="88" max="32767" attributes="0"/>
+                                  <Component id="bttPesquisaCliente" pref="96" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel3" min="-2" pref="61" max="-2" attributes="0"/>
@@ -280,7 +280,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="2" attributes="0">
-                              <Component id="jButton1" alignment="2" min="-2" pref="21" max="-2" attributes="0"/>
+                              <Component id="bttPesquisaCliente" alignment="2" min="-2" pref="21" max="-2" attributes="0"/>
                               <Component id="jTextField1" alignment="2" min="-2" pref="21" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="2" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -344,7 +344,7 @@
                     <Property name="toolTipText" type="java.lang.String" value="CPF do cliente"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton1">
+                <Component class="javax.swing.JButton" name="bttPesquisaCliente">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cf" green="d8" red="99" type="rgb"/>
@@ -360,6 +360,9 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttPesquisaClienteActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -406,7 +409,7 @@
                                       <Component id="jTextField2" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jButton2" max="32767" attributes="0"/>
+                                  <Component id="bttPesquisaProdVendas" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jFormattedTextField2" min="-2" pref="94" max="-2" attributes="0"/>
@@ -425,7 +428,7 @@
                           <Group type="103" groupAlignment="2" attributes="0">
                               <Component id="jLabel4" alignment="2" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextField2" alignment="2" min="-2" pref="21" max="-2" attributes="0"/>
-                              <Component id="jButton2" alignment="2" min="-2" pref="21" max="-2" attributes="0"/>
+                              <Component id="bttPesquisaProdVendas" alignment="2" min="-2" pref="21" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="2" attributes="0">
@@ -488,7 +491,7 @@
                     <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Codigo"/>
                   </AccessibilityProperties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton2">
+                <Component class="javax.swing.JButton" name="bttPesquisaProdVendas">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cf" green="d8" red="99" type="rgb"/>
@@ -501,6 +504,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Pesquisar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttPesquisaProdVendasActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel5">
                   <Properties>
@@ -699,6 +705,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="CANCELAR VENDA"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton5">
               <Properties>
@@ -714,6 +723,9 @@
                 <Property name="text" type="java.lang.String" value="PAGAMENTO"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -814,7 +826,7 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jTextField6" min="-2" pref="212" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="bttPesquisaProdProd" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
@@ -844,7 +856,7 @@
                           <Group type="103" groupAlignment="2" attributes="0">
                               <Component id="jLabel12" alignment="2" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextField6" alignment="2" min="-2" pref="21" max="-2" attributes="0"/>
-                              <Component id="jButton6" alignment="2" min="-2" pref="21" max="-2" attributes="0"/>
+                              <Component id="bttPesquisaProdProd" alignment="2" min="-2" pref="21" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -928,7 +940,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton6">
+                <Component class="javax.swing.JButton" name="bttPesquisaProdProd">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cf" green="d8" red="99" type="rgb"/>
@@ -941,6 +953,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Pesquisar produto"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttPesquisaProdProdActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel14">
                   <Properties>
@@ -1117,7 +1132,6 @@
                   <Color blue="30" green="35" red="44" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Alterar"/>
-                <Property name="actionCommand" type="java.lang.String" value="Alterar"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                     <EtchetBorder>
