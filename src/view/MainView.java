@@ -453,7 +453,7 @@ public class MainView extends javax.swing.JFrame {
         jTextField8.setCaretColor(new java.awt.Color(68, 53, 48));
 
         jLabel15.setForeground(new java.awt.Color(68, 53, 48));
-        jLabel15.setText("Qnt. em estoque:");
+        jLabel15.setText("Qtd. em estoque:");
 
         jTextField9.setForeground(new java.awt.Color(68, 53, 48));
         jTextField9.setToolTipText("Digite a quantidade que possui em estoque");
@@ -495,8 +495,7 @@ public class MainView extends javax.swing.JFrame {
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField12)
-                        .addGap(239, 239, 239))
+                        .addComponent(jTextField12))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
@@ -512,23 +511,23 @@ public class MainView extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel15)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(229, 229, 229))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
                                         .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(jButton6)
-                                        .addGap(0, 111, Short.MAX_VALUE))
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
                                         .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel17)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField11)))
-                                .addGap(239, 239, 239))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField11))))
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                .addComponent(jTextField7)))))
+                .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -604,7 +603,7 @@ public class MainView extends javax.swing.JFrame {
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(228, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
