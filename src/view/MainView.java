@@ -209,7 +209,7 @@ public class MainView extends javax.swing.JFrame {
         bttPesquisaCliente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         bttPesquisaCliente.setForeground(new java.awt.Color(68, 53, 48));
         bttPesquisaCliente.setText("Pesquisar");
-        bttPesquisaCliente.setBorder(null);
+        bttPesquisaCliente.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
         bttPesquisaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bttPesquisaClienteActionPerformed(evt);
@@ -629,11 +629,13 @@ public class MainView extends javax.swing.JFrame {
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Logo_produtos2.png"))); // NOI18N
         jLabel11.setOpaque(true);
 
+        jButton7.setBackground(new java.awt.Color(153, 216, 207));
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton7.setForeground(new java.awt.Color(68, 53, 48));
         jButton7.setText("Adicionar");
         jButton7.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
 
+        jButton9.setBackground(new java.awt.Color(153, 216, 207));
         jButton9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton9.setForeground(new java.awt.Color(68, 53, 48));
         jButton9.setText("Alterar");
@@ -644,6 +646,7 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
+        jButton10.setBackground(new java.awt.Color(153, 216, 207));
         jButton10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton10.setForeground(new java.awt.Color(68, 53, 48));
         jButton10.setText("Excluir");
@@ -892,11 +895,13 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton8.setBackground(new java.awt.Color(153, 216, 207));
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton8.setForeground(new java.awt.Color(68, 53, 48));
         jButton8.setText("Adicionar");
         jButton8.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
 
+        jButton11.setBackground(new java.awt.Color(153, 216, 207));
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton11.setForeground(new java.awt.Color(68, 53, 48));
         jButton11.setText("Alterar");
@@ -907,6 +912,7 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
+        jButton12.setBackground(new java.awt.Color(153, 216, 207));
         jButton12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton12.setForeground(new java.awt.Color(68, 53, 48));
         jButton12.setText("Excluir");

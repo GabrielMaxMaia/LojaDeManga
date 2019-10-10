@@ -119,7 +119,7 @@ public class MetodoPagamento extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(68, 53, 48));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("R$ 00,00");
-        jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(153, 216, 207)));
+        jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(68, 53, 48));
