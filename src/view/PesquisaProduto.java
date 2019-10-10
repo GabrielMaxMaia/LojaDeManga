@@ -5,6 +5,8 @@
  */
 package view;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author Rogerio
@@ -21,6 +23,7 @@ public class PesquisaProduto extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("logo.png")));
     }
 
     /**
@@ -59,7 +62,7 @@ public class PesquisaProduto extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(800, 500));
         setResizable(false);
 
-        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Produto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Produto", 0, 0, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
 
         jLabel12.setForeground(new java.awt.Color(68, 53, 48));
         jLabel12.setText("Código:");
