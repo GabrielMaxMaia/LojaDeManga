@@ -5,6 +5,7 @@
  */
 package view;
 
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,14 +14,20 @@ import javax.swing.JOptionPane;
  */
 public class MainView extends javax.swing.JFrame {
 
+    
+    
     /**
      * Creates new form MainView
      */
+    
+    
     public MainView() {
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Mangá Store");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("logo.png")));
+        
     }
 
     /**

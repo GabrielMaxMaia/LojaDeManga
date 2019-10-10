@@ -5,6 +5,8 @@
  */
 package view;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author Rogerio
@@ -22,7 +24,7 @@ public class PesquisaProduto extends javax.swing.JFrame {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
         setAlwaysOnTop(true);
-
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("logo.png")));
     }
 
     /**

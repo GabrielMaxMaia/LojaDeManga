@@ -5,6 +5,8 @@
  */
 package view;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author Rogerio
@@ -20,6 +22,7 @@ public class PesquisaCliente extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("logo.png")));
     }
 
     /**
@@ -66,7 +69,7 @@ public class PesquisaCliente extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(800, 500));
         setPreferredSize(new java.awt.Dimension(800, 500));
 
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Cliente", 0, 0, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
         jPanel10.setForeground(new java.awt.Color(68, 53, 48));
 
         jLabel19.setForeground(new java.awt.Color(68, 53, 48));
