@@ -12,15 +12,10 @@ import javax.swing.JOptionPane;
  *
  * @author raphaela.crwagner
  */
-public class MainView extends javax.swing.JFrame {
-
-    
-    
+public class MainView extends javax.swing.JFrame { 
     /**
      * Creates new form MainView
-     */
-    
-    
+     */ 
     public MainView() {
         initComponents();
         setLocationRelativeTo(null);
@@ -1098,15 +1093,18 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void bttPesquisaProdProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttPesquisaProdProdActionPerformed
-        PesquisaProduto pp = new PesquisaProduto();
+        PesquisaProduto pp = new PesquisaProduto(this);
+        this.setEnabled(false);
     }//GEN-LAST:event_bttPesquisaProdProdActionPerformed
 
     private void bttPesquisaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttPesquisaClienteActionPerformed
-       PesquisaCliente pe = new PesquisaCliente();
+       PesquisaCliente pe = new PesquisaCliente(this);
+       this.setEnabled(false);
     }//GEN-LAST:event_bttPesquisaClienteActionPerformed
 
     private void bttPesquisaProdVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttPesquisaProdVendasActionPerformed
-        PesquisaProduto pp = new PesquisaProduto();
+        PesquisaProduto pp = new PesquisaProduto(this);
+        this.setEnabled(false);
     }//GEN-LAST:event_bttPesquisaProdVendasActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -1114,14 +1112,25 @@ public class MainView extends javax.swing.JFrame {
                 "Cancelando compra", JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.ERROR_MESSAGE);
         if(input == 0){
-            //Limpa tudo
+            
+        }
+        if(input == 1){
+            
+        }
+        if(input == 2){
+            
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         int input = JOptionPane.showConfirmDialog(null, "Finalizar Compra?");
         if(input == 0){
-            new MetodoPagamento();
+            this.setEnabled(false);
+            new MetodoPagamento(this);
+        }else if(input == 1){
+            
+        }else if(input == 2){
+            
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 

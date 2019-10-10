@@ -6,6 +6,9 @@
 package view;
 
 import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
 
 /**
  *
@@ -13,15 +16,22 @@ import java.awt.Toolkit;
  */
 public class PesquisaProduto extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PesquisaProduto
-     */
-    public PesquisaProduto() {
+    JFrame parent;
+
+    public PesquisaProduto(JFrame jframe) {
+        parent = jframe;
         initComponents();
         setResizable(false);
         setSize(800, 550);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        this.addWindowListener(new WindowAdapter() {
+
+            @Override
+            public void windowClosing(WindowEvent evt) {
+                close();
+            }
+        }); 
         setVisible(true);
         setAlwaysOnTop(true);
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("logo.png")));
@@ -319,7 +329,7 @@ public class PesquisaProduto extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PesquisaProduto().setVisible(true);
+//                new PesquisaProduto().setVisible(true);
             }
         });
     }
@@ -346,4 +356,8 @@ public class PesquisaProduto extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
+
+    private void close(){
+        parent.setEnabled(true);
+    }
 }

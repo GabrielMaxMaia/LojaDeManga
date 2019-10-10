@@ -6,21 +6,31 @@
 package view;
 
 import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
 
 /**
  *
  * @author Rogerio
  */
 public class PesquisaCliente extends javax.swing.JFrame {
-    /**
-     * Creates new form PesquisaCliente
-     */
-    public PesquisaCliente() {
+    JFrame parent;
+    
+    public PesquisaCliente(JFrame parent) {
+        this.parent = parent;
         initComponents();
         setResizable(false);
         setSize(800, 550);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        this.addWindowListener(new WindowAdapter() {
+
+            @Override
+            public void windowClosing(WindowEvent evt) {
+                close();
+            }
+        }); 
         setVisible(true);
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("logo.png")));
     }
@@ -69,7 +79,7 @@ public class PesquisaCliente extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(800, 500));
         setPreferredSize(new java.awt.Dimension(800, 500));
 
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Cliente", 0, 0, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
         jPanel10.setForeground(new java.awt.Color(68, 53, 48));
 
         jLabel19.setForeground(new java.awt.Color(68, 53, 48));
@@ -408,7 +418,7 @@ public class PesquisaCliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PesquisaCliente().setVisible(true);
+//                new PesquisaCliente().setVisible(true);
             }
         });
     }
@@ -445,4 +455,8 @@ public class PesquisaCliente extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField23;
     private javax.swing.JTextField jTextField24;
     // End of variables declaration//GEN-END:variables
+    
+    private void close(){
+        parent.setEnabled(true);
+    }
 }

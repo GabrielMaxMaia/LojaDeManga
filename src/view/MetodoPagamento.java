@@ -6,21 +6,30 @@
 package view;
 
 import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
 
 /**
  *
  * @author Rogerio
  */
 public class MetodoPagamento extends javax.swing.JFrame {
-
-    /**
-     * Creates new form MetodoPagamento
-     */
-    public MetodoPagamento() {
+    JFrame parent;
+    
+    public MetodoPagamento(JFrame parent) {
+        this.parent = parent;
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        this.addWindowListener(new WindowAdapter() {
+
+            @Override
+            public void windowClosing(WindowEvent evt) {
+                close();
+            }
+        }); 
         setVisible(true);
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("logo.png")));
     }
@@ -80,6 +89,11 @@ public class MetodoPagamento extends javax.swing.JFrame {
         jToggleButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jToggleButton1.setForeground(new java.awt.Color(68, 53, 48));
         jToggleButton1.setText("Finalizar Pagamento");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(68, 53, 48));
@@ -191,8 +205,12 @@ public class MetodoPagamento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        close();
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,7 +246,7 @@ public class MetodoPagamento extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MetodoPagamento().setVisible(true);
+//                new MetodoPagamento().setVisible(true);
             }
         });
         
@@ -249,4 +267,9 @@ public class MetodoPagamento extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
+    
+    private void close(){
+        parent.setEnabled(true);
+        dispose();
+    }
 }
