@@ -6,6 +6,7 @@
 package lojademanga;
 
 import view.MainView;
+import view.PesquisaAnalitica;
 
 /**
  *
@@ -20,6 +21,8 @@ public class LojaDeManga {
         MainView view = new MainView();
         view.setVisible(true);
         view.setResizable(false);
+//      PesquisaAnalitica pa = new PesquisaAnalitica();
+//      pa.setVisible(true);
     }
     
 }
