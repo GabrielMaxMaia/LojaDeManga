@@ -982,6 +982,7 @@ public class MainView extends javax.swing.JFrame {
         jButton13.setForeground(new java.awt.Color(68, 53, 48));
         jButton13.setText("Pesquisar");
 
+        jTable2.setForeground(new java.awt.Color(68, 53, 48));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
