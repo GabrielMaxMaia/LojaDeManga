@@ -21,7 +21,7 @@ public class MainView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Mangá Store");
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("logo.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/res/logo.png")));
         
     }
 
@@ -136,7 +136,7 @@ public class MainView extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(153, 216, 207));
         jLabel1.setForeground(new java.awt.Color(153, 216, 207));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Logo_menor.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Logo_menor.png"))); // NOI18N
         jLabel1.setOpaque(true);
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Carrinho de Compras", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
@@ -626,7 +626,7 @@ public class MainView extends javax.swing.JFrame {
         jLabel11.setBackground(new java.awt.Color(153, 216, 207));
         jLabel11.setForeground(new java.awt.Color(153, 216, 207));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Logo_produtos2.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Logo_produtos2.png"))); // NOI18N
         jLabel11.setOpaque(true);
 
         jButton7.setBackground(new java.awt.Color(153, 216, 207));
@@ -689,7 +689,7 @@ public class MainView extends javax.swing.JFrame {
         jLabel20.setBackground(new java.awt.Color(153, 216, 207));
         jLabel20.setForeground(new java.awt.Color(153, 216, 207));
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Logo_clientes.png"))); // NOI18N
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Logo_clientes.png"))); // NOI18N
         jLabel20.setOpaque(true);
 
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Dados do Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
@@ -955,7 +955,7 @@ public class MainView extends javax.swing.JFrame {
         jLabel31.setBackground(new java.awt.Color(153, 216, 207));
         jLabel31.setForeground(new java.awt.Color(153, 216, 207));
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Logo_Relatorio.png"))); // NOI18N
+        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Logo_Relatorio.png"))); // NOI18N
         jLabel31.setOpaque(true);
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Consulta de vendas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N

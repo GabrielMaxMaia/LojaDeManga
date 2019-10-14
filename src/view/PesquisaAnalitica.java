@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author Matheus Makoto
@@ -11,6 +13,7 @@ public class PesquisaAnalitica extends javax.swing.JFrame {
      */
     public PesquisaAnalitica() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/res/logo.png")));
 
     }
 
