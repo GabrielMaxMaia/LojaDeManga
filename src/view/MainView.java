@@ -552,7 +552,7 @@ public class MainView extends javax.swing.JFrame {
         });
 
         jLabel13.setForeground(new java.awt.Color(68, 53, 48));
-        jLabel13.setText("Descrição:");
+        jLabel13.setText("Título:");
 
         jTextFieldDescCadastro.setForeground(new java.awt.Color(68, 53, 48));
         jTextFieldDescCadastro.setToolTipText("Insira a descrição do produto");
