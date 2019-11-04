@@ -5,6 +5,9 @@
  */
 package lojademanga;
 
+import dao.DAOCliente;
+import java.util.ArrayList;
+import model.Cliente;
 import view.MainView;
 import view.PesquisaAnalitica;
 
@@ -21,6 +24,10 @@ public class LojaDeManga {
         MainView view = new MainView();
         view.setVisible(true);
         view.setResizable(false);
+        DAOCliente cli = new DAOCliente();
+        ArrayList<Cliente> list = cli.selectAll();
+        System.out.println(list.get(0).getNome());
+                
 //      PesquisaAnalitica pa = new PesquisaAnalitica();
 //      pa.setVisible(true);
     }

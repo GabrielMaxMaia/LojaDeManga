@@ -1,3 +1,4 @@
+
 create database MangaStore;
 use MangaStore;
 
@@ -67,14 +68,7 @@ es_id smallint not null auto_increment,
 primary key (es_id)
 );
 
-create table venda (
-ve_id int not null auto_increment unique,
-ve_produto int not null,
-ve_cliente varchar(11)not null,
-ve_funcionario smallint not null,
-foreign key (ve_cliente) references cliente(cli_id),
-foreign key (ve_funcionario) references funcionario(func_id)
-);
+
 
 create table produto (
 pd_id int not null auto_increment unique,
@@ -93,8 +87,19 @@ foreign key(pd_fornecedor) references fornecedor(for_id),
 foreign key(pd_genero) references genero(gen_id),
 foreign key (pd_estante) references estante(es_id),
 foreign key (pd_prateleira) references prateleira(pt_id),
-foreign key (pd_estilo) references estilo(es_id)
+foreign key (pd_estilo) references estilo(et_id)
 );
+
+create table venda (
+ve_id int not null auto_increment unique,
+ve_produto int not null,
+ve_cliente varchar(11)not null,
+ve_funcionario smallint not null,
+foreign key (ve_cliente) references cliente(cli_cpf),
+foreign key (ve_funcionario) references funcionarios(func_id),
+foreign key (ve_produto) references produto(pd_id)
+);
+
 
 create table itens (
 cp_produto int not null,
