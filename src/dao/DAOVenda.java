@@ -15,8 +15,16 @@ public class DAOVenda {
         
         conn = ConnectionFactory.getConnection();
     }
+    public void insert(Venda venda) throws SQLException {
+        String sql = "INSERT INTO venda() VALUES (?,?)";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, venda.getCliente());
+        stmt.setInt(2, venda.getFuncionarios());
+        stmt.execute();
+        stmt.close();
+    }
 public ArrayList<Venda> selectAll() {
-        String sql = "Select * from Produto";
+        String sql = "Select * from Venda";
 
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
@@ -35,7 +43,7 @@ public ArrayList<Venda> selectAll() {
             ConnectionFactory.closeConnection(conn, stmt, rs);
             return list;
         } catch (SQLException ex) {
-            System.err.println("DAO PRODUTO: " + ex);
+            System.err.println("DAO Venda: " + ex);
             return null;
         }
 

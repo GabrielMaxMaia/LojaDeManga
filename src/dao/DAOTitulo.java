@@ -14,6 +14,14 @@ public class DAOTitulo {
         
         conn = ConnectionFactory.getConnection();
     }
+    public void insert(Titulo titulo) throws SQLException {
+        String sql = "INSERT INTO titulo() VALUES (?,?)";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, titulo.getId());
+        stmt.setString(2, titulo.getNome());
+        stmt.execute();
+        stmt.close();
+    }
 public ArrayList<Titulo> selectAll() {
         String sql = "Select * from Produto";
 
@@ -32,7 +40,7 @@ public ArrayList<Titulo> selectAll() {
             ConnectionFactory.closeConnection(conn, stmt, rs);
             return list;
         } catch (SQLException ex) {
-            System.err.println("DAO PRODUTO: " + ex);
+            System.err.println("DAO Titulo: " + ex);
             return null;
         }
 
