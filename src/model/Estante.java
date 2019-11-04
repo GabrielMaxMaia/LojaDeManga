@@ -10,16 +10,16 @@ package model;
  * @author rogerio.slucon
  */
 public class Estante {
+
     private int id, prateleiraId;
-    private String letra;
 
     public Estante() {
     }
-    
+
     public Estante(int id, int prateleiraId, String letra) {
         this.id = id;
         this.prateleiraId = prateleiraId;
-        this.letra = letra;
+
     }
 
     public int getId() {
@@ -38,14 +38,4 @@ public class Estante {
         this.prateleiraId = prateleiraId;
     }
 
-    public String getLetra() {
-        return letra;
-    }
-
-    public void setLetra(String letra) {
-        this.letra = letra;
-    }
-    
-    
-    
 }

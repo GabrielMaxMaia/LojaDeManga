@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import lojademanga.ConnectionFactory;
 import model.Autor;
-import model.Cliente;
 
 /**
  *
@@ -41,10 +40,10 @@ public class DAOAutor {
 
                 list.add(au);
             }
-
+            ConnectionFactory.closeConnection(conn, stmt,rs);
             return list;
         } catch (SQLException ex) {
-            System.err.println("DAO CLIENTE: " + ex);
+            System.err.println("DAO AUTOR: " + ex);
             return null;
         }
 

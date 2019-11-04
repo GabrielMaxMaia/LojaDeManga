@@ -48,7 +48,7 @@ public class DAOCliente {
 
                 list.add(cli);
             }
-            
+            ConnectionFactory.closeConnection(conn, stmt,rs);
             return list;
         } catch (SQLException ex) { 
            System.err.println("DAO CLIENTE: " + ex);

@@ -10,14 +10,14 @@ package model;
  * @author rogerio.slucon
  */
 public class Prateleira {
-    private int id, numeroPrateleira;
-
+    private int id;
+    private char letra;
     public Prateleira() {
     }
 
-    public Prateleira(int id, int numeroPrateleira) {
+    public Prateleira(int id, char letra) {
         this.id = id;
-        this.numeroPrateleira = numeroPrateleira;
+        this.letra = letra;
     }
 
     public int getId() {
@@ -28,12 +28,12 @@ public class Prateleira {
         this.id = id;
     }
 
-    public int getNumeroPrateleira() {
-        return numeroPrateleira;
+    public int getLetra() {
+        return letra;
     }
 
-    public void setNumeroPrateleira(int numeroPrateleira) {
-        this.numeroPrateleira = numeroPrateleira;
+    public void setLetra(char letra) {
+        this.letra = letra;
     }
     
     

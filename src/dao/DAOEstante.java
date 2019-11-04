@@ -11,7 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import lojademanga.ConnectionFactory;
-import model.Cliente;
 import model.Estante;
 
 /**
@@ -36,15 +35,13 @@ public class DAOEstante {
             while(rs.next()){
                 Estante es = new Estante();
                 es.setId(rs.getInt("ep_id"));
-                es.setLetra(rs.getString("es_letra"));
-                es.setPrateleiraId(rs.getInt("es_prateleira"));
 
                 list.add(es);
             }
-            
+            ConnectionFactory.closeConnection(conn, stmt,rs);
             return list;
         } catch (SQLException ex) { 
-           System.err.println("DAO CLIENTE: " + ex);
+           System.err.println("DAO ESTANTE: " + ex);
             return null;
         }
         

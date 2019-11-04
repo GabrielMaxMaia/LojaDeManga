@@ -13,11 +13,12 @@ public class Produto {
     private int id, tituloId, autorId, fornecedorId, generoId;
     private int estanteId, prateleiraId, edicao, estiloId;
     private char status;
+    private float preco;
 
     public Produto() {
     }
 
-    public Produto(int id, int tituloId, int autorId, int fornecedorId, int generoId, int estanteId, int prateleiraId, int edicao, int estiloId, char status) {
+    public Produto(int id, int tituloId, int autorId, int fornecedorId, int generoId, int estanteId, int prateleiraId, int edicao, int estiloId, char status, float preco) {
         this.id = id;
         this.tituloId = tituloId;
         this.autorId = autorId;
@@ -28,6 +29,7 @@ public class Produto {
         this.edicao = edicao;
         this.estiloId = estiloId;
         this.status = status;
+        this.preco = preco;
     }
 
     public int getId() {
@@ -108,6 +110,14 @@ public class Produto {
 
     public void setStatus(char status) {
         this.status = status;
+    }
+
+    public float getPreco() {
+        return preco;
+    }
+
+    public void setPreco(float preco) {
+        this.preco = preco;
     }
     
     
