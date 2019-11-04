@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import lojademanga.ConnectionFactory;
+import model.Itens;
 import model.Prateleira;
 
 /**
@@ -23,6 +24,14 @@ public class DAOPrateleira {
 
     public DAOPrateleira() {
         conn = ConnectionFactory.getConnection();
+    }
+    
+     public void insert(Prateleira prateleira) throws SQLException {
+        String sql = "INSERT INTO prateleira(produto, compras) VALUES (?,?)";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, prateleira.getLetra());
+        stmt.execute();
+        stmt.close();
     }
 
     public ArrayList<Prateleira> selectAll() {

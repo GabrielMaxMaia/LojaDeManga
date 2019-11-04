@@ -25,6 +25,14 @@ public class DAOAutor {
         conn = ConnectionFactory.getConnection();
     }
 
+    public void insert(Autor autor) throws SQLException {
+        String sql = "INSERT INTO autor(nome) VALUES (?)";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, autor.getNome());
+        stmt.execute();
+        stmt.close();
+    }
+
     public ArrayList<Autor> selectAll() {
         String sql = "Select * from Autor";
 
@@ -40,8 +48,9 @@ public class DAOAutor {
 
                 list.add(au);
             }
-            ConnectionFactory.closeConnection(conn, stmt,rs);
+            ConnectionFactory.closeConnection(conn, stmt, rs);
             return list;
+
         } catch (SQLException ex) {
             System.err.println("DAO AUTOR: " + ex);
             return null;

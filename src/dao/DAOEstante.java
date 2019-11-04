@@ -24,6 +24,14 @@ public class DAOEstante {
         conn = ConnectionFactory.getConnection();
     }
     
+    public void insert(Estante estante) throws SQLException {
+        String sql = "INSERT INTO estante(prateleiraId) VALUES (?)";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, estante.getPrateleiraId());
+        stmt.execute();
+        stmt.close();
+    }
+    
     public ArrayList<Estante> selectAll(){
         String sql = "Select * from Estante";
         

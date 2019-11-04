@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import lojademanga.ConnectionFactory;
+import model.Fornecedor;
 import model.Funcionarios;
 
 /**
@@ -22,6 +23,14 @@ public class DAOFuncionarios {
 
     public DAOFuncionarios() {
         conn = ConnectionFactory.getConnection();
+    }
+    
+    public void insert(Funcionarios funcionarios) throws SQLException {
+        String sql = "INSERT INTO funcionarios(nome) VALUES (?)";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, funcionarios.getNome());
+        stmt.execute();
+        stmt.close();
     }
     
     public ArrayList<Funcionarios> selectAll(){

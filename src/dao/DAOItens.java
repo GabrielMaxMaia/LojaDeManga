@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import lojademanga.ConnectionFactory;
+import model.Genero;
 import model.Itens;
 
 /**
@@ -22,6 +23,15 @@ public class DAOItens {
 
     public DAOItens() {
         conn = ConnectionFactory.getConnection();
+    }
+    
+       public void insert(Itens itens) throws SQLException {
+        String sql = "INSERT INTO itens(produto, compras) VALUES (?,?)";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, itens.getProduto());
+        stmt.setInt(2, itens.getCompras());
+        stmt.execute();
+        stmt.close();
     }
 
     public ArrayList<Itens> selectAll() {

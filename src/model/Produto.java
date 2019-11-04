@@ -12,13 +12,13 @@ package model;
 public class Produto {
     private int id, tituloId, autorId, fornecedorId, generoId;
     private int estanteId, prateleiraId, edicao, estiloId;
-    private char status;
+    private String status;
     private float preco;
 
     public Produto() {
     }
 
-    public Produto(int id, int tituloId, int autorId, int fornecedorId, int generoId, int estanteId, int prateleiraId, int edicao, int estiloId, char status, float preco) {
+    public Produto(int id, int tituloId, int autorId, int fornecedorId, int generoId, int estanteId, int prateleiraId, int edicao, int estiloId, String status, float preco) {
         this.id = id;
         this.tituloId = tituloId;
         this.autorId = autorId;
@@ -104,11 +104,11 @@ public class Produto {
         this.estiloId = estiloId;
     }
 
-    public char getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(char status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

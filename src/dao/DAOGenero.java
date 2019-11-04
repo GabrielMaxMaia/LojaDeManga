@@ -24,6 +24,14 @@ public class DAOGenero {
     public DAOGenero() {
         conn = ConnectionFactory.getConnection();
     }
+    
+    public void insert(Genero genero) throws SQLException {
+        String sql = "INSERT INTO genero(nome) VALUES (?)";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, genero.getNome());
+        stmt.execute();
+        stmt.close();
+    }
 
     public ArrayList<Genero> selectAll() {
         String sql = "Select * from Genero";

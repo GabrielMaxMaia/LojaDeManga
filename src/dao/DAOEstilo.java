@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import lojademanga.ConnectionFactory;
+import model.Estante;
 import model.Estilo;
 
 /**
@@ -22,6 +23,14 @@ public class DAOEstilo {
 
     public DAOEstilo() {
         conn = ConnectionFactory.getConnection();
+    }
+    
+    public void insert(Estilo estilo) throws SQLException {
+        String sql = "INSERT INTO estilo(nome) VALUES (?)";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, estilo.getNome());
+        stmt.execute();
+        stmt.close();
     }
     
     public ArrayList<Estilo> selectAll(){

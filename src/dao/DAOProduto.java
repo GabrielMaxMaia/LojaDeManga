@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import lojademanga.ConnectionFactory;
+import model.Prateleira;
 import model.Produto;
 
 
@@ -23,6 +24,23 @@ public class DAOProduto {
 
     public DAOProduto() {
         conn = ConnectionFactory.getConnection();
+    }
+    
+    public void insert(Produto produto) throws SQLException {
+        String sql = "INSERT INTO produto(titulo, autor, fornecedor, genero, preco, estante, prateleira, edicao, status, estilo) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, produto.getTituloId());
+        stmt.setInt(2, produto.getAutorId());
+        stmt.setInt(3, produto.getFornecedorId());
+        stmt.setInt(4, produto.getGeneroId());
+        stmt.setFloat(5, produto.getPreco());
+        stmt.setInt(6, produto.getEstanteId());
+        stmt.setInt(7, produto.getPrateleiraId());
+        stmt.setInt(8, produto.getEdicao());
+        stmt.setString(9, produto.getStatus());
+        stmt.setInt(10, produto.getEstiloId());
+        stmt.execute();
+        stmt.close();
     }
 
     public ArrayList<Produto> selectAll() {
@@ -44,7 +62,7 @@ public class DAOProduto {
                 pd.setEstanteId(rs.getInt("pd_estante"));
                 pd.setPrateleiraId(rs.getInt("pd_prateleira"));
                 pd.setEdicao(rs.getInt("pd_edicao"));
-                pd.setStatus(rs.getString("pd_status").charAt(0));
+                pd.setStatus(rs.getString("pd_status"));
                 pd.setEstiloId(rs.getInt("pd_estilo"));
 
                 list.add(pd);

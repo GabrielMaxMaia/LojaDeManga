@@ -113,8 +113,10 @@ public class Cliente {
         this.complemento = complemento;
     }
 
-    public char getStatus() {
-        return status;
+    public String getStatus() {
+        String aux ="";
+        aux += status;
+        return aux;
     }
 
     public void setStatus(char status) {
