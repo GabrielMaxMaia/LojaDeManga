@@ -15,11 +15,12 @@ import model.Cliente;
  * @author rogerio.slucon
  */
 public class ClienteTableModel extends AbstractTableModel{
-    ArrayList<Cliente> list = new ArrayList<Cliente>();
+    ArrayList<Cliente> lista = new ArrayList<Cliente>();
     
     String[] colunas = {"Nome", "CPF", "Telefone", "Email"};
 
     public ClienteTableModel() {
+       
     }
     
     @Override
@@ -29,7 +30,7 @@ public class ClienteTableModel extends AbstractTableModel{
     
     @Override
     public int getRowCount() {
-        return list.size();
+        return lista.size();
     }
 
     @Override
@@ -41,25 +42,34 @@ public class ClienteTableModel extends AbstractTableModel{
     public Object getValueAt(int linha, int coluna) {
         switch(coluna){
             case 0:
-                return list.get(linha).getNome();
+                return lista.get(linha).getNome();
             case 1:
-                return list.get(linha).getCpf();
+                return lista.get(linha).getCpf();
             case 2:
-                return list.get(linha).getTel();
+                return lista.get(linha).getTel();
             case 3:
-                return list.get(linha).getEmail();
+                return lista.get(linha).getEmail();
         }
         
         return null;
     }
-
+    
+    public void addLinha(Cliente cli){
+        lista.add(cli);
+        fireTableDataChanged();
+    }
+    
+    public void atualiza(){
+        fireTableDataChanged();
+    }
+    
     public void setList(ArrayList<Cliente> list) {
-        this.list = list;
+        this.lista = list;
     }
     
     public void getCli(){
         DAOCliente cli = new DAOCliente();
-        list = cli.selectAll();
+        lista = cli.selectAll();
     }
         
 }

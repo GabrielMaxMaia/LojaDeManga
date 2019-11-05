@@ -5,11 +5,15 @@
  */
 package view;
 
+import controller.ClienteController;
+import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
+import javax.swing.JTextField;
 import lojademanga.ClienteTableModel;
+import model.Cliente;
 
 /**
  *
@@ -18,7 +22,9 @@ import lojademanga.ClienteTableModel;
 public class PesquisaCliente extends javax.swing.JFrame {
     JFrame parent;
     
-    ClienteTableModel model = new ClienteTableModel();
+    private ClienteController controller = ClienteController.getClienteController();
+    
+    private JTextField[] campos;
     
     public PesquisaCliente(JFrame parent) {
         this.parent = parent;
@@ -27,6 +33,8 @@ public class PesquisaCliente extends javax.swing.JFrame {
         setSize(800, 550);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        
+        
         this.addWindowListener(new WindowAdapter() {
 
             @Override
@@ -37,8 +45,8 @@ public class PesquisaCliente extends javax.swing.JFrame {
         setVisible(true);
         setAlwaysOnTop(true);
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/res/logo.png")));
-        model.getCli();
-        jTable1.setModel(model);  
+        
+        jTable1.setModel(controller.getTableModel());  
     }
 
     /**
@@ -63,20 +71,20 @@ public class PesquisaCliente extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
-        jTextField18 = new javax.swing.JTextField();
-        jTextField19 = new javax.swing.JTextField();
-        jTextField20 = new javax.swing.JTextField();
-        jTextField21 = new javax.swing.JTextField();
-        jTextField22 = new javax.swing.JTextField();
-        jTextField23 = new javax.swing.JTextField();
-        jTextField24 = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        jTextFieldCodCli = new javax.swing.JTextField();
+        jTextFieldNome = new javax.swing.JTextField();
+        jTextFieldCPF = new javax.swing.JTextField();
+        jTextFieldMail = new javax.swing.JTextField();
+        jTextFieldCel = new javax.swing.JTextField();
+        jTextFieldTel = new javax.swing.JTextField();
+        jTextFieldCEP = new javax.swing.JTextField();
+        jTextFieldEnd = new javax.swing.JTextField();
+        jTextFieldBairro = new javax.swing.JTextField();
+        jTextFieldEndNum = new javax.swing.JTextField();
+        jTextFieldCidade = new javax.swing.JTextField();
+        jTextFieldEndComp = new javax.swing.JTextField();
+        jButtonCadastra = new javax.swing.JButton();
+        jButtonPesquisa = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -85,7 +93,7 @@ public class PesquisaCliente extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(800, 500));
         setPreferredSize(new java.awt.Dimension(800, 500));
 
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Cliente", 0, 0, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
         jPanel10.setForeground(new java.awt.Color(68, 53, 48));
 
         jLabel19.setForeground(new java.awt.Color(68, 53, 48));
@@ -124,75 +132,80 @@ public class PesquisaCliente extends javax.swing.JFrame {
         jLabel32.setForeground(new java.awt.Color(68, 53, 48));
         jLabel32.setText("CPF:");
 
-        jTextField13.setForeground(new java.awt.Color(68, 53, 48));
-        jTextField13.setToolTipText("Digite o código do cliente");
-        jTextField13.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextField13.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldCodCli.setForeground(new java.awt.Color(68, 53, 48));
+        jTextFieldCodCli.setToolTipText("Digite o código do cliente");
+        jTextFieldCodCli.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+        jTextFieldCodCli.setCaretColor(new java.awt.Color(68, 53, 48));
 
-        jTextField14.setForeground(new java.awt.Color(68, 53, 48));
-        jTextField14.setToolTipText("Digite o código do cliente");
-        jTextField14.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextField14.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldNome.setForeground(new java.awt.Color(68, 53, 48));
+        jTextFieldNome.setToolTipText("Digite o código do cliente");
+        jTextFieldNome.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+        jTextFieldNome.setCaretColor(new java.awt.Color(68, 53, 48));
 
-        jTextField15.setForeground(new java.awt.Color(68, 53, 48));
-        jTextField15.setToolTipText("Digite o código do cliente");
-        jTextField15.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextField15.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldCPF.setForeground(new java.awt.Color(68, 53, 48));
+        jTextFieldCPF.setToolTipText("Digite o código do cliente");
+        jTextFieldCPF.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+        jTextFieldCPF.setCaretColor(new java.awt.Color(68, 53, 48));
 
-        jTextField16.setForeground(new java.awt.Color(68, 53, 48));
-        jTextField16.setToolTipText("Digite o código do cliente");
-        jTextField16.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextField16.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldMail.setForeground(new java.awt.Color(68, 53, 48));
+        jTextFieldMail.setToolTipText("Digite o código do cliente");
+        jTextFieldMail.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+        jTextFieldMail.setCaretColor(new java.awt.Color(68, 53, 48));
 
-        jTextField17.setForeground(new java.awt.Color(68, 53, 48));
-        jTextField17.setToolTipText("Digite o código do cliente");
-        jTextField17.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextField17.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldCel.setForeground(new java.awt.Color(68, 53, 48));
+        jTextFieldCel.setToolTipText("Digite o código do cliente");
+        jTextFieldCel.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+        jTextFieldCel.setCaretColor(new java.awt.Color(68, 53, 48));
 
-        jTextField18.setForeground(new java.awt.Color(68, 53, 48));
-        jTextField18.setToolTipText("Digite o código do cliente");
-        jTextField18.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextField18.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldTel.setForeground(new java.awt.Color(68, 53, 48));
+        jTextFieldTel.setToolTipText("Digite o código do cliente");
+        jTextFieldTel.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+        jTextFieldTel.setCaretColor(new java.awt.Color(68, 53, 48));
 
-        jTextField19.setForeground(new java.awt.Color(68, 53, 48));
-        jTextField19.setToolTipText("Digite o código do cliente");
-        jTextField19.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextField19.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldCEP.setForeground(new java.awt.Color(68, 53, 48));
+        jTextFieldCEP.setToolTipText("Digite o código do cliente");
+        jTextFieldCEP.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+        jTextFieldCEP.setCaretColor(new java.awt.Color(68, 53, 48));
 
-        jTextField20.setForeground(new java.awt.Color(68, 53, 48));
-        jTextField20.setToolTipText("Digite o código do cliente");
-        jTextField20.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextField20.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldEnd.setForeground(new java.awt.Color(68, 53, 48));
+        jTextFieldEnd.setToolTipText("Digite o código do cliente");
+        jTextFieldEnd.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+        jTextFieldEnd.setCaretColor(new java.awt.Color(68, 53, 48));
 
-        jTextField21.setForeground(new java.awt.Color(68, 53, 48));
-        jTextField21.setToolTipText("Digite o código do cliente");
-        jTextField21.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextField21.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldBairro.setForeground(new java.awt.Color(68, 53, 48));
+        jTextFieldBairro.setToolTipText("Digite o código do cliente");
+        jTextFieldBairro.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+        jTextFieldBairro.setCaretColor(new java.awt.Color(68, 53, 48));
 
-        jTextField22.setForeground(new java.awt.Color(68, 53, 48));
-        jTextField22.setToolTipText("Digite o código do cliente");
-        jTextField22.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextField22.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldEndNum.setForeground(new java.awt.Color(68, 53, 48));
+        jTextFieldEndNum.setToolTipText("Digite o código do cliente");
+        jTextFieldEndNum.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+        jTextFieldEndNum.setCaretColor(new java.awt.Color(68, 53, 48));
 
-        jTextField23.setForeground(new java.awt.Color(68, 53, 48));
-        jTextField23.setToolTipText("Digite o código do cliente");
-        jTextField23.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextField23.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldCidade.setForeground(new java.awt.Color(68, 53, 48));
+        jTextFieldCidade.setToolTipText("Digite o código do cliente");
+        jTextFieldCidade.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+        jTextFieldCidade.setCaretColor(new java.awt.Color(68, 53, 48));
 
-        jTextField24.setForeground(new java.awt.Color(68, 53, 48));
-        jTextField24.setToolTipText("Digite o código do cliente");
-        jTextField24.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextField24.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldEndComp.setForeground(new java.awt.Color(68, 53, 48));
+        jTextFieldEndComp.setToolTipText("Digite o código do cliente");
+        jTextFieldEndComp.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+        jTextFieldEndComp.setCaretColor(new java.awt.Color(68, 53, 48));
 
-        jButton6.setBackground(new java.awt.Color(153, 216, 207));
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(68, 53, 48));
-        jButton6.setText("Cadastrar cliente");
+        jButtonCadastra.setBackground(new java.awt.Color(153, 216, 207));
+        jButtonCadastra.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonCadastra.setForeground(new java.awt.Color(68, 53, 48));
+        jButtonCadastra.setText("Cadastrar cliente");
+        jButtonCadastra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastraActionPerformed(evt);
+            }
+        });
 
-        jButton7.setBackground(new java.awt.Color(153, 216, 207));
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(68, 53, 48));
-        jButton7.setText("Pesquisar cliente");
+        jButtonPesquisa.setBackground(new java.awt.Color(153, 216, 207));
+        jButtonPesquisa.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonPesquisa.setForeground(new java.awt.Color(68, 53, 48));
+        jButtonPesquisa.setText("Pesquisar cliente");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -206,36 +219,36 @@ public class PesquisaCliente extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
                                 .addComponent(jLabel19)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextFieldCodCli, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addComponent(jLabel21)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addComponent(jLabel32)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField15))
+                                .addComponent(jTextFieldCPF))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                                 .addGap(0, 41, Short.MAX_VALUE)
-                                .addComponent(jButton7)
+                                .addComponent(jButtonPesquisa)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton6))))
+                                .addComponent(jButtonCadastra))))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
                                 .addComponent(jLabel22)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField16))
+                                .addComponent(jTextFieldMail))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
                                 .addComponent(jLabel23)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextFieldCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
                                 .addComponent(jLabel28)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel10Layout.createSequentialGroup()
@@ -245,26 +258,26 @@ public class PesquisaCliente extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel27))
                                     .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addComponent(jTextField23)
+                                        .addComponent(jTextFieldCidade)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel30)
                                         .addGap(1, 1, 1)))
                                 .addGap(3, 3, 3)
                                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField24, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                                    .addComponent(jTextField22)))
+                                    .addComponent(jTextFieldEndComp, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldEndNum)))
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addComponent(jLabel24)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField17)
+                                .addComponent(jTextFieldCel)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel25)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jTextFieldTel, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
@@ -273,39 +286,39 @@ public class PesquisaCliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldCodCli, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCadastra, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel21)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel32)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel22)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldMail, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel24)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel25)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldTel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldEndNum, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27)
-                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel26)
-                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel23))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
                     .addComponent(jLabel29)
                     .addComponent(jLabel30)
-                    .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldEndComp, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -360,6 +373,10 @@ public class PesquisaCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonCadastraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastraActionPerformed
+        controller.addCliente(getTodosOsCampos());
+    }//GEN-LAST:event_jButtonCadastraActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -396,8 +413,8 @@ public class PesquisaCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButtonCadastra;
+    private javax.swing.JButton jButtonPesquisa;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -414,25 +431,36 @@ public class PesquisaCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
+    private javax.swing.JTextField jTextFieldBairro;
+    private javax.swing.JTextField jTextFieldCEP;
+    private javax.swing.JTextField jTextFieldCPF;
+    private javax.swing.JTextField jTextFieldCel;
+    private javax.swing.JTextField jTextFieldCidade;
+    private javax.swing.JTextField jTextFieldCodCli;
+    private javax.swing.JTextField jTextFieldEnd;
+    private javax.swing.JTextField jTextFieldEndComp;
+    private javax.swing.JTextField jTextFieldEndNum;
+    private javax.swing.JTextField jTextFieldMail;
+    private javax.swing.JTextField jTextFieldNome;
+    private javax.swing.JTextField jTextFieldTel;
     // End of variables declaration//GEN-END:variables
     
     private void close(){
         parent.setEnabled(true);
     }
     
-    private void pupula(){
-    
+    private JTextField[] getTodosOsCampos(){
+        JTextField[] aux = {jTextFieldCPF, jTextFieldNome,
+            jTextFieldMail, jTextFieldCel,
+            jTextFieldTel, jTextFieldCEP,
+            jTextFieldEnd, jTextFieldCidade,
+            jTextFieldBairro, jTextFieldEndComp};
+        
+        for (int i = 0; i < aux.length; i++) {
+            aux[i].setBackground(Color.white);
+        }
+        
+        return aux;
     }
+    
 }

@@ -11,15 +11,25 @@ package model;
  */
 public class Cliente {
     private String cpf, nome, email, cel, tel, cep, endereco, cidade, bairro,
-            complemento;
-    private char status;
+            complemento, status;
 
     public Cliente() {
+        this.cpf = "";
+        this.nome = "";
+        this.email = "email";
+        this.cel = "cel";
+        this.tel = "tel";
+        this.cep = "cep";
+        this.endereco = "endereco";
+        this.cidade = "cidade";
+        this.bairro = "";
+        this.complemento = "complemento";
+        this.status = "A";
     }
     
     public Cliente(String cpf, String nome, String email, String cel,
             String tel, String cep, String endereco, String cidade,
-            String bairro, String complemento, char status) {
+            String bairro, String complemento, String status) {
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
@@ -113,13 +123,11 @@ public class Cliente {
         this.complemento = complemento;
     }
 
-    public String getStatus() {
-        String aux ="";
-        aux += status;
-        return aux;
+    public String getStatus() {  
+        return status;
     }
 
-    public void setStatus(char status) {
+    public void setStatus(String status) {
         this.status = status;
     }
     

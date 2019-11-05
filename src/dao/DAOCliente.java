@@ -25,9 +25,18 @@ public class DAOCliente {
         conn = ConnectionFactory.getConnection();
     }
     
+//    public void insert(Cliente cliente) throws SQLException {
+//        String sql = "INSERT INTO cliente(cli_cpf, cli_nome) VALUES (?,?)";
+//        PreparedStatement stmt = conn.prepareStatement(sql);
+//        stmt.setString(1, cliente.getCpf());
+//        stmt.setString(2, cliente.getNome());
+//        stmt.executeUpdate();
+//        stmt.close();
+//    }
+    
     public void insert(Cliente cliente) throws SQLException {
-        String sql = "INSERT INTO cliente(cpf, nome, email, cel, tel, cep, endereco, cidade, bairro,\n" +
-"            complemento, status) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO cliente(cli_cpf, cli_nome, cli_email, cli_cel, cli_tel, cli_cep, cli_endereco, cli_cidade, cli_bairro," +
+            "cli_complemento, cli_status) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.setString(1, cliente.getCpf());
         stmt.setString(2, cliente.getNome());
@@ -40,7 +49,7 @@ public class DAOCliente {
         stmt.setString(9, cliente.getBairro());
         stmt.setString(10, cliente.getComplemento());
         stmt.setString(11, cliente.getStatus());
-        stmt.execute();
+        stmt.executeUpdate();
         stmt.close();
     }
     
@@ -64,7 +73,7 @@ public class DAOCliente {
                 cli.setCidade(rs.getString("cli_cidade"));
                 cli.setBairro(rs.getString("cli_bairro"));
                 cli.setComplemento(rs.getString("cli_complemento"));
-                cli.setStatus(rs.getString("cli_status").charAt(0));
+                cli.setStatus(rs.getString("cli_status"));
 
                 list.add(cli);
             }
