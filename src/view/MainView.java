@@ -1615,8 +1615,9 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
     private void bttAddCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAddCadastroClienteActionPerformed
-        cliController.addCliente(camposCadastro);
-        limpaCampos(camposCadastro);
+        if(cliController.addCliente(camposCadastro)){
+            limpaCampos(camposCadastro);
+        } 
     }//GEN-LAST:event_bttAddCadastroClienteActionPerformed
 
     /**
@@ -1788,6 +1789,7 @@ public class MainView extends javax.swing.JFrame {
     private void limpaCampos(JTextField[] campos){
         for (JTextField campo : campos) {
             campo.setText("");
+            campo.setBackground(Color.white);
         }
     }
 }

@@ -70,7 +70,7 @@ public class ClienteController {
         }
     }
     
-    public void addCliente(JTextField[] campos){
+    public boolean addCliente(JTextField[] campos){
         System.out.println("Add2");
         Cliente cli = validarDados(campos);
         
@@ -79,11 +79,14 @@ public class ClienteController {
                 DAOCliente dao = new DAOCliente();
                 dao.insert(cli);
                 tableModel.addLinha(cli);
+                return true;
             } catch (SQLException ex) {
                 System.out.println("Erro addCli");
                 Logger.getLogger(ClienteController.class.getName()).log(Level.SEVERE, null, ex);
+                return false;
             }
-        }
+        } 
+        return false;
     }
     
     public Cliente validarDados(JTextField[] campos){
