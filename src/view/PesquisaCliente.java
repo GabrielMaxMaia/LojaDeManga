@@ -12,6 +12,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
 import lojademanga.ClienteTableModel;
 import model.Cliente;
 
@@ -20,13 +22,13 @@ import model.Cliente;
  * @author Rogerio
  */
 public class PesquisaCliente extends javax.swing.JFrame {
-    JFrame parent;
+    MainView parent;
     
     private ClienteController controller = ClienteController.getClienteController();
     
     private JTextField[] campos;
     
-    public PesquisaCliente(JFrame parent) {
+    public PesquisaCliente(MainView parent) {
         this.parent = parent;
         initComponents();
         setResizable(false);
@@ -326,6 +328,11 @@ public class PesquisaCliente extends javax.swing.JFrame {
 
         jTable1.setModel(new ClienteTableModel());
         jTable1.setGridColor(new java.awt.Color(153, 216, 207));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -376,6 +383,13 @@ public class PesquisaCliente extends javax.swing.JFrame {
     private void jButtonCadastraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastraActionPerformed
         controller.addCliente(getTodosOsCampos());
     }//GEN-LAST:event_jButtonCadastraActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        AbstractTableModel model = (AbstractTableModel) jTable1.getModel();
+        int index = jTable1.getSelectedRow();
+        String cpf = model.getValueAt(index, 1).toString();
+        close(cpf);
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -447,6 +461,12 @@ public class PesquisaCliente extends javax.swing.JFrame {
     
     private void close(){
         parent.setEnabled(true);
+    }
+    
+    private void close(String cpf){
+        parent.puxaCliente(cpf);
+        parent.setEnabled(true);
+        this.dispose();
     }
     
     private JTextField[] getTodosOsCampos(){

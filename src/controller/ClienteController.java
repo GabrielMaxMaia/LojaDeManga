@@ -25,6 +25,8 @@ public class ClienteController {
     
     private ClienteTableModel tableModel = new ClienteTableModel();
     
+//    private String cpfSelecionado = "";
+    
     //Padrao de Projeto SINGLETON, garante uma unica instancia dessa classe
     public static ClienteController getClienteController(){
         if(INSTANCE != null){
@@ -43,12 +45,29 @@ public class ClienteController {
         
     }
     
-    public void pesquisaPorId(String ID){
-        
+    public Cliente pesquisaPorCpf(String Cpf){
+        DAOCliente dao = new DAOCliente();
+        Cliente cli = dao.findByCpf(Cpf);
+        if(cli != null){
+            System.out.println(cli.getNome());
+            return cli;
+        }else{
+            return null;
+        }
     }
     
-    public void atualizaCliente(Cliente cliente){
-        
+    public void atualizaCliente(JTextField[] campos){
+        Cliente cli = validarDados(campos);
+        if(cli != null){
+            DAOCliente dao = new DAOCliente();
+            try {
+                dao.update(cli);
+                tableModel.getCli();
+            } catch (SQLException ex) {
+                System.out.println("Erro Atualizar Cliente");
+                Logger.getLogger(ClienteController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
     public void addCliente(JTextField[] campos){
@@ -148,5 +167,15 @@ public class ClienteController {
     public ClienteTableModel getTableModel() {
         return tableModel;
     }
+    
+//    public void setCpfSelecionado(String cpf){
+//        cpfSelecionado = cpf;
+//    }
+//    
+//    public String getCpfSelecionado(){
+//        String aux = cpfSelecionado;
+//        cpfSelecionado = "";
+//        return aux;
+//    }
     
 }
