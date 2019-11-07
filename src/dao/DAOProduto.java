@@ -30,19 +30,20 @@ public class DAOProduto {
     
     public void insert(Produto produto) throws SQLException {
         String sql = "INSERT INTO produto(titulo, autor, fornecedor, genero, preco, estante, prateleira, edicao, status, estilo) VALUES (?,?,?,?,?,?,?,?,?,?)";
-        PreparedStatement stmt = conn.prepareStatement(sql);
-        stmt.setInt(1, produto.getTituloId());
-        stmt.setInt(2, produto.getAutorId());
-        stmt.setInt(3, produto.getFornecedorId());
-        stmt.setInt(4, produto.getGeneroId());
-        stmt.setFloat(5, produto.getPreco());
-        stmt.setInt(6, produto.getEstanteId());
-        stmt.setInt(7, produto.getPrateleiraId());
-        stmt.setInt(8, produto.getEdicao());
-        stmt.setString(9, produto.getStatus());
-        stmt.setInt(10, produto.getEstiloId());
-        stmt.executeUpdate();
-        stmt.close();
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, produto.getTituloId());
+            stmt.setInt(2, produto.getAutorId());
+            stmt.setInt(3, produto.getFornecedorId());
+            stmt.setInt(4, produto.getGeneroId());
+            stmt.setFloat(5, produto.getPreco());
+            stmt.setInt(6, produto.getEstanteId());
+            stmt.setInt(7, produto.getPrateleiraId());
+            stmt.setInt(8, produto.getEdicao());
+            stmt.setString(9, produto.getStatus());
+            stmt.setInt(10, produto.getEstiloId());
+            stmt.executeUpdate();
+            stmt.close();
+        }
     }
 
     public void update(Produto produto) throws SQLException{
@@ -50,13 +51,14 @@ public class DAOProduto {
         String sql = "Update Produto set pd_preco = ?, pd_titulo = ?,"
                 + " pd_autor = ?, pd_quantidade = ?,"
                 + " WHERE pd_id = ?";
-        PreparedStatement stmt = conn.prepareStatement(sql);
-        stmt.setFloat(1, produto.getPreco());
-        stmt.setString(2, produto.getTitulo());
-        stmt.setString(3,produto.getAutor());
-        stmt.setInt(4,produto.getQtd());
-        stmt.executeUpdate();
-        stmt.close();
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setFloat(1, produto.getPreco());
+            stmt.setString(2, produto.getTitulo());
+            stmt.setString(3,produto.getAutor());
+            stmt.setInt(4,produto.getQtd());
+            stmt.executeUpdate();
+            stmt.close();
+        }
         
     }
     
@@ -124,9 +126,5 @@ public class DAOProduto {
             System.err.println("DAO PRODUTO: " + ex);
             return null;
         }
-
     }
-
 }
-
-
