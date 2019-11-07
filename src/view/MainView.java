@@ -278,6 +278,7 @@ public class MainView extends javax.swing.JFrame {
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(68, 53, 48)), "Dados do Produto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
 
+        jTextFieldCodProdCart.setEditable(false);
         jTextFieldCodProdCart.setForeground(new java.awt.Color(68, 53, 48));
         jTextFieldCodProdCart.setToolTipText("Insira o código do produto para pesquisar");
         jTextFieldCodProdCart.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
@@ -313,6 +314,7 @@ public class MainView extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(68, 53, 48));
         jLabel5.setText("Produto:");
 
+        jTextFieldProdCart.setEditable(false);
         jTextFieldProdCart.setForeground(new java.awt.Color(68, 53, 48));
         jTextFieldProdCart.setToolTipText("Descrição do produto");
         jTextFieldProdCart.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
@@ -320,6 +322,7 @@ public class MainView extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(68, 53, 48));
         jLabel6.setText("Preço:");
 
+        jTextFieldPrecoCart.setEditable(false);
         jTextFieldPrecoCart.setForeground(new java.awt.Color(68, 53, 48));
         jTextFieldPrecoCart.setToolTipText("Preço do produto");
         jTextFieldPrecoCart.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
