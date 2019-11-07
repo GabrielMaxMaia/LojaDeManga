@@ -8,10 +8,10 @@ import model.Produto;
  *
  * @author rogerio.slucon
  */
-public class ControllerVenda {
+public class VendaController {
     private CarrinhoTableModel table = new CarrinhoTableModel();
     private ProdutoController prodController; 
-    public ControllerVenda() {
+    public VendaController() {
         prodController = ProdutoController.getProdutoController();
     }
     

@@ -1,7 +1,7 @@
 package view;
 
 import controller.ClienteController;
-import controller.ControllerVenda;
+import controller.VendaController;
 import controller.ProdutoController;
 import java.awt.Color;
 import java.awt.Toolkit;
@@ -25,11 +25,11 @@ public class MainView extends javax.swing.JFrame {
     private JTextField[] camposCadastro;
     private JTextField[] camposCart;
     private JTextField[] camposProduto;
-    public ControllerVenda vendaController;
+    public VendaController vendaController;
     public MainView() {
         this.cliController = ClienteController.getClienteController();
         this.prodController = ProdutoController.getProdutoController();
-        this.vendaController = new ControllerVenda();
+        this.vendaController = new VendaController();
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
