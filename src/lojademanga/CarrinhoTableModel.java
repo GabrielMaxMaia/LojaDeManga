@@ -18,7 +18,7 @@ import model.Produto;
 public class CarrinhoTableModel extends AbstractTableModel{ 
     ArrayList<Produto> lista = new ArrayList<Produto>();
     ArrayList<Integer> qtdLista = new ArrayList<Integer>();
-     ArrayList<Integer> descontoLista = new ArrayList<Integer>();
+    ArrayList<Integer> descontoLista = new ArrayList<Integer>();
     
     String[] colunas = {"Codigo", "Produto", "QTD", "Preço", "Desconto",
         "Subtotal"};
@@ -68,6 +68,13 @@ public class CarrinhoTableModel extends AbstractTableModel{
         qtdLista.add(qtd);
         descontoLista.add(desc);
         
+        fireTableDataChanged();
+    }
+    
+    public void cancelarCompra(){
+        lista.clear();
+        qtdLista.clear();
+        descontoLista.clear();
         fireTableDataChanged();
     }
     

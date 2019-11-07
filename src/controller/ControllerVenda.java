@@ -34,6 +34,10 @@ public class ControllerVenda {
         return false;
     }
     
+    public void cancelarCompra(){
+        table.cancelarCompra();
+    }
+    
     public CarrinhoTableModel getModel(){
         return table;
     }

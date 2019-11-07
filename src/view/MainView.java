@@ -1828,6 +1828,6 @@ public class MainView extends javax.swing.JFrame {
     
     private void cancelaCompras(){
         limpaCampos(camposCart);
-        
+        vendaController.cancelarCompra();    
     }
 }
