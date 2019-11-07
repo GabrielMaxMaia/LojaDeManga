@@ -24,6 +24,7 @@ public class ClienteController {
     private static ClienteController INSTANCE;
     
     private ClienteTableModel tableModel = new ClienteTableModel();
+    private String erros;
     
 //    private String cpfSelecionado = "";
     
@@ -91,60 +92,60 @@ public class ClienteController {
     
     public Cliente validarDados(JTextField[] campos){
         Cliente cli = new Cliente();
-        String erros = "";
+        erros = "";
         
         if(!campos[0].getText().trim().equals("")){
             cli.setCpf(campos[0].getText());
         }else{
-            erros +="\n - Cpf Campo Obrigatorio";
+            erros +="\n - Cpf";
             campos[0].setBackground(Color.red);
         }
         if(!campos[1].getText().trim().equals("")){
             cli.setNome(campos[1].getText());
         }else{
-            erros +="\n - Nome Campo Obrigatorio";
+            erros +="\n - Nome";
             campos[1].setBackground(Color.red);
         }
         if(!campos[2].getText().trim().equals("")){
             cli.setEmail(campos[2].getText());
         }else{
-            erros +="\n - E-mail Campo Obrigatorio"; 
+            erros +="\n - E-mail"; 
             campos[2].setBackground(Color.red);
         }
         if(!campos[3].getText().trim().equals("")){
             cli.setCel(campos[3].getText());
         }else{
-            erros +="\n - Celular Campo Obrigatorio";
+            erros +="\n - Celular";
             campos[3].setBackground(Color.red);
         }
         if(!campos[4].getText().trim().equals("")){
             cli.setTel(campos[4].getText());
         }else{
-            erros +="\n - Telefone Campo Obrigatorio";
+            erros +="\n - Telefone";
             campos[4].setBackground(Color.red);
         }
         if(!campos[5].getText().trim().equals("")){
             cli.setCep(campos[5].getText());
         }else{
-            erros +="\n - CEPCampo Obrigatorio"; 
+            erros +="\n - CEP"; 
             campos[5].setBackground(Color.red);
         }
         if(!campos[6].getText().trim().equals("")){
             cli.setEndereco(campos[6].getText());
         }else{
-            erros +="\n - Endereço Campo Obrigatorio";  
+            erros +="\n - Endereço";  
             campos[6].setBackground(Color.red);
         }
         if(!campos[7].getText().trim().equals("")){
             cli.setCidade(campos[7].getText());
         }else{
-            erros +="\n - Cidade Campo Obrigatorio";
+            erros +="\n - Cidade";
             campos[7].setBackground(Color.red);
         }
         if(!campos[8].getText().trim().equals("")){
             cli.setBairro(campos[8].getText());
         }else{
-            erros +="\n - Bairro Campo Obrigatorio"; 
+            erros +="\n - Bairro"; 
             campos[8].setBackground(Color.red);
         }if(!campos[9].getText().trim().equals("")){
             cli.setComplemento(campos[9].getText());
@@ -156,6 +157,7 @@ public class ClienteController {
         if(erros.equals("")){
             return cli;
         }else{
+            erros = "Campos Obrigatorios: \n" + erros;
             return null;
         }
     }
@@ -169,6 +171,12 @@ public class ClienteController {
     //Getters e Setters
     public ClienteTableModel getTableModel() {
         return tableModel;
+    }
+    
+    public String getErros(){
+        String aux = erros;
+        erros = "";
+        return aux;
     }
     
 //    public void setCpfSelecionado(String cpf){

@@ -11,6 +11,7 @@ import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
@@ -353,7 +354,13 @@ public class PesquisaCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCadastraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastraActionPerformed
-        controller.addCliente(getTodosOsCampos());
+        if(controller.addCliente(getTodosOsCampos())){
+            
+        }else{
+            setAlwaysOnTop(false);
+            JOptionPane.showMessageDialog(null, controller.getErros());
+            setAlwaysOnTop(true);
+        }
     }//GEN-LAST:event_jButtonCadastraActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
