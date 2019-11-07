@@ -1,4 +1,4 @@
-create database MangaStore;
+create database if not exists MangaStore;
 use MangaStore;
 
 ###################################
