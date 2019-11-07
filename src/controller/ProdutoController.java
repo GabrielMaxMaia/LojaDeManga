@@ -32,8 +32,15 @@ public class ProdutoController {
     }
     
     // Métodos de acesso a DAO
-    public void pesquisaPorCodigo (int id){
-        
+    public Produto pesquisaPorId (int id){
+        DAOProduto dao = new DAOProduto();
+        Produto prod = dao.buscaPorId(id);
+        if(prod != null){
+            System.out.println(prod.getId());
+            return prod;
+        }else{
+            return null;
+        }
     }
     
     public void atualizaProduto(JTextField[] campos){
