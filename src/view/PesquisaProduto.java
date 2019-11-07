@@ -8,7 +8,6 @@ package view;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.table.AbstractTableModel;
 import lojademanga.ProdutoTableModel;
@@ -292,7 +291,7 @@ public class PesquisaProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
         AbstractTableModel model = (AbstractTableModel) jTable1.getModel();
         int index = jTable1.getSelectedRow();
-        int id =Integer.parseInt(model.getValueAt(index, 0).toString());
+        int id = Integer.parseInt(model.getValueAt(index, 0).toString());
         close(id);
     }//GEN-LAST:event_jTable1MouseClicked
 

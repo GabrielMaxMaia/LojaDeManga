@@ -94,6 +94,7 @@ public class MainView extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         bttAdicionarItemCart = new javax.swing.JButton();
         jFormattedTextFieldDescCart = new javax.swing.JFormattedTextField();
+        jLabel10 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabelTotalDaVenda = new javax.swing.JLabel();
@@ -362,8 +363,11 @@ public class MainView extends javax.swing.JFrame {
 
         jFormattedTextFieldDescCart.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
         jFormattedTextFieldDescCart.setForeground(new java.awt.Color(68, 53, 48));
+        jFormattedTextFieldDescCart.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         jFormattedTextFieldDescCart.setToolTipText("Desconto existente");
         jFormattedTextFieldDescCart.setCaretColor(new java.awt.Color(68, 53, 48));
+
+        jLabel10.setText("%");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -392,7 +396,9 @@ public class MainView extends javax.swing.JFrame {
                         .addComponent(bttPesquisaProdCart))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jFormattedTextFieldDescCart, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel10)
+                        .addGap(51, 51, 51)
                         .addComponent(bttAdicionarItemCart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -419,7 +425,8 @@ public class MainView extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jFormattedTextFieldDescCart, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel10))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -1670,6 +1677,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFormattedTextFieldCPFCart;
     private javax.swing.JFormattedTextField jFormattedTextFieldDescCart;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -1789,6 +1797,8 @@ public class MainView extends javax.swing.JFrame {
                 jTextFieldCodProdCart.setText(Integer.toString(prod.getId()));
                 jTextFieldProdCart.setText(prod.getTitulo());
                 jTextFieldPrecoCart.setText(Float.toString(prod.getPreco()));
+                jTextFieldQntCart.setText("1");
+                jFormattedTextFieldDescCart.setText("0");
             }
             if(abaAtual == 1){
                 jTextFieldCodCadastro.setText(Integer.toString(prod.getId()));
