@@ -55,6 +55,7 @@ public class DAOProduto {
         stmt.setInt(4,produto.getQtd());
         stmt.executeUpdate();
         stmt.close();
+        
     }
     
     
