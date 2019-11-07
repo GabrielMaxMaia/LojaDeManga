@@ -65,7 +65,7 @@ public class DAOProduto {
     // Métodos de busca
     
     public Produto buscaPorId(int id){
-        String sql = "Select * from Produto where id = " + id;
+        String sql = "Select * from Produto where pd_id = " + id;
         
         try{
             PreparedStatement stmt = conn.prepareStatement(sql);
@@ -83,11 +83,10 @@ public class DAOProduto {
                 ConnectionFactory.closeConnection(conn, stmt,rs);
                 return prod;
             } else{
-                System.out.println("Sem resultado");
                 return null;
             }
         }catch(SQLException e){
-            System.out.println(e);
+            System.out.println("Select Prod " + e);
             return null;
         }
     }

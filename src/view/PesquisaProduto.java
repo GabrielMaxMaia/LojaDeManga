@@ -292,8 +292,8 @@ public class PesquisaProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
         AbstractTableModel model = (AbstractTableModel) jTable1.getModel();
         int index = jTable1.getSelectedRow();
-        String Id = model.getValueAt(index, 1).toString();
-        close(Id);
+        int id =Integer.parseInt(model.getValueAt(index, 0).toString());
+        close(id);
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**
@@ -358,8 +358,8 @@ public class PesquisaProduto extends javax.swing.JFrame {
         parent.setEnabled(true);
     }
     
-    private void close(String Id){
-        parent.puxaProduto(Id);
+    private void close(int id){
+        parent.puxaProduto(id);
         parent.setEnabled(true);
         this.dispose();
     }

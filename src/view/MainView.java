@@ -27,6 +27,7 @@ public class MainView extends javax.swing.JFrame {
     public ControllerVenda vendController;
     public MainView() {
         this.cliController = ClienteController.getClienteController();
+        this.prodController = ProdutoController.getProdutoController();
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -1561,8 +1562,6 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_bttAddProdCadastroActionPerformed
 
     private void bttAdicionarItemCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAdicionarItemCartActionPerformed
-        
-        
         String Prod = jTextFieldCodProdCart.getText();
         int idProd = Integer.parseInt(Prod);
         
@@ -1806,19 +1805,24 @@ public class MainView extends javax.swing.JFrame {
         cliController.atualizaCliente(camposCadastro);
     }
     
-    public void puxaProduto(String Id){
-//        Produto pro = prodController.pesquisaPorCodigo(Integer.parseInt(Id));
-        Produto pro = new Produto();
-        if(pro != null ){
+    public void puxaProduto(int id){
+        Produto prod = prodController.pesquisaPorId(id);
+        System.out.println(prod.getTitulo());
+        if(prod != null ){
+            if(abaAtual == 0){
+                jTextFieldCodProdCart.setText(Integer.toString(prod.getId()));
+                jTextFieldProdCart.setText(prod.getTitulo());
+                jTextFieldPrecoCart.setText(Float.toString(prod.getPreco()));
+            }
             if(abaAtual == 1){
-                jTextFieldCodCadastro.setText(Integer.toString(pro.getId()));
-                jTextFieldDescCadastro.setText((pro.getTitulo()));
+                jTextFieldCodCadastro.setText(Integer.toString(prod.getId()));
+                jTextFieldDescCadastro.setText((prod.getTitulo()));
 //                jTextFieldDescCadastro.setText(Integer.toString(pro.getTituloId()));
 //               jTextFieldEdicaoCadastro.setText(Integer.toString(pro.getEdicao()));
-                jTextFieldAutoresCadastro.setText(pro.getAutor());
+                jTextFieldAutoresCadastro.setText(prod.getAutor());
 //               jTextFieldFornecedorCadastro.setText(Integer.toString(pro.getFornecedorId()));
-                jTextFieldPrecocadastro.setText(Float.toString(pro.getPreco()));
-                jTextFieldQuantCadastro.setText(Integer.toString(pro.getQtd()));
+                jTextFieldPrecocadastro.setText(Float.toString(prod.getPreco()));
+                jTextFieldQuantCadastro.setText(Integer.toString(prod.getQtd()));
 //                jTextFieldEstanteCadastro.setText(Integer.toString(pro.getEstanteId()));
 //                jTextFieldPrateleiraCadastro.setText(Integer.toString(pro.getPrateleiraId()));
             }
