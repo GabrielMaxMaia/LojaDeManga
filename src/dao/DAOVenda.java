@@ -5,11 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import lojademanga.ConnectionFactory;
 import model.Venda;
 
 public class DAOVenda {
     private Connection conn;
+    //Temporario
+    private HashMap<String, ArrayList> listaVenda = new HashMap<String, ArrayList>(); 
     
     public DAOVenda(){
         
@@ -48,5 +51,6 @@ public ArrayList<Venda> selectAll() {
         }
 
     }
+    // Temporarior
 
 }
