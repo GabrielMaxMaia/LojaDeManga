@@ -9,6 +9,7 @@ import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
+import lojademanga.ProdutoTableModel;
 
 /**
  *
@@ -25,6 +26,10 @@ public class PesquisaProduto extends javax.swing.JFrame {
         setSize(800, 550);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        ProdutoTableModel pd = new ProdutoTableModel();
+        pd.getProd();
+        jTable1.setModel(pd);
+        
         this.addWindowListener(new WindowAdapter() {
 
             @Override
@@ -219,40 +224,12 @@ public class PesquisaProduto extends javax.swing.JFrame {
         jTable1.setForeground(new java.awt.Color(68, 53, 48));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Código", "Descrição", "Preço", "Quantidade"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, true, false
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jTable1.setGridColor(new java.awt.Color(153, 216, 207));
         jScrollPane1.setViewportView(jTable1);
 

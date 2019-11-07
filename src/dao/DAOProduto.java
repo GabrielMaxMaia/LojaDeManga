@@ -39,10 +39,27 @@ public class DAOProduto {
         stmt.setInt(8, produto.getEdicao());
         stmt.setString(9, produto.getStatus());
         stmt.setInt(10, produto.getEstiloId());
-        stmt.execute();
+        stmt.executeUpdate();
         stmt.close();
     }
 
+    public void update(Produto produto) throws SQLException{
+        
+        String sql = "Update Produto set pd_preco = ?, pd_titulo = ?,"
+                + " pd_autor = ?, pd_quantidade = ?,"
+                + " WHERE pd_id = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setFloat(1, produto.getPreco());
+        stmt.setString(2, produto.getTitulo());
+        stmt.setString(3,produto.getAutor());
+        stmt.setInt(4,produto.getQtd());
+        stmt.executeUpdate();
+        stmt.close();
+        
+    }
+    
+    
+    
     public ArrayList<Produto> selectAll() {
         String sql = "Select * from Produto";
 
@@ -54,16 +71,20 @@ public class DAOProduto {
             while (rs.next()) {
                 Produto pd = new Produto();
                 pd.setId(rs.getInt("pd_id"));
-                pd.setTituloId(rs.getInt("pd_titulo"));
-                pd.setAutorId(rs.getInt("pd_autor"));
-                pd.setFornecedorId(rs.getInt("pd_fornecedor"));
-                pd.setGeneroId(rs.getInt("pd_genero"));
+                pd.setTitulo(rs.getString("pd_titulo"));
+                pd.setAutor(rs.getString("pd_autor"));
                 pd.setPreco(rs.getFloat("pd_preco"));
-                pd.setEstanteId(rs.getInt("pd_estante"));
-                pd.setPrateleiraId(rs.getInt("pd_prateleira"));
-                pd.setEdicao(rs.getInt("pd_edicao"));
-                pd.setStatus(rs.getString("pd_status"));
-                pd.setEstiloId(rs.getInt("pd_estilo"));
+                pd.setQtd(rs.getInt("pd_quantidade"));
+//                pd.setTituloId(rs.getInt("pd_titulo"));
+//                pd.setAutorId(rs.getInt("pd_autor"));
+//                pd.setFornecedorId(rs.getInt("pd_fornecedor"));
+//                pd.setGeneroId(rs.getInt("pd_genero"));
+//                pd.setPreco(rs.getFloat("pd_preco"));
+//                pd.setEstanteId(rs.getInt("pd_estante"));
+//                pd.setPrateleiraId(rs.getInt("pd_prateleira"));
+//                pd.setEdicao(rs.getInt("pd_edicao"));
+//                pd.setStatus(rs.getString("pd_status"));
+//                pd.setEstiloId(rs.getInt("pd_estilo"));
 
                 list.add(pd);
             }

@@ -10,29 +10,66 @@ import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 import model.Produto;
 
-
 /**
  *
  * @author gabriel.mmcarmo
  */
-public class ProdutoTableModel extends AbstractTableModel{
 
+public class ProdutoTableModel extends AbstractTableModel{
+    ArrayList<Produto> lista = new ArrayList<>();
+    
+    String[] colunas = {"Codigo", "Drescrição", "Preço", "Quantidade"};
+
+    public ProdutoTableModel() {
+    }
+    
+    @Override
+    public String getColumnName(int column) {
+        return colunas[column];
+    }
+    
     @Override
     public int getRowCount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return lista.size();
     }
 
     @Override
     public int getColumnCount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return colunas.length;
     }
 
     @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Object getValueAt(int linha, int coluna) {
+        switch(coluna){
+            case 0:
+                return lista.get(linha).getId();
+            case 1:
+                return lista.get(linha).getTitulo();
+            case 2:
+                return lista.get(linha).getQtd();
+            case 3:
+                return lista.get(linha).getPreco();
+        }
+        
+        return null;
     }
     
+    public void addLinha(Produto prod){
+        lista.add(prod);
+        fireTableDataChanged();
+    }
     
+    public void atualiza(){
+        fireTableDataChanged();
+    }
     
+    public void setList(ArrayList<Produto> list) {
+        this.lista = list;
+    }
+    
+    public void getProd(){
+        DAOProduto prod = new DAOProduto();
+        lista = prod.selectAll();
+    }
     
 }
