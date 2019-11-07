@@ -19,7 +19,11 @@ public class Produto {
     public Produto() {
     }
 
-    public Produto(int id, int tituloId, int autorId, int fornecedorId, int generoId, int estanteId, int prateleiraId, int edicao, int estiloId, String status, float preco) {
+    public Produto(int id, String tituloId,
+            int autorId, int fornecedorId,
+            int generoId, int estanteId,
+            int prateleiraId, int edicao,
+            int estiloId, String status, float preco) {
         this.id = id;
         this.tituloId = tituloId;
         this.autorId = autorId;

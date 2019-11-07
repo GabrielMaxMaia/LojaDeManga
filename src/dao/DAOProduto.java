@@ -26,6 +26,8 @@ public class DAOProduto {
         conn = ConnectionFactory.getConnection();
     }
     
+    //Métodos CRUD
+    
     public void insert(Produto produto) throws SQLException {
         String sql = "INSERT INTO produto(titulo, autor, fornecedor, genero, preco, estante, prateleira, edicao, status, estilo) VALUES (?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
@@ -58,7 +60,35 @@ public class DAOProduto {
         
     }
     
+    // Métodos de busca
     
+    public Produto buscaPorId(int id){
+        String sql = "Select * from Produto where id = " + id;
+        
+        try{
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            
+            if(rs.next()){
+                Produto prod = new Produto();
+                prod.setId(rs.getInt("pd_id"));
+                prod.setTitulo(rs.getString("pd_titulo"));
+                prod.setAutor(rs.getString("pd_autor"));
+                prod.setQtd(rs.getInt("pd_quantidade"));
+                prod.setPreco(rs.getFloat("pd_preco"));
+                //prod.setStatus(rs.getString("prod_status"));
+
+                ConnectionFactory.closeConnection(conn, stmt,rs);
+                return prod;
+            } else{
+                System.out.println("Sem resultado");
+                return null;
+            }
+        }catch(SQLException e){
+            System.out.println(e);
+            return null;
+        }
+    }
     
     public ArrayList<Produto> selectAll() {
         String sql = "Select * from Produto";
@@ -69,24 +99,24 @@ public class DAOProduto {
             ArrayList<Produto> list = new ArrayList<>();
 
             while (rs.next()) {
-                Produto pd = new Produto();
-                pd.setId(rs.getInt("pd_id"));
-                pd.setTitulo(rs.getString("pd_titulo"));
-                pd.setAutor(rs.getString("pd_autor"));
-                pd.setPreco(rs.getFloat("pd_preco"));
-                pd.setQtd(rs.getInt("pd_quantidade"));
-//                pd.setTituloId(rs.getInt("pd_titulo"));
-//                pd.setAutorId(rs.getInt("pd_autor"));
-//                pd.setFornecedorId(rs.getInt("pd_fornecedor"));
-//                pd.setGeneroId(rs.getInt("pd_genero"));
-//                pd.setPreco(rs.getFloat("pd_preco"));
-//                pd.setEstanteId(rs.getInt("pd_estante"));
-//                pd.setPrateleiraId(rs.getInt("pd_prateleira"));
-//                pd.setEdicao(rs.getInt("pd_edicao"));
-//                pd.setStatus(rs.getString("pd_status"));
-//                pd.setEstiloId(rs.getInt("pd_estilo"));
+                Produto prod = new Produto();
+                prod.setId(rs.getInt("pd_id"));
+                prod.setTitulo(rs.getString("pd_titulo"));
+                prod.setAutor(rs.getString("pd_autor"));
+                prod.setQtd(rs.getInt("pd_quantidade"));
+                prod.setPreco(rs.getFloat("pd_preco"));
+//                prod.setTituloId(rs.getInt("pd_titulo"));
+//                prod.setAutorId(rs.getInt("pd_autor"));
+//                prod.setFornecedorId(rs.getInt("pd_fornecedor"));
+//                prod.setGeneroId(rs.getInt("pd_genero"));
+//                prod.setPreco(rs.getFloat("pd_preco"));
+//                prod.setEstanteId(rs.getInt("pd_estante"));
+//                prod.setPrateleiraId(rs.getInt("pd_prateleira"));
+//                prod.setEdicao(rs.getInt("pd_edicao"));
+//                prod.setStatus(rs.getString("pd_status"));
+//                prod.setEstiloId(rs.getInt("pd_estilo"));
 
-                list.add(pd);
+                list.add(prod);
             }
             ConnectionFactory.closeConnection(conn, stmt, rs);
             return list;
