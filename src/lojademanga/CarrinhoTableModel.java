@@ -15,14 +15,15 @@ import model.Produto;
  *
  * @author rogerio.slucon
  */
-public class CarrinhoTableModel extends AbstractTableModel{    
+public class CarrinhoTableModel extends AbstractTableModel{ 
+    private 
     ArrayList<Produto> lista = new ArrayList<Produto>();
     ArrayList<Integer> qtdLista = new ArrayList<Integer>();
      ArrayList<Integer> descontoLista = new ArrayList<Integer>();
     
     String[] colunas = {"Codigo", "Produto", "QTD", "Preço", "Desconto",
         "Subtotal"};
-
+    
     public CarrinhoTableModel() {
        
     }

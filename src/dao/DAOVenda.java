@@ -12,7 +12,9 @@ import model.Venda;
 public class DAOVenda {
     private Connection conn;
     //Temporario
-    private HashMap<String, ArrayList> listaVenda = new HashMap<String, ArrayList>(); 
+    private HashMap<String, ArrayList> listaVenda = new HashMap<String, ArrayList>();
+    private HashMap<String, String> listaCliente = new HashMap<>();
+    private HashMap<String, String> listaData = new HashMap<>();
     
     public DAOVenda(){
         
@@ -52,5 +54,23 @@ public ArrayList<Venda> selectAll() {
 
     }
     // Temporarior
-
+    public void gerarVenda(String idVenda, String cpf, String data,
+            ArrayList listaProd){
+        listaVenda.put(idVenda, listaProd);
+        listaCliente.put(idVenda, cpf);
+        listaData.put(idVenda, data);    
+    }
+    
+    public ArrayList getVendaItens(String idVenda){
+        return listaVenda.get(idVenda);
+    }
+    
+    public String getVendaCpf(String idVenda){
+        return listaCliente.get(idVenda);
+    }
+    
+    public String getVendaData(String idVenda){
+        return listaData.get(idVenda);
+    }
+    
 }
