@@ -2,6 +2,7 @@ package view;
 
 import controller.ClienteController;
 import controller.ControllerVenda;
+import controller.ProdutoController;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -18,6 +19,7 @@ import model.Produto;
 public class MainView extends javax.swing.JFrame { 
  
     private ClienteController cliController;
+    private ProdutoController prodController;
     private int abaAtual = 1;
     private JTextField[] camposCadastro;
     private JTextField[] camposCart;
@@ -1805,6 +1807,7 @@ public class MainView extends javax.swing.JFrame {
     }
     
     public void puxaProduto(String Id){
+//        Produto pro = prodController.pesquisaPorCodigo(Integer.parseInt(Id));
         Produto pro = new Produto();
         if(pro != null ){
             if(abaAtual == 1){
