@@ -10,8 +10,8 @@ package model;
  * @author rogerio.slucon
  */
 public class Produto {
-    private int id, tituloId, autorId, fornecedorId, generoId;
-    String titulo, autor;
+    private int id,  autorId, fornecedorId, generoId;
+    String titulo, autor,tituloId ;
     private int estanteId, prateleiraId, edicao, estiloId, qtd;
     private String status;
     private float preco;
@@ -45,11 +45,11 @@ public class Produto {
         this.id = id;
     }
 
-    public int getTituloId() {
+    public String getTituloId() {
         return tituloId;
     }
 
-    public void setTituloId(int tituloId) {
+    public void setTituloId(String tituloId) {
         this.tituloId = tituloId;
     }
 
