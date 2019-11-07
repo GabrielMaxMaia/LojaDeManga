@@ -1366,7 +1366,7 @@ public class MainView extends javax.swing.JFrame {
                 "Cancelando compra", JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.ERROR_MESSAGE);
         if(input == 0){
-            
+            cancelaCompras();
         }
         if(input == 1){
             
@@ -1791,5 +1791,10 @@ public class MainView extends javax.swing.JFrame {
             campo.setText("");
             campo.setBackground(Color.white);
         }
+    }
+    
+    private void cancelaCompras(){
+        limpaCampos(camposCart);
+        
     }
 }
