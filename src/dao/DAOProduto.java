@@ -54,16 +54,20 @@ public class DAOProduto {
             while (rs.next()) {
                 Produto pd = new Produto();
                 pd.setId(rs.getInt("pd_id"));
-                pd.setTituloId(rs.getInt("pd_titulo"));
-                pd.setAutorId(rs.getInt("pd_autor"));
-                pd.setFornecedorId(rs.getInt("pd_fornecedor"));
-                pd.setGeneroId(rs.getInt("pd_genero"));
+                pd.setTitulo(rs.getString("pd_titulo"));
+                pd.setAutor(rs.getString("pd_autor"));
                 pd.setPreco(rs.getFloat("pd_preco"));
-                pd.setEstanteId(rs.getInt("pd_estante"));
-                pd.setPrateleiraId(rs.getInt("pd_prateleira"));
-                pd.setEdicao(rs.getInt("pd_edicao"));
-                pd.setStatus(rs.getString("pd_status"));
-                pd.setEstiloId(rs.getInt("pd_estilo"));
+                pd.setQtd(rs.getInt("pd_quantidade"));
+//                pd.setTituloId(rs.getInt("pd_titulo"));
+//                pd.setAutorId(rs.getInt("pd_autor"));
+//                pd.setFornecedorId(rs.getInt("pd_fornecedor"));
+//                pd.setGeneroId(rs.getInt("pd_genero"));
+//                pd.setPreco(rs.getFloat("pd_preco"));
+//                pd.setEstanteId(rs.getInt("pd_estante"));
+//                pd.setPrateleiraId(rs.getInt("pd_prateleira"));
+//                pd.setEdicao(rs.getInt("pd_edicao"));
+//                pd.setStatus(rs.getString("pd_status"));
+//                pd.setEstiloId(rs.getInt("pd_estilo"));
 
                 list.add(pd);
             }
