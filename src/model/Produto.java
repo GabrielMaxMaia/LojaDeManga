@@ -10,16 +10,16 @@ package model;
  * @author rogerio.slucon
  */
 public class Produto {
-    private int id, tituloId, autorId, fornecedorId, generoId;
+    private int id,  autorId, tituloId, fornecedorId, generoId;
     String titulo, autor;
     private int estanteId, prateleiraId, edicao, estiloId, qtd;
     private String status;
     private float preco;
-
+ 
     public Produto() {
     }
 
-    public Produto(int id, String tituloId,
+    public Produto(int id, int tituloId,
             int autorId, int fornecedorId,
             int generoId, int estanteId,
             int prateleiraId, int edicao,
