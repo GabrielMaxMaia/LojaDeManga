@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import lojademanga.ProdutoTableModel;
+import model.tableModels.ProdutoTableModel;
 import model.Produto;
 
 /**

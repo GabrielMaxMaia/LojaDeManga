@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
-import lojademanga.ClienteTableModel;
+import model.tableModels.ClienteTableModel;
 import model.Cliente;
 
 /**

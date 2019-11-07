@@ -3,24 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lojademanga;
+package model.tableModels;
 
-import dao.DAOProduto;
+import dao.DAOCliente;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
+import model.Cliente;
 import model.Produto;
 
 /**
  *
- * @author gabriel.mmcarmo
+ * @author rogerio.slucon
  */
-
-public class ProdutoTableModel extends AbstractTableModel{
-    ArrayList<Produto> lista = new ArrayList<>();
+public class CarrinhoTableModel extends AbstractTableModel{ 
+    ArrayList<Produto> lista = new ArrayList<Produto>();
+    ArrayList<Integer> qtdLista = new ArrayList<Integer>();
+    ArrayList<Integer> descontoLista = new ArrayList<Integer>();
     
-    String[] colunas = {"Codigo", "Drescrição", "Preço", "Quantidade"};
-
-    public ProdutoTableModel() {
+    String[] colunas = {"Codigo", "Produto", "QTD", "Preço", "Desconto",
+        "Subtotal"};
+    
+    public CarrinhoTableModel() {
+       
     }
     
     @Override
@@ -46,30 +50,32 @@ public class ProdutoTableModel extends AbstractTableModel{
             case 1:
                 return lista.get(linha).getTitulo();
             case 2:
-                return lista.get(linha).getQtd();
+                return qtdLista.get(linha);
             case 3:
                 return lista.get(linha).getPreco();
+            case 4:
+                return descontoLista.get(linha);
+            case 5:
+                float aux = lista.get(linha).getPreco() * qtdLista.get(linha);
+                aux = aux *(descontoLista.get(linha)/100);
+                return lista.get(linha).getPreco();
         }
-        
         return null;
     }
     
-    public void addLinha(Produto prod){
+    public void addProd(Produto prod, int qtd, int desc){
         lista.add(prod);
+        qtdLista.add(qtd);
+        descontoLista.add(desc);
+        
         fireTableDataChanged();
     }
     
-    public void atualiza(){
+    public void cancelarCompra(){
+        lista.clear();
+        qtdLista.clear();
+        descontoLista.clear();
         fireTableDataChanged();
-    }
-    
-    public void setList(ArrayList<Produto> list) {
-        this.lista = list;
-    }
-    
-    public void getProd(){
-        DAOProduto prod = new DAOProduto();
-        lista = prod.selectAll();
     }
     
 }

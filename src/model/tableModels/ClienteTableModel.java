@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lojademanga;
+package model.tableModels;
 
 import dao.DAOCliente;
 import java.util.ArrayList;

@@ -9,7 +9,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
-import lojademanga.CarrinhoTableModel;
+import model.tableModels.CarrinhoTableModel;
 import model.Cliente;
 import model.Produto;
 

@@ -1,7 +1,7 @@
 package controller;
 
 import dao.DAOVenda;
-import lojademanga.CarrinhoTableModel;
+import model.tableModels.CarrinhoTableModel;
 import model.Produto;
 
 /**

@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import lojademanga.ClienteTableModel;
+import model.tableModels.ClienteTableModel;
 import model.Cliente;
 
 /**
