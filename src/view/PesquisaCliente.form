@@ -159,10 +159,8 @@
                       <Component id="jTextFieldCel" alignment="2" min="-2" pref="21" max="-2" attributes="0"/>
                       <Component id="jLabel25" alignment="2" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldTel" alignment="2" min="-2" pref="21" max="-2" attributes="0"/>
-                      <Group type="103" alignment="2" groupAlignment="2" attributes="0">
-                          <Component id="jTextFieldCEP" alignment="2" min="-2" pref="21" max="-2" attributes="0"/>
-                          <Component id="jLabel23" alignment="2" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jTextFieldCEP" alignment="2" min="-2" pref="21" max="-2" attributes="0"/>
+                      <Component id="jLabel23" alignment="2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="2" attributes="0">

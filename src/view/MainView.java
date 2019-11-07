@@ -9,6 +9,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
+import lojademanga.CarrinhoTableModel;
 import model.Cliente;
 import model.Produto;
 
@@ -24,10 +25,11 @@ public class MainView extends javax.swing.JFrame {
     private JTextField[] camposCadastro;
     private JTextField[] camposCart;
     private JTextField[] camposProduto;
-    public ControllerVenda vendController;
+    public ControllerVenda vendaController;
     public MainView() {
         this.cliController = ClienteController.getClienteController();
         this.prodController = ProdutoController.getProdutoController();
+        this.vendaController = new ControllerVenda();
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -51,6 +53,8 @@ public class MainView extends javax.swing.JFrame {
         JTextField[] aux3 = {jTextFieldDescCadastro,jTextFieldAutoresCadastro,jTextFieldFornecedorCadastro,null,jTextFieldPrecocadastro,
         jTextFieldEstanteCadastro,jTextFieldPrateleiraCadastro,jTextFieldEdicaoCadastro,null,null};
         camposProduto = aux3;
+        
+        jTableCarrinhoDeCompras.setModel(vendaController.getModel());
     }
 
 /**
@@ -185,37 +189,8 @@ public class MainView extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Carrinho de Compras", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
 
         jTableCarrinhoDeCompras.setForeground(new java.awt.Color(68, 53, 48));
-        jTableCarrinhoDeCompras.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Código", "Produto", "Qtd.", "Preço", "Desconto", "Subtotal"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Double.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, true
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        jTableCarrinhoDeCompras.setModel(new CarrinhoTableModel()
+        );
         jTableCarrinhoDeCompras.setGridColor(new java.awt.Color(153, 216, 207));
         jScrollPane1.setViewportView(jTableCarrinhoDeCompras);
 
@@ -1562,10 +1537,11 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_bttAddProdCadastroActionPerformed
 
     private void bttAdicionarItemCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAdicionarItemCartActionPerformed
-        String Prod = jTextFieldCodProdCart.getText();
-        int idProd = Integer.parseInt(Prod);
+//        String Prod = jTextFieldCodProdCart.getText();
+//        int idProd = Integer.parseInt(Prod);
         
-        vendController.venderProduto(jTextFieldProdCart.getText(), jTextFieldQntCart.getText(), jFormattedTextFieldDescCart.getText());
+        vendaController.venderProduto(jTextFieldCodProdCart.getText(), jTextFieldQntCart.getText(), jFormattedTextFieldDescCart.getText());
+        
     }//GEN-LAST:event_bttAdicionarItemCartActionPerformed
 
     private void bttBuscaClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttBuscaClienteMouseEntered
