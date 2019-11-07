@@ -9,6 +9,8 @@ import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
+import javax.swing.JTextField;
+import javax.swing.table.AbstractTableModel;
 import lojademanga.ProdutoTableModel;
 
 /**
@@ -17,15 +19,18 @@ import lojademanga.ProdutoTableModel;
  */
 public class PesquisaProduto extends javax.swing.JFrame {
 
-    JFrame parent;
+    MainView parent;
+    
+    JTextField[] campos;
 
-    public PesquisaProduto(JFrame jframe) {
+    public PesquisaProduto(MainView jframe) {
         parent = jframe;
         initComponents();
         setResizable(false);
         setSize(800, 550);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        
         ProdutoTableModel pd = new ProdutoTableModel();
         pd.getProd();
         jTable1.setModel(pd);
@@ -53,20 +58,20 @@ public class PesquisaProduto extends javax.swing.JFrame {
 
         jPanel9 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        jTextFieldCodigoProd = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        jTextFieldDescricaoProd = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        jTextFieldPrecoProd = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        jTextFieldQuantProd = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        jTextFieldEdicaoProd = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        jTextFieldAutoresProd = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        jTextFieldFornecProd = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -83,18 +88,18 @@ public class PesquisaProduto extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(68, 53, 48));
         jLabel12.setText("Código:");
 
-        jTextField6.setForeground(new java.awt.Color(68, 53, 48));
-        jTextField6.setToolTipText("Digite o código do produto");
-        jTextField6.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextField6.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldCodigoProd.setForeground(new java.awt.Color(68, 53, 48));
+        jTextFieldCodigoProd.setToolTipText("Digite o código do produto");
+        jTextFieldCodigoProd.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+        jTextFieldCodigoProd.setCaretColor(new java.awt.Color(68, 53, 48));
 
         jLabel13.setForeground(new java.awt.Color(68, 53, 48));
         jLabel13.setText("Descrição:");
 
-        jTextField7.setForeground(new java.awt.Color(68, 53, 48));
-        jTextField7.setToolTipText("Digite a descrição do produto");
-        jTextField7.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextField7.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldDescricaoProd.setForeground(new java.awt.Color(68, 53, 48));
+        jTextFieldDescricaoProd.setToolTipText("Digite a descrição do produto");
+        jTextFieldDescricaoProd.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+        jTextFieldDescricaoProd.setCaretColor(new java.awt.Color(68, 53, 48));
 
         jButton6.setBackground(new java.awt.Color(153, 216, 207));
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -104,43 +109,43 @@ public class PesquisaProduto extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(68, 53, 48));
         jLabel14.setText("Preço:");
 
-        jTextField8.setForeground(new java.awt.Color(68, 53, 48));
-        jTextField8.setToolTipText("Digite o preço de venda do produto");
-        jTextField8.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextField8.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldPrecoProd.setForeground(new java.awt.Color(68, 53, 48));
+        jTextFieldPrecoProd.setToolTipText("Digite o preço de venda do produto");
+        jTextFieldPrecoProd.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+        jTextFieldPrecoProd.setCaretColor(new java.awt.Color(68, 53, 48));
 
         jLabel15.setForeground(new java.awt.Color(68, 53, 48));
         jLabel15.setText("Qtd. em estoque:");
 
-        jTextField9.setForeground(new java.awt.Color(68, 53, 48));
-        jTextField9.setToolTipText("Digite a quantidade que possui em estoque");
-        jTextField9.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextField9.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldQuantProd.setForeground(new java.awt.Color(68, 53, 48));
+        jTextFieldQuantProd.setToolTipText("Digite a quantidade que possui em estoque");
+        jTextFieldQuantProd.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+        jTextFieldQuantProd.setCaretColor(new java.awt.Color(68, 53, 48));
 
         jLabel16.setForeground(new java.awt.Color(68, 53, 48));
         jLabel16.setText("Edição:");
 
-        jTextField10.setForeground(new java.awt.Color(68, 53, 48));
-        jTextField10.setToolTipText("Digite a edição do mangá");
-        jTextField10.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextField10.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldEdicaoProd.setForeground(new java.awt.Color(68, 53, 48));
+        jTextFieldEdicaoProd.setToolTipText("Digite a edição do mangá");
+        jTextFieldEdicaoProd.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+        jTextFieldEdicaoProd.setCaretColor(new java.awt.Color(68, 53, 48));
 
         jLabel17.setForeground(new java.awt.Color(68, 53, 48));
         jLabel17.setText("Autores:");
         jLabel17.setToolTipText("");
 
-        jTextField11.setForeground(new java.awt.Color(68, 53, 48));
-        jTextField11.setToolTipText("Digite os autores do mangá");
-        jTextField11.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextField11.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldAutoresProd.setForeground(new java.awt.Color(68, 53, 48));
+        jTextFieldAutoresProd.setToolTipText("Digite os autores do mangá");
+        jTextFieldAutoresProd.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+        jTextFieldAutoresProd.setCaretColor(new java.awt.Color(68, 53, 48));
 
         jLabel18.setForeground(new java.awt.Color(68, 53, 48));
         jLabel18.setText("Fornecedor:");
 
-        jTextField12.setForeground(new java.awt.Color(68, 53, 48));
-        jTextField12.setToolTipText("Digite o nome do fornecedor");
-        jTextField12.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextField12.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldFornecProd.setForeground(new java.awt.Color(68, 53, 48));
+        jTextFieldFornecProd.setToolTipText("Digite o nome do fornecedor");
+        jTextFieldFornecProd.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+        jTextFieldFornecProd.setCaretColor(new java.awt.Color(68, 53, 48));
 
         jButton7.setBackground(new java.awt.Color(153, 216, 207));
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -157,7 +162,7 @@ public class PesquisaProduto extends javax.swing.JFrame {
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField12))
+                        .addComponent(jTextFieldFornecProd))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
@@ -167,25 +172,25 @@ public class PesquisaProduto extends javax.swing.JFrame {
                         .addGap(13, 13, 13)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(jTextField8)
+                                .addComponent(jTextFieldPrecoProd)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel15)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldQuantProd, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(229, 229, 229))
                             .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldCodigoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton7)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton6))
-                            .addComponent(jTextField7)
+                            .addComponent(jTextFieldDescricaoProd)
                             .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldEdicaoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel17)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField11)))))
+                                .addComponent(jTextFieldAutoresProd)))))
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
@@ -193,29 +198,29 @@ public class PesquisaProduto extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCodigoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldDescricaoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldEdicaoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldAutoresProd, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldFornecProd, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPrecoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldQuantProd, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -231,6 +236,11 @@ public class PesquisaProduto extends javax.swing.JFrame {
             }
         ));
         jTable1.setGridColor(new java.awt.Color(153, 216, 207));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -277,6 +287,14 @@ public class PesquisaProduto extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        AbstractTableModel model = (AbstractTableModel) jTable1.getModel();
+        int index = jTable1.getSelectedRow();
+        String Id = model.getValueAt(index, 1).toString();
+        close(Id);
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -327,16 +345,22 @@ public class PesquisaProduto extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField jTextFieldAutoresProd;
+    private javax.swing.JTextField jTextFieldCodigoProd;
+    private javax.swing.JTextField jTextFieldDescricaoProd;
+    private javax.swing.JTextField jTextFieldEdicaoProd;
+    private javax.swing.JTextField jTextFieldFornecProd;
+    private javax.swing.JTextField jTextFieldPrecoProd;
+    private javax.swing.JTextField jTextFieldQuantProd;
     // End of variables declaration//GEN-END:variables
 
     private void close(){
         parent.setEnabled(true);
+    }
+    
+    private void close(String Id){
+        parent.puxaProduto(Id);
+        parent.setEnabled(true);
+        this.dispose();
     }
 }
