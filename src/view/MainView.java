@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import model.Cliente;
+import model.Produto;
 
 /**
  *
@@ -19,6 +20,7 @@ public class MainView extends javax.swing.JFrame {
     private int abaAtual = 1;
     private JTextField[] camposCadastro;
     private JTextField[] camposCart;
+    private JTextField[] camposProduto;
     
     public MainView() {
         this.cliController = ClienteController.getClienteController();
@@ -41,6 +43,10 @@ public class MainView extends javax.swing.JFrame {
             jTextFieldEnderecoCadastro, jTextFieldCidadeCadastro,
             jTextFieldBairroCadastro, jTextFieldComplemCadastro};
         camposCadastro = aux2; 
+        
+        JTextField[] aux3 = {jTextFieldDescCadastro,jTextFieldAutoresCadastro,jTextFieldFornecedorCadastro,null,jTextFieldPrecocadastro,
+        jTextFieldEstanteCadastro,jTextFieldPrateleiraCadastro,jTextFieldEdicaoCadastro,null,null};
+        camposProduto = aux3;
     }
 
 /**
@@ -1366,7 +1372,7 @@ public class MainView extends javax.swing.JFrame {
                 "Cancelando compra", JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.ERROR_MESSAGE);
         if(input == 0){
-            
+            cancelaCompras();
         }
         if(input == 1){
             
@@ -1609,8 +1615,12 @@ public class MainView extends javax.swing.JFrame {
         
         if(abaAtual == 0){
             limpaCampos(camposCart);
-        }else if(abaAtual == 2){
-            limpaCampos(camposCadastro);        }
+        }else if(abaAtual == 1){
+//            limpaCampos(camposProduto);
+        }
+        else if(abaAtual == 2){
+            limpaCampos(camposCadastro);        
+        }
         abaAtual = index;
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
@@ -1786,10 +1796,37 @@ public class MainView extends javax.swing.JFrame {
         cliController.atualizaCliente(camposCadastro);
     }
     
+    public void puxaProduto(String Id){
+        Produto pro = new Produto();
+        if(pro != null ){
+            if(abaAtual == 1){
+                jTextFieldCodCadastro.setText(Integer.toString(pro.getId()));
+                jTextFieldDescCadastro.setText((pro.getTitulo()));
+//                jTextFieldDescCadastro.setText(Integer.toString(pro.getTituloId()));
+//               jTextFieldEdicaoCadastro.setText(Integer.toString(pro.getEdicao()));
+                jTextFieldAutoresCadastro.setText(pro.getAutor());
+//               jTextFieldFornecedorCadastro.setText(Integer.toString(pro.getFornecedorId()));
+                jTextFieldPrecocadastro.setText(Float.toString(pro.getPreco()));
+                jTextFieldQuantCadastro.setText(Integer.toString(pro.getQtd()));
+//                jTextFieldEstanteCadastro.setText(Integer.toString(pro.getEstanteId()));
+//                jTextFieldPrateleiraCadastro.setText(Integer.toString(pro.getPrateleiraId()));
+            }
+            else{
+                jTextFieldCodCadastro.setText("PRODUTO NÃO ENCONTRADO!");
+            }
+        }
+    }
     private void limpaCampos(JTextField[] campos){
         for (JTextField campo : campos) {
-            campo.setText("");
-            campo.setBackground(Color.white);
+            if(campo != null){
+                campo.setText("");
+                campo.setBackground(Color.white);
+            }
         }
+    }
+    
+    private void cancelaCompras(){
+        limpaCampos(camposCart);
+        
     }
 }
