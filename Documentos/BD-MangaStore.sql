@@ -71,7 +71,7 @@ primary key (es_id)
 
 create table produto (
 pd_id int not null auto_increment unique,
-pd_preco float not null,
+pd_preco decimal(10,2) not null,
 #pd_status char not null,
 pd_titulo varchar(40) not null,
 pd_autor varchar(40) not null,
@@ -124,14 +124,12 @@ values (12345678910,'Ana Maria Praga','am.praga@disgracamail.com','999999999','5
  #insert into titulo (ti_nome)
   #values ('Bleach');
   
-insert into autor (au_nome)
-	values ('Tite Kubo');
+#insert into autor (au_nome)
+	#values ('Tite Kubo');
   
 insert into produto (pd_preco,pd_titulo,pd_autor,pd_quantidade)
- values (10.00,'Bleach','Tite Kubo',100);
+ values (10.02,'Bleach','Tite Kubo',100);
  
-
-  
 insert into funcionarios(func_nome)
  values('Rubens Toreto');
  
