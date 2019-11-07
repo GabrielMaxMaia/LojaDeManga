@@ -1259,7 +1259,7 @@ public class MainView extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Código", "Produto", "Quantidade vendida", "Valores"
+                "Código da venda", "Cliente", "Quantidade de produtos", "Valores"
             }
         ) {
             Class[] types = new Class [] {
