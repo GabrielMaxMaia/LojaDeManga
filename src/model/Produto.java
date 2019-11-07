@@ -15,7 +15,7 @@ public class Produto {
     private int estanteId, prateleiraId, edicao, estiloId, qtd;
     private String status;
     private float preco;
-
+ 
     public Produto() {
     }
 
