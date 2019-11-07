@@ -1,6 +1,7 @@
 package view;
 
 import controller.ClienteController;
+import controller.ControllerVenda;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -21,7 +22,7 @@ public class MainView extends javax.swing.JFrame {
     private JTextField[] camposCadastro;
     private JTextField[] camposCart;
     private JTextField[] camposProduto;
-    
+    public ControllerVenda vendController;
     public MainView() {
         this.cliController = ClienteController.getClienteController();
         initComponents();
@@ -1392,6 +1393,8 @@ public class MainView extends javax.swing.JFrame {
         }else if(input == 2){
             
         }
+        
+
     }//GEN-LAST:event_bttPagamentoActionPerformed
 
     private void jTextFieldQntCartKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldQntCartKeyTyped
@@ -1556,7 +1559,12 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_bttAddProdCadastroActionPerformed
 
     private void bttAdicionarItemCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAdicionarItemCartActionPerformed
-        // TODO add your handling code here:
+        
+        
+        String Prod = jTextFieldCodProdCart.getText();
+        int idProd = Integer.parseInt(Prod);
+        
+        vendController.venderProduto(jTextFieldProdCart.getText(), jTextFieldQntCart.getText(), jFormattedTextFieldDescCart.getText());
     }//GEN-LAST:event_bttAdicionarItemCartActionPerformed
 
     private void bttBuscaClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttBuscaClienteMouseEntered
