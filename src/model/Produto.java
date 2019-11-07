@@ -11,7 +11,8 @@ package model;
  */
 public class Produto {
     private int id, tituloId, autorId, fornecedorId, generoId;
-    private int estanteId, prateleiraId, edicao, estiloId;
+    String titulo, autor;
+    private int estanteId, prateleiraId, edicao, estiloId, qtd;
     private String status;
     private float preco;
 
@@ -118,6 +119,30 @@ public class Produto {
 
     public void setPreco(float preco) {
         this.preco = preco;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public int getQtd() {
+        return qtd;
+    }
+
+    public void setQtd(int qtd) {
+        this.qtd = qtd;
     }
     
     
