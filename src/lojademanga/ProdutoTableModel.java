@@ -8,20 +8,19 @@ package lojademanga;
 import dao.DAOProduto;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
-import model.Cliente;
 import model.Produto;
 
 /**
  *
- * @author rogerio.slucon
+ * @author gabriel.mmcarmo
  */
+
 public class ProdutoTableModel extends AbstractTableModel{
-    ArrayList<Produto> lista = new ArrayList<Produto>();
+    ArrayList<Produto> lista = new ArrayList<>();
     
     String[] colunas = {"Codigo", "Drescrição", "Preço", "Quantidade"};
 
     public ProdutoTableModel() {
-       
     }
     
     @Override

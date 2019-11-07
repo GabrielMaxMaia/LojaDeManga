@@ -131,11 +131,5 @@ public class DAOCliente {
            System.err.println("DAO CLIENTE: " + ex);
             return null;
         }
-        
-       
-        
-        
     }
-    
-    
 }
