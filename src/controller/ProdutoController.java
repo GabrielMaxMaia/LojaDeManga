@@ -89,7 +89,7 @@ public class ProdutoController {
         Produto prod = new Produto();
         String erros = "";
         
-        if(!campos[1].getText().trim().equals("")){;
+        if(!campos[1].getText().trim().equals("")){
             prod.setTituloId(Integer.parseInt(campos[1].getText()));
         }else{
             erros +="\n - Título Campo Obrigatorio";
