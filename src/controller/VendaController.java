@@ -1,6 +1,10 @@
 package controller;
 
 import dao.DAOVenda;
+import java.sql.Time;
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import model.tableModels.CarrinhoTableModel;
 import model.Produto;
 
@@ -10,28 +14,45 @@ import model.Produto;
  */
 public class VendaController {
     private CarrinhoTableModel table = new CarrinhoTableModel();
+//    private ClienteController controllerCli;
     private ProdutoController prodController; 
     public VendaController() {
+//        controllerCli = ClienteController.getClienteController();
         prodController = ProdutoController.getProdutoController();
     }
     
     
     
-    public boolean venderProduto(String idProd, String qtd, String desconto){
-        Produto prod = prodController.pesquisaPorId(Integer.parseInt(idProd));   
+    public boolean addCarrinho(String idProd, String qtd, String desconto){
+        Produto prod = prodController.pesquisaPorId(Integer.parseInt(idProd));
+        prod.setDesconto(Integer.parseInt(desconto));
         int qtdInt = Integer.parseInt(qtd);
         
         if(prod != null && qtdInt > 0){
             
-            int descontoInt = Integer.parseInt(desconto);
-
-
             if(prod.getQtd() >= qtdInt){
-                table.addProd(prod, qtdInt, descontoInt);
+                table.addProd(prod, qtdInt);
                 return true;
             }
         }
         return false;
+    }
+    
+    public void finalizarCompra(String cpf){
+        ArrayList<Produto> produtos = table.getLista();
+        ArrayList<Integer> qtd = table.getQtdLista();
+        ArrayList<Produto> todosProd = new ArrayList<>();
+        
+        for (int i = 0; i < produtos.size(); i++) {
+            for (int j = 0; j < qtd.get(i); j++) {
+                todosProd.add(produtos.get(i));
+            }
+        }
+        
+        DAOVenda dao = new DAOVenda();
+        Date d = new Date();
+        String dStr = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);
+        dao.gerarVenda(cpf, dStr, todosProd);
     }
     
     public void cancelarCompra(){

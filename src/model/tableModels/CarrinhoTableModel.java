@@ -18,7 +18,7 @@ import model.Produto;
 public class CarrinhoTableModel extends AbstractTableModel{ 
     ArrayList<Produto> lista = new ArrayList<Produto>();
     ArrayList<Integer> qtdLista = new ArrayList<Integer>();
-    ArrayList<Integer> descontoLista = new ArrayList<Integer>();
+//    ArrayList<Integer> descontoLista = new ArrayList<Integer>();
     
     String[] colunas = {"Codigo", "Produto", "QTD", "Preço", "Desconto",
         "Subtotal"};
@@ -54,19 +54,19 @@ public class CarrinhoTableModel extends AbstractTableModel{
             case 3:
                 return lista.get(linha).getPreco();
             case 4:
-                return descontoLista.get(linha);
+                return lista.get(linha).getDesconto();
             case 5:
                 float aux = lista.get(linha).getPreco() * qtdLista.get(linha);
-                aux = aux *(descontoLista.get(linha)/100);
+                aux = aux *(lista.get(linha).getDesconto()/100);
                 return lista.get(linha).getPreco();
         }
         return null;
     }
     
-    public void addProd(Produto prod, int qtd, int desc){
+    public void addProd(Produto prod, int qtd){
         lista.add(prod);
         qtdLista.add(qtd);
-        descontoLista.add(desc);
+//        descontoLista.add(desc);
         
         fireTableDataChanged();
     }
@@ -74,8 +74,21 @@ public class CarrinhoTableModel extends AbstractTableModel{
     public void cancelarCompra(){
         lista.clear();
         qtdLista.clear();
-        descontoLista.clear();
+//        descontoLista.clear();
         fireTableDataChanged();
     }
+
+    public ArrayList<Produto> getLista() {
+        return lista;
+    }
+
+    public ArrayList<Integer> getQtdLista() {
+        return qtdLista;
+    }
+
+//    public ArrayList<Integer> getDescontoLista() {
+//        return descontoLista;
+//    }
+    
     
 }

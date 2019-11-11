@@ -1550,7 +1550,7 @@ public class MainView extends javax.swing.JFrame {
 //        String Prod = jTextFieldCodProdCart.getText();
 //        int idProd = Integer.parseInt(Prod);
         
-        vendaController.venderProduto(jTextFieldCodProdCart.getText(), jTextFieldQntCart.getText(), jFormattedTextFieldDescCart.getText());
+        vendaController.addCarrinho(jTextFieldCodProdCart.getText(), jTextFieldQntCart.getText(), jFormattedTextFieldDescCart.getText());
         
     }//GEN-LAST:event_bttAdicionarItemCartActionPerformed
 

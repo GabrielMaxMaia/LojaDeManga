@@ -15,7 +15,10 @@ public class Produto {
     private int estanteId, prateleiraId, edicao, estiloId, qtd;
     private String status;
     private float preco;
- 
+    
+    //Temporario
+    private int desconto;
+    
     public Produto() {
     }
 
@@ -147,6 +150,16 @@ public class Produto {
 
     public void setQtd(int qtd) {
         this.qtd = qtd;
+    }
+    
+    //Temporario
+
+    public int getDesconto() {
+        return desconto;
+    }
+
+    public void setDesconto(int desconto) {
+        this.desconto = desconto;
     }
     
     

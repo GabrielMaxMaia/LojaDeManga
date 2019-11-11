@@ -12,12 +12,12 @@ import model.Venda;
 public class DAOVenda {
     private Connection conn;
     //Temporario
-    private HashMap<String, ArrayList> listaVenda = new HashMap<String, ArrayList>();
-    private HashMap<String, String> listaCliente = new HashMap<>();
-    private HashMap<String, String> listaData = new HashMap<>();
+    private static HashMap<String, ArrayList> listaVenda = new HashMap<String, ArrayList>();
+    private static HashMap<String, String> listaCliente = new HashMap<>();
+    private static HashMap<String, String> listaData = new HashMap<>();
+    private static int idVenda = 0;
     
-    public DAOVenda(){
-        
+    public DAOVenda(){    
         conn = ConnectionFactory.getConnection();
     }
     public void insert(Venda venda) throws SQLException {
@@ -54,11 +54,13 @@ public ArrayList<Venda> selectAll() {
 
     }
     // Temporarior
-    public void gerarVenda(String idVenda, String cpf, String data,
+    public void gerarVenda(String cpf, String data,
             ArrayList listaProd){
-        listaVenda.put(idVenda, listaProd);
-        listaCliente.put(idVenda, cpf);
-        listaData.put(idVenda, data);    
+        String aux = Integer.toString(idVenda);
+        listaVenda.put(aux, listaProd);
+        listaCliente.put(aux, cpf);
+        listaData.put(aux, data);    
+        idVenda++;
     }
     
     public ArrayList getVendaItens(String idVenda){
