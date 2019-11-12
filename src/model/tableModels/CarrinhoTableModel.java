@@ -55,7 +55,7 @@ public class CarrinhoTableModel extends AbstractTableModel{
             case 4:
                 float aux = (float) qtdLista.get(linha);
                 total.add(aux * lista.get(linha).getPreco());
-                return total.get(linha);
+                return total.get(linha);//adicionar .2f para formatar as casas decimais
         }
         return null;
     }
