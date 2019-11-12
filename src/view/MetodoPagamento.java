@@ -32,7 +32,7 @@ public class MetodoPagamento extends javax.swing.JFrame {
             }
         }); 
         setVisible(true);
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/res/logo.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/res/icone_manga.png")));
     }
 
     /**

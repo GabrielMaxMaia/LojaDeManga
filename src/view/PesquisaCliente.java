@@ -47,7 +47,7 @@ public class PesquisaCliente extends javax.swing.JFrame {
         });
         setVisible(true);
         setAlwaysOnTop(true);
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/res/logo.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/res/icone_manga.png")));
 
         jTable1.setModel(controller.getTableModel());
     }

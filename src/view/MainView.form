@@ -390,10 +390,9 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -411,10 +410,7 @@
                                   <Component id="bttPesquisaProdCart" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jFormattedTextFieldDescCart" min="-2" pref="94" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
                                   <Component id="bttAdicionarItemCart" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -443,22 +439,9 @@
                               <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextFieldQntCart" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jFormattedTextFieldDescCart" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
-                                      <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="bttAdicionarItemCart" pref="37" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="bttAdicionarItemCart" pref="37" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -597,15 +580,6 @@
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldQntCartKeyTyped"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel8">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="30" green="35" red="44" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Desconto:"/>
-                    <Property name="toolTipText" type="java.lang.String" value=""/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JButton" name="bttAdicionarItemCart">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -625,32 +599,6 @@
                     <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bttAdicionarItemCartMouseExited"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttAdicionarItemCartActionPerformed"/>
                   </Events>
-                </Component>
-                <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldDescCart">
-                  <Properties>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                        <EtchetBorder>
-                          <Color PropertyName="highlight" blue="cf" green="d8" red="99" type="rgb"/>
-                        </EtchetBorder>
-                      </Border>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="30" green="35" red="44" type="rgb"/>
-                    </Property>
-                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                      <Format format="#0" subtype="-1" type="0"/>
-                    </Property>
-                    <Property name="toolTipText" type="java.lang.String" value="Desconto existente"/>
-                    <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="30" green="35" red="44" type="rgb"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel10">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="%"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>

@@ -13,7 +13,7 @@ public class PesquisaAnalitica extends javax.swing.JFrame {
      */
     public PesquisaAnalitica() {
         initComponents();
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/res/logo.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/res/icone_manga.png")));
 
     }
 
