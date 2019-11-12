@@ -62,13 +62,8 @@ public class VendaController {
         return table;
     }
     
-    public float valDaCompra (){
-        
-        
-        
-        
-      float valFinal = 1.2f;
-        
+    public float valDaCompra (){        
+        float valFinal = 1.2f;
         return valFinal;
     }
     

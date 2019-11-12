@@ -1,13 +1,16 @@
 package controller;
 
+import dao.DAOCliente;
 import dao.DAOProduto;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import model.Cliente;
 import model.tableModels.ProdutoTableModel;
 import model.Produto;
 
@@ -179,6 +182,34 @@ public class ProdutoController {
             return prod;
         }else{
             return null;
+        }
+    }
+    
+    public boolean filtrarPorTitulo(String nome){
+        DAOProduto dao = new DAOProduto();
+        ArrayList<Produto> lista = new ArrayList<>();
+        lista = dao.buscaPorTitulo(nome);
+        if(!lista.isEmpty()){
+            tableModel.setList(lista);
+            tableModel.atualiza();
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public boolean filtrarPorId(String id){
+        int aux = Integer.parseInt(id);
+        DAOProduto dao = new DAOProduto();
+        Produto prod = dao.buscaPorId(aux);
+        if(prod != null){
+            ArrayList<Produto> lista = new ArrayList<>();
+            lista.add(prod);
+            tableModel.setList(lista);
+            tableModel.atualiza();
+            return true;
+        }else{
+            return false;
         }
     }
 }

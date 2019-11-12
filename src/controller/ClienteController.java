@@ -51,7 +51,6 @@ public class ClienteController {
         DAOCliente dao = new DAOCliente();
         Cliente cli = dao.buscarPorCpf(Cpf);
         if(cli != null){
-            System.out.println(cli.getNome());
             return cli;
         }else{
             return null;

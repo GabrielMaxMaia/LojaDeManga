@@ -1442,7 +1442,7 @@ public class MainView extends javax.swing.JFrame {
             if (cliController.filtrarPorCPF(jTextFieldCPFCadastro.getText())) {
                 puxaCliente(jTextFieldCPFCadastro.getText());
             } else {
-
+                JOptionPane.showMessageDialog(null, "Cliente nao encontrado!");
             }
         } else if (!jTextFieldNomecadastro.getText().trim().equals("")) {
             if (cliController.filtrarPorNome(jTextFieldNomecadastro.getText())) {
@@ -1453,7 +1453,8 @@ public class MainView extends javax.swing.JFrame {
             }
 
         } else {
-            JOptionPane.showMessageDialog(null, "Preencha o campo Nome ou CPF!");
+            PesquisaCliente pp = new PesquisaCliente(this);
+            this.setEnabled(false);
         }
     }//GEN-LAST:event_bttBuscaClienteActionPerformed
 
@@ -1505,8 +1506,24 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldQuantCadastroKeyTyped
 
     private void bttPesquisaProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttPesquisaProdActionPerformed
-        PesquisaProduto pp = new PesquisaProduto(this);
-        this.setEnabled(false);
+        if (!jTextFieldCodCadastro.getText().trim().equals("")) {
+            if (prodController.filtrarPorId(jTextFieldCodCadastro.getText())) {
+                puxaProduto(Integer.parseInt(jTextFieldCodCadastro.getText()));
+            } else {
+                JOptionPane.showMessageDialog(null, "Produto nao encontrado!");
+            }
+        } else if (!jTextFieldDescCadastro.getText().trim().equals("")) {
+            if (prodController.filtrarPorTitulo(jTextFieldDescCadastro.getText())) {
+                PesquisaProduto pp = new PesquisaProduto(this);
+                this.setEnabled(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "Produto nao encontrado!");
+            }
+        } else {
+            PesquisaProduto pp = new PesquisaProduto(this);
+            this.setEnabled(false);
+        }
+        
     }//GEN-LAST:event_bttPesquisaProdActionPerformed
 
     private void bttPesquisaProdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttPesquisaProdMouseExited

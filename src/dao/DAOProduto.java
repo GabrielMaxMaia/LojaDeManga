@@ -77,6 +77,42 @@ public class DAOProduto {
     
     // Métodos de busca
     
+    public ArrayList<Produto> buscaPorTitulo(String titulo) {
+        String sql = "Select * from Produto where pd_titulo like '%"+titulo+"%'";
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<Produto> list = new ArrayList<>();
+
+            while (rs.next()) {
+                Produto prod = new Produto();
+                prod.setId(rs.getInt("pd_id"));
+                prod.setTitulo(rs.getString("pd_titulo"));
+                prod.setAutor(rs.getString("pd_autor"));
+                prod.setQtd(rs.getInt("pd_quantidade"));
+                prod.setPreco(rs.getFloat("pd_preco"));
+//                prod.setTituloId(rs.getInt("pd_titulo"));
+//                prod.setAutorId(rs.getInt("pd_autor"));
+//                prod.setFornecedorId(rs.getInt("pd_fornecedor"));
+//                prod.setGeneroId(rs.getInt("pd_genero"));
+//                prod.setPreco(rs.getFloat("pd_preco"));
+//                prod.setEstanteId(rs.getInt("pd_estante"));
+//                prod.setPrateleiraId(rs.getInt("pd_prateleira"));
+//                prod.setEdicao(rs.getInt("pd_edicao"));
+//                prod.setStatus(rs.getString("pd_status"));
+//                prod.setEstiloId(rs.getInt("pd_estilo"));
+
+                list.add(prod);
+            }
+            ConnectionFactory.closeConnection(conn, stmt, rs);
+            return list;
+        } catch (SQLException ex) {
+            System.err.println("DAO PRODUTO: " + ex);
+            return null;
+        }
+    }
+    
     public Produto buscaPorId(int id){
         String sql = "Select * from Produto where pd_id = " + id;
         
