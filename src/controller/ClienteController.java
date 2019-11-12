@@ -8,6 +8,7 @@ package controller;
 import dao.DAOCliente;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -48,7 +49,7 @@ public class ClienteController {
     
     public Cliente pesquisaPorCpf(String Cpf){
         DAOCliente dao = new DAOCliente();
-        Cliente cli = dao.findByCpf(Cpf);
+        Cliente cli = dao.buscarPorCpf(Cpf);
         if(cli != null){
             System.out.println(cli.getNome());
             return cli;
@@ -179,6 +180,32 @@ public class ClienteController {
         return aux;
     }
     
+    public boolean filtrarPorNome(String nome){
+        DAOCliente dao = new DAOCliente();
+        ArrayList<Cliente> lista = new ArrayList<>();
+        lista = dao.buscaPorNome(nome);
+        if(!lista.isEmpty()){
+            tableModel.setList(lista);
+            tableModel.atualiza();
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public boolean filtrarPorCPF(String cpf){
+        DAOCliente dao = new DAOCliente();
+        Cliente cli = dao.buscarPorCpf(cpf);
+        if(cli != null){
+            ArrayList<Cliente> lista = new ArrayList<>();
+            lista.add(cli);
+            tableModel.setList(lista);
+            tableModel.atualiza();
+            return true;
+        }else{
+            return false;
+        }
+    }
 //    public void setCpfSelecionado(String cpf){
 //        cpfSelecionado = cpf;
 //    }

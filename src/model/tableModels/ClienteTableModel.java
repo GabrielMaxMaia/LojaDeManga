@@ -71,5 +71,5 @@ public class ClienteTableModel extends AbstractTableModel{
         DAOCliente cli = new DAOCliente();
         lista = cli.selectAll();
     }
-        
+          
 }
