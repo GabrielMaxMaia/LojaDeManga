@@ -46,7 +46,7 @@ public class DAOCliente {
         stmt.close();
     }
     
-    public Cliente findByCpf(String cpf){
+    public Cliente buscarPorCpf(String cpf){
         String sql = "Select * from Cliente where cli_cpf = " + cpf;
         
         try{
@@ -78,6 +78,39 @@ public class DAOCliente {
             return null;
         }
             
+    }
+    
+    public ArrayList<Cliente> buscaPorNome(String nome){
+        String sql = "Select * from Cliente where cli_nome like '%"+nome+"%'";
+        System.out.println(sql);
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+//            stmt.setString(1, nome);
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<Cliente> list = new ArrayList<>();
+        
+            while(rs.next()){
+                Cliente cli = new Cliente();
+                cli.setCpf(rs.getString("cli_cpf"));
+                cli.setNome(rs.getString("cli_nome"));
+                cli.setEmail(rs.getString("cli_email"));
+                cli.setCel(rs.getString("cli_cel"));
+                cli.setTel(rs.getString("cli_tel"));
+                cli.setCep(rs.getString("cli_cep"));
+                cli.setEndereco(rs.getString("cli_endereco"));
+                cli.setCidade(rs.getString("cli_cidade"));
+                cli.setBairro(rs.getString("cli_bairro"));
+                cli.setComplemento(rs.getString("cli_complemento"));
+                cli.setStatus(rs.getString("cli_status"));
+
+                list.add(cli);
+            }
+            ConnectionFactory.closeConnection(conn, stmt,rs);
+            return list;
+        } catch (SQLException ex) { 
+           System.err.println("DAO CLIENTE: " + ex);
+            return null;
+        }
     }
     
     public void update(Cliente cliente) throws SQLException{

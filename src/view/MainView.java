@@ -40,8 +40,8 @@ public class MainView extends javax.swing.JFrame {
 
         JTextField[] aux = {jTextFieldNomeClienteCart,
             jFormattedTextFieldCPFCart, jTextFieldPrecoCart,
-            jTextFieldCodProdCart, jTextFieldQntCart,
-            };
+            jTextFieldCodProdCart, jTextFieldQntCart,};
+
         camposCart = aux;
 
         JTextField[] aux2 = {jTextFieldCPFCadastro, jTextFieldNomecadastro,
@@ -906,6 +906,11 @@ public class MainView extends javax.swing.JFrame {
         jTextFieldCPFCadastro.setToolTipText("Insira o código do cliente para pesquisar");
         jTextFieldCPFCadastro.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
         jTextFieldCPFCadastro.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldCPFCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCPFCadastroActionPerformed(evt);
+            }
+        });
 
         jTextFieldNomecadastro.setForeground(new java.awt.Color(68, 53, 48));
         jTextFieldNomecadastro.setToolTipText("Insira o nome do cliente");
@@ -1433,8 +1438,23 @@ public class MainView extends javax.swing.JFrame {
 
     private void bttBuscaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttBuscaClienteActionPerformed
         // TODO add your handling code here:
-        PesquisaCliente pp = new PesquisaCliente(this);
-        this.setEnabled(false);
+        if (!jTextFieldCPFCadastro.getText().trim().equals("")) {
+            if (cliController.filtrarPorCPF(jTextFieldCPFCadastro.getText())) {
+                puxaCliente(jTextFieldCPFCadastro.getText());
+            } else {
+
+            }
+        } else if (!jTextFieldNomecadastro.getText().trim().equals("")) {
+            if (cliController.filtrarPorNome(jTextFieldNomecadastro.getText())) {
+                PesquisaCliente pp = new PesquisaCliente(this);
+                this.setEnabled(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "Cliente nao encontrado!");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Preencha o campo Nome ou CPF!");
+        }
     }//GEN-LAST:event_bttBuscaClienteActionPerformed
 
     private void bttAddProdCadastroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttAddProdCadastroMouseEntered
@@ -1530,8 +1550,7 @@ public class MainView extends javax.swing.JFrame {
 //        int idProd = Integer.parseInt(Prod);
 
         vendaController.addCarrinho(jTextFieldCodProdCart.getText(), jTextFieldQntCart.getText());
-      
-        jLabelTotalDaVenda.setText(lista.);
+
 
     }//GEN-LAST:event_bttAdicionarItemCartActionPerformed
 
@@ -1604,6 +1623,10 @@ public class MainView extends javax.swing.JFrame {
             limpaCampos(camposCadastro);
         }
     }//GEN-LAST:event_bttAddCadastroClienteActionPerformed
+
+    private void jTextFieldCPFCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCPFCadastroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCPFCadastroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1740,7 +1763,7 @@ public class MainView extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void puxaCliente(String cpf) {
-        System.out.println("Chamou o update");
+
         ClienteController ctr = ClienteController.getClienteController();
         Cliente cli = ctr.pesquisaPorCpf(cpf);
         if (cli != null) {
@@ -1778,7 +1801,7 @@ public class MainView extends javax.swing.JFrame {
                 jTextFieldProdCart.setText(prod.getTitulo());
                 jTextFieldPrecoCart.setText(Float.toString(prod.getPreco()));
                 jTextFieldQntCart.setText("1");
-                
+
             }
             if (abaAtual == 1) {
                 jTextFieldCodCadastro.setText(Integer.toString(prod.getId()));

@@ -141,29 +141,29 @@ public class ProdutoController {
         if(!campos[5].getText().trim().equals("")){
             prod.setPreco(Float.parseFloat(campos[5].getText()));
         }
-//        if(!campos[5].getText().trim().equals("")){
-//            prod.setEstanteId(Integer.parseInt(campos[5].getText()));
+//        if(!campos[6].getText().trim().equals("")){
+//            prod.setEstanteId(Integer.parseInt(campos[6].getText()));
 //        }else{
 //            erros +="\n - Estante Obrigatorio"; 
 //            campos[5].setBackground(Color.red);
 //        }
-//        if(!campos[6].getText().trim().equals("")){
+//        if(!campos[7].getText().trim().equals("")){
 //            prod.setPrateleiraId(Integer.parseInt(campos[6].getText()));
 //        }else{
 //            erros +="\n - Prateleira Campo Obrigatorio";  
-//            campos[6].setBackground(Color.red);
-//        }
-//        if(!campos[7].getText().trim().equals("")){
-//            prod.setEdicao(Integer.parseInt(campos[7].getText()));
-//        }else{
-//            erros +="\n - Edição Campo Obrigatorio";
 //            campos[7].setBackground(Color.red);
 //        }
 //        if(!campos[8].getText().trim().equals("")){
+//            prod.setEdicao(Integer.parseInt(campos[7].getText()));
+//        }else{
+//            erros +="\n - Edição Campo Obrigatorio";
+//            campos[8].setBackground(Color.red);
+//        }
+//        if(!campos[10].getText().trim().equals("")){
 //            prod.setEstiloId(Integer.parseInt(campos[8].getText()));
 //        }else{
 //            erros +="\n - Estilo Campo Obrigatorio"; 
-//            campos[8].setBackground(Color.red);    
+//            campos[10].setBackground(Color.red);    
 //        }
 //        if(!campos[9].getText().trim().equals("")){
 //            prod.setStatus(campos[9].getText());
