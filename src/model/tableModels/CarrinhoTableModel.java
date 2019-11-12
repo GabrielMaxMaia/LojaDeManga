@@ -53,8 +53,6 @@ public class CarrinhoTableModel extends AbstractTableModel{
             case 3:
                 return lista.get(linha).getPreco();
             case 4:
-                float aux = (float) qtdLista.get(linha);
-                total.add(aux * lista.get(linha).getPreco());
                 return total.get(linha);//adicionar .2f para formatar as casas decimais
         }
         return null;
@@ -63,7 +61,8 @@ public class CarrinhoTableModel extends AbstractTableModel{
     public void addProd(Produto prod, int qtd){
         lista.add(prod);
         qtdLista.add(qtd);
-//        descontoLista.add(desc);
+        float aux = prod.getPreco() * (float) qtd;
+        total.add(aux);
         
         fireTableDataChanged();
     }
@@ -71,7 +70,7 @@ public class CarrinhoTableModel extends AbstractTableModel{
     public void cancelarCompra(){
         lista.clear();
         qtdLista.clear();
-//        descontoLista.clear();
+        total.clear();
         fireTableDataChanged();
     }
 
@@ -82,7 +81,10 @@ public class CarrinhoTableModel extends AbstractTableModel{
     public ArrayList<Integer> getQtdLista() {
         return qtdLista;
     }
-
+    
+    public ArrayList<Float> getTotalLista(){
+        return total;
+    }
 //    public ArrayList<Integer> getDescontoLista() {
 //        return descontoLista;
 //    }

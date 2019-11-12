@@ -7,19 +7,30 @@ import java.util.ArrayList;
 import java.util.Date;
 import model.tableModels.CarrinhoTableModel;
 import model.Produto;
+import model.VendaTemporaria;
+import model.tableModels.RelatorioDinamicoTableModel;
 
 /**
  *
  * @author rogerio.slucon
  */
 public class VendaController {
-
+    private static VendaController INSTANCE;
     private CarrinhoTableModel table = new CarrinhoTableModel();
-//    private ClienteController controllerCli;
+    private ClienteController cliController;
     private ProdutoController prodController;
+    private RelatorioDinamicoTableModel dinamico = new RelatorioDinamicoTableModel();
 
-    public VendaController() {
-//        controllerCli = ClienteController.getClienteController();
+    public static VendaController getVendaController(){
+        if(INSTANCE != null){
+            return INSTANCE;
+        }else{
+            return INSTANCE = new VendaController();
+        }
+    }
+    
+    private VendaController() {
+        cliController = ClienteController.getClienteController();
         prodController = ProdutoController.getProdutoController();
     }
 
@@ -47,11 +58,13 @@ public class VendaController {
                 todosProd.add(produtos.get(i));
             }
         }
-
         DAOVenda dao = new DAOVenda();
         Date d = new Date();
         String dStr = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);
-        dao.gerarVenda(cpf, dStr, todosProd);
+        VendaTemporaria venda = new VendaTemporaria(todosProd);
+        venda.setCliente(cpf);
+        dao.gerarVenda(venda);
+        dinamico.atualiza();
     }
 
     public void cancelarCompra() {
@@ -62,11 +75,31 @@ public class VendaController {
         return table;
     }
     
-    public float valDaCompra (){        
-        float valFinal = 1.2f;
-        return valFinal;
+    public RelatorioDinamicoTableModel getRelatorioDinamicoTableModel(){
+        return dinamico;
     }
     
+    public float getTotal (){
+        float total = 0;
+        ArrayList<Float> aux = table.getTotalLista();
+        for (Float index : aux) {
+            total += index;
+        }
+        return total;
+    }
     
+    public boolean validaVenda(String cpf, String id){
+        boolean flag = true;
+        if(cpf.equals("") || id.equals("")){
+            flag = false;
+        }
+        if(flag && !cliController.filtrarPorCPF(cpf)){
+            flag = false;
+        }
+        if(flag && !prodController.filtrarPorId(id)){
+            flag = false;
+        }
+        return flag;
+    }
     
 }

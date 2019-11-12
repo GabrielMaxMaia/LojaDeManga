@@ -6,15 +6,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 import lojademanga.ConnectionFactory;
 import model.Venda;
+import model.VendaTemporaria;
 
 public class DAOVenda {
     private Connection conn;
     //Temporario
-    private static HashMap<String, ArrayList> listaVenda = new HashMap<String, ArrayList>();
-    private static HashMap<String, String> listaCliente = new HashMap<>();
-    private static HashMap<String, String> listaData = new HashMap<>();
+    private static HashMap<String, VendaTemporaria> listaVenda = new HashMap<String, VendaTemporaria>();
+
     private static int idVenda = 0;
     
     public DAOVenda(){    
@@ -54,25 +55,18 @@ public ArrayList<Venda> selectAll() {
 
     }
     // Temporarior
-    public void gerarVenda(String cpf, String data,
-            ArrayList listaProd){
+    public void gerarVenda(VendaTemporaria venda){
         String aux = Integer.toString(idVenda);
-        listaVenda.put(aux, listaProd);
-        listaCliente.put(aux, cpf);
-        listaData.put(aux, data);    
+        listaVenda.put(aux, venda);
         idVenda++;
     }
     
-    public ArrayList getVendaItens(String idVenda){
+    public VendaTemporaria getVendaItens(String idVenda){
         return listaVenda.get(idVenda);
     }
     
-    public String getVendaCpf(String idVenda){
-        return listaCliente.get(idVenda);
-    }
-    
-    public String getVendaData(String idVenda){
-        return listaData.get(idVenda);
+    public Set<String> getKey() {
+        return listaVenda.keySet();
     }
     
 }

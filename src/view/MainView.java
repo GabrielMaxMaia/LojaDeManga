@@ -30,7 +30,7 @@ public class MainView extends javax.swing.JFrame {
     public MainView() {
         this.cliController = ClienteController.getClienteController();
         this.prodController = ProdutoController.getProdutoController();
-        this.vendaController = new VendaController();
+        this.vendaController = VendaController.getVendaController();
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -51,11 +51,15 @@ public class MainView extends javax.swing.JFrame {
             jTextFieldBairroCadastro, jTextFieldComplemCadastro};
         camposCadastro = aux2;
 
-        JTextField[] aux3 = {jTextFieldCodCadastro, jTextFieldDescCadastro, jTextFieldAutoresCadastro, jTextFieldFornecedorCadastro, null, jTextFieldPrecocadastro,
-            jTextFieldEstanteCadastro, jTextFieldPrateleiraCadastro, jTextFieldEdicaoCadastro, null, null, jTextFieldQuantCadastro};
+        JTextField[] aux3 = {jTextFieldCodCadastro, jTextFieldDescCadastro,
+            jTextFieldAutoresCadastro, jTextFieldFornecedorCadastro, null,
+            jTextFieldPrecocadastro, jTextFieldEstanteCadastro,
+            jTextFieldPrateleiraCadastro, jTextFieldEdicaoCadastro, null, null,
+            jTextFieldQuantCadastro};
         camposProduto = aux3;
 
         jTableCarrinhoDeCompras.setModel(vendaController.getModel());
+        jTableVendaPesq.setModel(vendaController.getRelatorioDinamicoTableModel());
     }
 
     /**
@@ -1351,17 +1355,20 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_bttCancelarVendaActionPerformed
 
     private void bttPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttPagamentoActionPerformed
-        int input = JOptionPane.showConfirmDialog(null, "Finalizar Compra?");
-        if (input == 0) {
-            this.setEnabled(false);
-            new MetodoPagamento(this);
-        } else if (input == 1) {
+        if(vendaController.validaVenda(jFormattedTextFieldCPFCart.getText(),
+                jTextFieldCodProdCart.getText())){
+            int input = JOptionPane.showConfirmDialog(null, "Finalizar Compra?");
+            if (input == 0) {
+                this.setEnabled(false);
+                new MetodoPagamento(this);
+            } else if (input == 1) {
 
-        } else if (input == 2) {
+            } else if (input == 2) {
 
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Produto ou Cliente invalidos");
         }
-
-
     }//GEN-LAST:event_bttPagamentoActionPerformed
 
     private void jTextFieldQntCartKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldQntCartKeyTyped
@@ -1558,16 +1565,13 @@ public class MainView extends javax.swing.JFrame {
         if (prodController.addProduto(camposProduto)) {
 
         } else {
-            System.out.println("ERRO");
+            System.out.println("ERRO ao add Prod");
         }
     }//GEN-LAST:event_bttAddProdCadastroActionPerformed
 
     private void bttAdicionarItemCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAdicionarItemCartActionPerformed
-//        String Prod = jTextFieldCodProdCart.getText();
-//        int idProd = Integer.parseInt(Prod);
-
         vendaController.addCarrinho(jTextFieldCodProdCart.getText(), jTextFieldQntCart.getText());
-
+        jLabelTotalDaVenda.setText(Float.toString(vendaController.getTotal()));
 
     }//GEN-LAST:event_bttAdicionarItemCartActionPerformed
 
@@ -1780,7 +1784,6 @@ public class MainView extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void puxaCliente(String cpf) {
-
         ClienteController ctr = ClienteController.getClienteController();
         Cliente cli = ctr.pesquisaPorCpf(cpf);
         if (cli != null) {
@@ -1801,7 +1804,6 @@ public class MainView extends javax.swing.JFrame {
             }
         } else {
             jTextFieldNomecadastro.setText("CLIENTE NAO ENCONTRADO");
-            System.out.println("Cli null");
         }
     }
 
@@ -1811,7 +1813,6 @@ public class MainView extends javax.swing.JFrame {
 
     public void puxaProduto(int id) {
         Produto prod = prodController.pesquisaPorId(id);
-        System.out.println(prod.getTitulo());
         if (prod != null) {
             if (abaAtual == 0) {
                 jTextFieldCodProdCart.setText(Integer.toString(prod.getId()));
@@ -1845,9 +1846,13 @@ public class MainView extends javax.swing.JFrame {
             }
         }
     }
-
-    private void cancelaCompras() {
+    
+    public void cancelaCompras() {
         limpaCampos(camposCart);
         vendaController.cancelarCompra();
+    }
+    
+    public String getCPF(){
+        return jFormattedTextFieldCPFCart.getText();
     }
 }
