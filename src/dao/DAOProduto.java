@@ -29,37 +29,50 @@ public class DAOProduto {
     //Métodos CRUD
     
     public void insert(Produto produto) throws SQLException {
-        String sql = "INSERT INTO produto(titulo, autor, fornecedor, genero, preco, estante, prateleira, edicao, status, estilo) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO produto(pd_titulo, pd_autor, pd_preco,pd_quantidade) VALUES (?,?,?,?)";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, produto.getTituloId());
-            stmt.setInt(2, produto.getAutorId());
-            stmt.setInt(3, produto.getFornecedorId());
-            stmt.setInt(4, produto.getGeneroId());
-            stmt.setFloat(5, produto.getPreco());
-            stmt.setInt(6, produto.getEstanteId());
-            stmt.setInt(7, produto.getPrateleiraId());
-            stmt.setInt(8, produto.getEdicao());
-            stmt.setString(9, produto.getStatus());
-            stmt.setInt(10, produto.getEstiloId());
+            stmt.setString(1, produto.getTitulo());
+            stmt.setString(2, produto.getAutor());
+            stmt.setFloat(3, produto.getPreco());
+            stmt.setInt(4,produto.getQtd());
             stmt.executeUpdate();
             stmt.close();
         }
     }
+//    public void insert(Produto produto) throws SQLException {
+//        String sql = "INSERT INTO produto(pd_titulo, pd_autor, pd_fornecedor, pd_genero, pd_preco, pd_estante, "
+//                + "pd_prateleira, pd_edicao, pd_status, pd_estilo, pd_quant) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+//        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+//            stmt.setInt(1, produto.getTituloId());
+//            stmt.setInt(2, produto.getAutorId());
+//            stmt.setInt(3, produto.getFornecedorId());
+//            stmt.setInt(4, produto.getGeneroId());
+//            stmt.setFloat(5, produto.getPreco());
+//            stmt.setInt(6, produto.getEstanteId());
+//            stmt.setInt(7, produto.getPrateleiraId());
+//            stmt.setInt(8, produto.getEdicao());
+//            stmt.setString(9, produto.getStatus());
+//            stmt.setInt(10, produto.getEstiloId());
+//            stmt.setInt(11,produto.getQtd());
+//            stmt.executeUpdate();
+//            stmt.close();
+//        }
+//    }
 
     public void update(Produto produto) throws SQLException{
         
         String sql = "Update Produto set pd_preco = ?, pd_titulo = ?,"
-                + " pd_autor = ?, pd_quantidade = ?,"
+                + " pd_autor = ?, pd_quantidade = ?"
                 + " WHERE pd_id = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setFloat(1, produto.getPreco());
             stmt.setString(2, produto.getTitulo());
             stmt.setString(3,produto.getAutor());
             stmt.setInt(4,produto.getQtd());
+            stmt.setInt(5, produto.getId());
             stmt.executeUpdate();
             stmt.close();
-        }
-        
+        } 
     }
     
     // Métodos de busca

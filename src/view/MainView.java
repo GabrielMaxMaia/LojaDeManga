@@ -50,8 +50,8 @@ public class MainView extends javax.swing.JFrame {
             jTextFieldBairroCadastro, jTextFieldComplemCadastro};
         camposCadastro = aux2; 
         
-        JTextField[] aux3 = {jTextFieldDescCadastro,jTextFieldAutoresCadastro,jTextFieldFornecedorCadastro,null,jTextFieldPrecocadastro,
-        jTextFieldEstanteCadastro,jTextFieldPrateleiraCadastro,jTextFieldEdicaoCadastro,null,null};
+        JTextField[] aux3 = {jTextFieldCodCadastro, jTextFieldDescCadastro,jTextFieldAutoresCadastro,jTextFieldFornecedorCadastro,null,jTextFieldPrecocadastro,
+        jTextFieldEstanteCadastro,jTextFieldPrateleiraCadastro,jTextFieldEdicaoCadastro,null,null, jTextFieldQuantCadastro};
         camposProduto = aux3;
         
         jTableCarrinhoDeCompras.setModel(vendaController.getModel());
@@ -1339,6 +1339,7 @@ public class MainView extends javax.swing.JFrame {
 
     private void bttAlteraProdCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAlteraProdCadastroActionPerformed
         // TODO add your handling code here:
+        prodController.atualizaProduto(camposProduto);
     }//GEN-LAST:event_bttAlteraProdCadastroActionPerformed
 
     private void bttAlteraCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAlteraCadastroClienteActionPerformed
@@ -1544,6 +1545,12 @@ public class MainView extends javax.swing.JFrame {
 
     private void bttAddProdCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAddProdCadastroActionPerformed
         // TODO add your handling code here:
+        if(prodController.addProduto(camposProduto)){
+            
+        }
+        else{
+            System.out.println("ERRO");
+        }
     }//GEN-LAST:event_bttAddProdCadastroActionPerformed
 
     private void bttAdicionarItemCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAdicionarItemCartActionPerformed

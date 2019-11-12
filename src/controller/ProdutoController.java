@@ -45,6 +45,7 @@ public class ProdutoController {
     
     public void atualizaProduto(JTextField[] campos){
         Produto prod = validarDados(campos);
+        
         if(prod != null){
             DAOProduto dao = new DAOProduto();
             try {
@@ -96,59 +97,79 @@ public class ProdutoController {
         Produto prod = new Produto();
         String erros = "";
         
+        if(!campos[0].getText().trim().equals("")){
+            prod.setId(Integer.parseInt(campos[0].getText()));
+        }else{
+           
+        }
+//        if(!campos[1].getText().trim().equals("")){
+//            prod.setTituloId(Integer.parseInt(campos[1].getText()));
+//        }else{
+//            erros +="\n - Título Campo Obrigatorio";
+//            campos[1].setBackground(Color.red);
+//        }
         if(!campos[1].getText().trim().equals("")){
-            prod.setTituloId(Integer.parseInt(campos[1].getText()));
+            prod.setTitulo(campos[1].getText());
         }else{
             erros +="\n - Título Campo Obrigatorio";
             campos[1].setBackground(Color.red);
         }
+//        if(!campos[2].getText().trim().equals("")){
+//            prod.setAutorId(Integer.parseInt(campos[2].getText()));
+//        }else{
+//            erros +="\n - Autor Campo Obrigatorio"; 
+//            campos[2].setBackground(Color.red);
+//        }
         if(!campos[2].getText().trim().equals("")){
-            prod.setAutorId(Integer.parseInt(campos[2].getText()));
+            prod.setAutor(campos[2].getText());
         }else{
             erros +="\n - Autor Campo Obrigatorio"; 
             campos[2].setBackground(Color.red);
         }
-        if(!campos[3].getText().trim().equals("")){
-            prod.setFornecedorId(Integer.parseInt(campos[3].getText()));
-        }else{
-            erros +="\n - Fornecedor Campo Obrigatorio";
-            campos[3].setBackground(Color.red);
-        }
-        if(!campos[4].getText().trim().equals("")){
-            prod.setGeneroId(Integer.parseInt(campos[4].getText()));
-        }else{
-            erros +="\n - Gênero Campo Obrigatorio";
-            campos[4].setBackground(Color.red);
-        }
+//        if(!campos[3].getText().trim().equals("")){
+//            prod.setFornecedorId(Integer.parseInt(campos[3].getText()));
+//        }else{
+//            erros +="\n - Fornecedor Campo Obrigatorio";
+//            campos[3].setBackground(Color.red);
+//        }
+//        if(!campos[4].getText().trim().equals("")){
+//            prod.setGeneroId(Integer.parseInt(campos[4].getText()));
+//        }else{
+//            erros +="\n - Gênero Campo Obrigatorio";
+//            campos[4].setBackground(Color.red);
+//        }
         if(!campos[5].getText().trim().equals("")){
-            prod.setEstanteId(Integer.parseInt(campos[5].getText()));
-        }else{
-            erros +="\n - Estante Obrigatorio"; 
-            campos[5].setBackground(Color.red);
+            prod.setPreco(Float.parseFloat(campos[5].getText()));
         }
-        if(!campos[6].getText().trim().equals("")){
-            prod.setPrateleiraId(Integer.parseInt(campos[6].getText()));
-        }else{
-            erros +="\n - Prateleira Campo Obrigatorio";  
-            campos[6].setBackground(Color.red);
-        }
-        if(!campos[7].getText().trim().equals("")){
-            prod.setEdicao(Integer.parseInt(campos[7].getText()));
-        }else{
-            erros +="\n - Edição Campo Obrigatorio";
-            campos[7].setBackground(Color.red);
-        }
-        if(!campos[8].getText().trim().equals("")){
-            prod.setEstiloId(Integer.parseInt(campos[8].getText()));
-        }else{
-            erros +="\n - Estilo Campo Obrigatorio"; 
-            campos[8].setBackground(Color.red);    
-        }
-        if(!campos[9].getText().trim().equals("")){
-            prod.setStatus(campos[9].getText());
-        }
-        if(!campos[10].getText().trim().equals("")){
-            prod.setPreco(Integer.parseInt(campos[10].getText()));
+//        if(!campos[5].getText().trim().equals("")){
+//            prod.setEstanteId(Integer.parseInt(campos[5].getText()));
+//        }else{
+//            erros +="\n - Estante Obrigatorio"; 
+//            campos[5].setBackground(Color.red);
+//        }
+//        if(!campos[6].getText().trim().equals("")){
+//            prod.setPrateleiraId(Integer.parseInt(campos[6].getText()));
+//        }else{
+//            erros +="\n - Prateleira Campo Obrigatorio";  
+//            campos[6].setBackground(Color.red);
+//        }
+//        if(!campos[7].getText().trim().equals("")){
+//            prod.setEdicao(Integer.parseInt(campos[7].getText()));
+//        }else{
+//            erros +="\n - Edição Campo Obrigatorio";
+//            campos[7].setBackground(Color.red);
+//        }
+//        if(!campos[8].getText().trim().equals("")){
+//            prod.setEstiloId(Integer.parseInt(campos[8].getText()));
+//        }else{
+//            erros +="\n - Estilo Campo Obrigatorio"; 
+//            campos[8].setBackground(Color.red);    
+//        }
+//        if(!campos[9].getText().trim().equals("")){
+//            prod.setStatus(campos[9].getText());
+//        }
+        if(!campos[11].getText().trim().equals("")){
+            prod.setQtd(Integer.parseInt(campos[11].getText()));
         }
         
         prod.setStatus("A");
