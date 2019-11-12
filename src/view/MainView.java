@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import model.tableModels.CarrinhoTableModel;
 import model.Cliente;
 import model.Produto;
+import model.tableModels.RelatorioDinamicoTableModel;
 
 /**
  *
@@ -26,10 +27,12 @@ public class MainView extends javax.swing.JFrame {
     private JTextField[] camposCart;
     private JTextField[] camposProduto;
     public VendaController vendaController;
+    RelatorioDinamicoTableModel rdtm = new RelatorioDinamicoTableModel();
+    
     public MainView() {
         this.cliController = ClienteController.getClienteController();
         this.prodController = ProdutoController.getProdutoController();
-        this.vendaController = new VendaController();
+        this.vendaController = VendaController.getVendaController();
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -55,6 +58,9 @@ public class MainView extends javax.swing.JFrame {
         camposProduto = aux3;
         
         jTableCarrinhoDeCompras.setModel(vendaController.getModel());
+        
+        rdtm.getComprar();
+        jTableVendaPesq.setModel(rdtm);
     }
 
 /**
@@ -1375,7 +1381,8 @@ public class MainView extends javax.swing.JFrame {
         int input = JOptionPane.showConfirmDialog(null, "Finalizar Compra?");
         if(input == 0){
             this.setEnabled(false);
-            new MetodoPagamento(this);
+            new MetodoPagamento(this, jFormattedTextFieldCPFCart.getText());
+            rdtm.atualiza();
         }else if(input == 1){
             
         }else if(input == 2){
@@ -1617,6 +1624,9 @@ public class MainView extends javax.swing.JFrame {
             limpaCampos(camposCadastro);        
         }
         abaAtual = index;
+        if(abaAtual == 3){
+            rdtm.atualiza();
+        }
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
     private void bttAddCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAddCadastroClienteActionPerformed
@@ -1763,7 +1773,6 @@ public class MainView extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void puxaCliente(String cpf){
-        System.out.println("Chamou o update");
         ClienteController ctr = ClienteController.getClienteController();
         Cliente cli = ctr.pesquisaPorCpf(cpf);
         if(cli != null ){
@@ -1784,7 +1793,6 @@ public class MainView extends javax.swing.JFrame {
             }
         }else{
             jTextFieldNomecadastro.setText("CLIENTE NAO ENCONTRADO");
-            System.out.println("Cli null");
         }
     }
     
@@ -1794,7 +1802,6 @@ public class MainView extends javax.swing.JFrame {
     
     public void puxaProduto(int id){
         Produto prod = prodController.pesquisaPorId(id);
-        System.out.println(prod.getTitulo());
         if(prod != null ){
             if(abaAtual == 0){
                 jTextFieldCodProdCart.setText(Integer.toString(prod.getId()));

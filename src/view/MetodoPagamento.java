@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.VendaController;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
@@ -16,9 +17,12 @@ import javax.swing.JFrame;
  * @author Rogerio
  */
 public class MetodoPagamento extends javax.swing.JFrame {
+    VendaController vendaController; 
     JFrame parent;
-    
-    public MetodoPagamento(JFrame parent) {
+    String cpf;
+    public MetodoPagamento(JFrame parent, String cpf) {
+        vendaController = VendaController.getVendaController();
+        this.cpf = cpf;
         this.parent = parent;
         initComponents();
         setResizable(false);
@@ -218,6 +222,7 @@ public class MetodoPagamento extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldValorRecebidoActionPerformed
 
     private void bttFinalizarPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttFinalizarPagamentoActionPerformed
+        vendaController.finalizarCompra(cpf);
         close();
     }//GEN-LAST:event_bttFinalizarPagamentoActionPerformed
 

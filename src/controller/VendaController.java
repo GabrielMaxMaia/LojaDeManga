@@ -13,10 +13,20 @@ import model.Produto;
  * @author rogerio.slucon
  */
 public class VendaController {
+    private static VendaController INSTACE;
     private CarrinhoTableModel table = new CarrinhoTableModel();
 //    private ClienteController controllerCli;
     private ProdutoController prodController; 
-    public VendaController() {
+    
+    public static VendaController getVendaController(){
+        if(INSTACE != null){
+            return INSTACE;
+        }else{
+            return INSTACE = new VendaController();
+        }
+    }
+    
+    private VendaController() {
 //        controllerCli = ClienteController.getClienteController();
         prodController = ProdutoController.getProdutoController();
     }
@@ -62,4 +72,5 @@ public class VendaController {
     public CarrinhoTableModel getModel(){
         return table;
     }
+    
 }
