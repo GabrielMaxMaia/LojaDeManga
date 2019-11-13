@@ -7,6 +7,7 @@ import controller.RelatorioContoller;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
@@ -1577,7 +1578,7 @@ public class MainView extends javax.swing.JFrame {
 
     private void bttAdicionarItemCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAdicionarItemCartActionPerformed
         vendaController.addCarrinho(jTextFieldCodProdCart.getText(), jTextFieldQntCart.getText());
-        jLabelTotalDaVenda.setText(Float.toString(vendaController.getTotal()));
+        jLabelTotalDaVenda.setText(formataFloat(vendaController.getTotal()));
 
     }//GEN-LAST:event_bttAdicionarItemCartActionPerformed
 
@@ -1837,7 +1838,7 @@ public class MainView extends javax.swing.JFrame {
             if (abaAtual == 0) {
                 jTextFieldCodProdCart.setText(Integer.toString(prod.getId()));
                 jTextFieldProdCart.setText(prod.getTitulo());
-                jTextFieldPrecoCart.setText(Float.toString(prod.getPreco()));
+                jTextFieldPrecoCart.setText(formataFloat(prod.getPreco()));
                 jTextFieldQntCart.setText("1");
 
             }
@@ -1874,5 +1875,10 @@ public class MainView extends javax.swing.JFrame {
     
     public String getCPF(){
         return jFormattedTextFieldCPFCart.getText();
+    }
+    
+    public String formataFloat(float valor){
+        DecimalFormat df = new DecimalFormat("0.00");
+        return df.format(valor);
     }
 }
