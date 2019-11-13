@@ -54,14 +54,14 @@ public class ProdutoController {
                 dao.update(prod);
                 tableModel.getProd();
             } catch (SQLException ex) {
-                System.out.println("Erro Atualizar Produto");
-                Logger.getLogger(ProdutoController.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.println("PC Erro Atualizar Produto");
+                Logger.getLogger(ProdutoController.class.getName())
+                        .log(Level.SEVERE, null, ex);
             }
         }
     }
     
     public boolean addProduto(JTextField[] campos){
-        System.out.println("Add2");
         Produto prod = validarDados(campos);
         
         if(prod != null){
@@ -71,7 +71,7 @@ public class ProdutoController {
                 tableModel.addLinha(prod);
                 return true;
             } catch (SQLException ex) {
-                System.out.println("Erro addProduto");
+                System.err.println("PC Erro addProduto");
                 Logger.getLogger(ProdutoController.class.getName()).log(Level.SEVERE, null, ex);
                 return false;
             }

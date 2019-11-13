@@ -65,14 +65,14 @@ public class ClienteController {
                 dao.update(cli);
                 tableModel.getCli();
             } catch (SQLException ex) {
-                System.out.println("Erro Atualizar Cliente");
-                Logger.getLogger(ClienteController.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.println("CC Erro Atualizar Cliente");
+                Logger.getLogger(ClienteController.class.getName()).
+                        log(Level.SEVERE, null, ex);
             }
         }
     }
     
     public boolean addCliente(JTextField[] campos){
-        System.out.println("Add2");
         Cliente cli = validarDados(campos);
         
         if(cli != null){
@@ -82,8 +82,9 @@ public class ClienteController {
                 tableModel.addLinha(cli);
                 return true;
             } catch (SQLException ex) {
-                System.out.println("Erro addCli");
-                Logger.getLogger(ClienteController.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.println("CC Erro addCliente");
+                Logger.getLogger(ClienteController.class.getName())
+                        .log(Level.SEVERE, null, ex);
                 return false;
             }
         } 
@@ -153,7 +154,6 @@ public class ClienteController {
         
         cli.setStatus("A");
         
-        System.out.println(erros);
         if(erros.equals("")){
             return cli;
         }else{

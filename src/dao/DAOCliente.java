@@ -70,11 +70,10 @@ public class DAOCliente {
                 ConnectionFactory.closeConnection(conn, stmt,rs);
                 return cli;
             } else{
-                System.out.println("Sem resultado");
                 return null;
             }
         }catch(Exception e){
-            System.out.println(e);
+            System.err.println("DAO Cliente  " +  e);
             return null;
         }
             
@@ -82,7 +81,6 @@ public class DAOCliente {
     
     public ArrayList<Cliente> buscaPorNome(String nome){
         String sql = "Select * from Cliente where cli_nome like '%"+nome+"%'";
-        System.out.println(sql);
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
 //            stmt.setString(1, nome);
