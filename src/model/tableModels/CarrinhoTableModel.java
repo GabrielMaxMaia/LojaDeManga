@@ -7,6 +7,7 @@ package model.tableModels;
 
 import dao.DAOCliente;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.table.AbstractTableModel;
 import model.Cliente;
 import model.Produto;
@@ -59,24 +60,40 @@ public class CarrinhoTableModel extends AbstractTableModel{
     }
     
     public void addProd(Produto prod, int qtd){
-        for (int i = 0; i < lista.size(); i++) {
+        System.out.println("QTD: " + qtd);
+        boolean flag = true;
+        for (int i = 0; i < lista.size() -1; i++) {
             if(lista.get(i).getId() == prod.getId()){
-                qtdLista.add(i, qtdLista.get(i)+qtd);
+                int aux2 = qtdLista.get(i)+ qtd;
+                qtdLista.add(i, aux2);
                 float aux = prod.getPreco() * (float) qtd;
                 total.add(i, total.get(i)+aux);
-            }else{
+                System.out.println("Entrado no if");
+                System.out.println("if :" + lista.get(i).getId());
+                System.out.println("if :" + prod.getId());
+                flag = false;
+                break;
+            }
+        }
+        if(flag){
+            System.out.println("Falg True");
                 lista.add(prod);
                 qtdLista.add(qtd);
-                float aux = prod.getPreco() * (float) qtd;
-                total.add(aux);
-            }
-        } 
-        if(lista.isEmpty()){
-            lista.add(prod);
-                qtdLista.add(qtd);
+                int[] array = new int[qtdLista.size() -1];
+                for (Integer integer : qtdLista) {
+                    System.out.println("Lista:" + integer);
+                }
+                
                 float aux = prod.getPreco() * (float) qtd;
                 total.add(aux);
         }
+//        if(lista.isEmpty()){
+//            System.out.println("Empty");
+//            lista.add(prod);
+//                qtdLista.add(qtd);
+//                float aux = prod.getPreco() * (float) qtd;
+//                total.add(aux);
+//        }
         fireTableDataChanged();
     }
     
