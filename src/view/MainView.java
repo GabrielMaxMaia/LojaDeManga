@@ -1342,8 +1342,9 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_bttPesquisaClienteCartActionPerformed
 
     private void bttPesquisaProdCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttPesquisaProdCartActionPerformed
-        PesquisaProduto pp = new PesquisaProduto(this);
-        this.setEnabled(false);
+//        PesquisaProduto pp = new PesquisaProduto(this);
+//        this.setEnabled(false);
+        validaCodProd(jTextFieldCodProdCart);
     }//GEN-LAST:event_bttPesquisaProdCartActionPerformed
 
     private void bttCancelarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttCancelarVendaActionPerformed
@@ -1520,24 +1521,7 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldQuantCadastroKeyTyped
 
     private void bttPesquisaProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttPesquisaProdActionPerformed
-        if (!jTextFieldCodCadastro.getText().trim().equals("")) {
-            if (prodController.filtrarPorId(jTextFieldCodCadastro.getText())) {
-                puxaProduto(Integer.parseInt(jTextFieldCodCadastro.getText()));
-            } else {
-                JOptionPane.showMessageDialog(null, "Produto nao encontrado!");
-            }
-        } else if (!jTextFieldDescCadastro.getText().trim().equals("")) {
-            if (prodController.filtrarPorTitulo(jTextFieldDescCadastro.getText())) {
-                PesquisaProduto pp = new PesquisaProduto(this);
-                this.setEnabled(false);
-            } else {
-                JOptionPane.showMessageDialog(null, "Produto nao encontrado!");
-            }
-        } else {
-            PesquisaProduto pp = new PesquisaProduto(this);
-            this.setEnabled(false);
-        }
-        
+        validaCodProd(jTextFieldCodCadastro);
     }//GEN-LAST:event_bttPesquisaProdActionPerformed
 
     private void bttPesquisaProdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttPesquisaProdMouseExited
@@ -1880,5 +1864,37 @@ public class MainView extends javax.swing.JFrame {
     public String formataFloat(float valor){
         DecimalFormat df = new DecimalFormat("0.00");
         return df.format(valor);
+    }
+    
+    public void prodNaoEncontrado(){
+        int input = JOptionPane.showConfirmDialog(null, "Abrir Lista de produtos?",
+        "Produto nao encontrado", JOptionPane.YES_NO_CANCEL_OPTION,
+        JOptionPane.ERROR_MESSAGE);
+        if(input == 0){
+            PesquisaProduto pp = new PesquisaProduto(this);
+        }
+    }
+    
+    public void validaCodProd(JTextField textField){
+        if (!textField.getText().trim().equals("")) {
+            if (prodController.filtrarPorId(textField.getText())) {
+                puxaProduto(Integer.parseInt(textField.getText()));
+            } else {
+                prodNaoEncontrado();
+            }
+        } else if (!textField.getText().trim().equals("")) {
+            if (prodController.filtrarPorTitulo(textField.getText())) {
+                PesquisaProduto pp = new PesquisaProduto(this);
+                this.setEnabled(false);
+            } else {
+                prodNaoEncontrado();
+            }
+        } else {
+            PesquisaProduto pp = new PesquisaProduto(this);
+            this.setEnabled(false);
+        }
+    }
+    public void cliNaoEncontrado(){
+    
     }
 }

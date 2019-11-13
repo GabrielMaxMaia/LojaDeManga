@@ -18,7 +18,7 @@ import model.Produto;
 public class ProdutoTableModel extends AbstractTableModel{
     ArrayList<Produto> lista = new ArrayList<>();
     
-    String[] colunas = {"Codigo", "Drescrição", "Preço", "Quantidade"};
+    String[] colunas = {"Codigo", "Drescrição", "Quantidade", "Preço"};
 
     public ProdutoTableModel() {
     }
