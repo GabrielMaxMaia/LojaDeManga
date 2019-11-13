@@ -828,15 +828,9 @@
                                               </Group>
                                           </Group>
                                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jTextFieldPrateleiraCadastro" alignment="1" min="-2" pref="141" max="-2" attributes="0"/>
-                                              <Component id="jComboBoxEstilo" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldPrateleiraCadastro" min="-2" pref="141" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jTextFieldDescCadastro" alignment="0" max="32767" attributes="0"/>
                                   </Group>
@@ -883,10 +877,8 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextFieldFornecedorCadastro" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
-                              <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jComboBoxGênero" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBoxEstilo" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1118,15 +1110,6 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel32">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="30" green="35" red="44" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Estilo:"/>
-                    <Property name="toolTipText" type="java.lang.String" value=""/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JLabel" name="jLabel35">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1157,41 +1140,6 @@
                           <Color PropertyName="color" blue="cf" green="d8" red="99" type="rgb"/>
                         </LineBorder>
                       </Border>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBoxEstilo">
-                  <Properties>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="30" green="35" red="44" type="rgb"/>
-                    </Property>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="11">
-                        <StringItem index="0" value="Escolher Estilo "/>
-                        <StringItem index="1" value="Nekketsu (A&#xe7;&#xe3;o)"/>
-                        <StringItem index="2" value="Spokon (Esporte)"/>
-                        <StringItem index="3" value="Gekiga (Drama)"/>
-                        <StringItem index="4" value="Magical Girls (Fantasia)"/>
-                        <StringItem index="5" value="Yuri &amp; Yaoi (Amor LGBT)"/>
-                        <StringItem index="6" value="Mecha (Fic&#xe7;&#xe3;o)"/>
-                        <StringItem index="7" value="Hentai (Adulto)"/>
-                        <StringItem index="8" value="Aniparo (Par&#xf3;dia)"/>
-                        <StringItem index="9" value="Jidaimono (Hist&#xf3;rico)"/>
-                        <StringItem index="10" value="J&#xf4;h&#xf4; (Educativo)"/>
-                      </StringArray>
-                    </Property>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                        <LineBorder>
-                          <Color PropertyName="color" blue="cf" green="d8" red="99" type="rgb"/>
-                        </LineBorder>
-                      </Border>
-                    </Property>
-                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Cursor Padr&#xe3;o"/>
                     </Property>
                   </Properties>
                   <AuxValues>

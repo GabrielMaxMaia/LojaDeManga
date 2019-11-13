@@ -18,8 +18,13 @@ public class PesquisaAnalitica extends javax.swing.JFrame {
         setVisible(true);
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/res/icone_manga.png")));
         jTable1.setModel(model);
+        setTitle("Mangá Store");
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
     }
 
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

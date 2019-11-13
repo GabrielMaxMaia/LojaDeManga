@@ -28,6 +28,7 @@ public class PesquisaProduto extends javax.swing.JFrame {
         setResizable(false);
         setSize(800, 550);
         setLocationRelativeTo(null);
+        setTitle("Mangá Store");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
         ProdutoTableModel pd = new ProdutoTableModel();

@@ -121,6 +121,11 @@ public class MetodoPagamento extends javax.swing.JFrame {
                 jTextFieldValorRecebidoActionPerformed(evt);
             }
         });
+        jTextFieldValorRecebido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldValorRecebidoKeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(68, 53, 48));
@@ -235,6 +240,10 @@ public class MetodoPagamento extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.bttFinalizarPagamento.setForeground(new Color (68,53,48));
     }//GEN-LAST:event_bttFinalizarPagamentoMouseExited
+
+    private void jTextFieldValorRecebidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorRecebidoKeyTyped
+        
+    }//GEN-LAST:event_jTextFieldValorRecebidoKeyTyped
 
     /**
      * @param args the command line arguments

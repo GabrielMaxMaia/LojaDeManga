@@ -43,7 +43,7 @@ public class MainView extends javax.swing.JFrame {
 
         JTextField[] aux = {jTextFieldNomeClienteCart,
             jFormattedTextFieldCPFCart, jTextFieldPrecoCart,
-            jTextFieldCodProdCart, jTextFieldQntCart,};
+            jTextFieldCodProdCart, jTextFieldQntCart,jTextFieldProdCart};
 
         camposCart = aux;
 
@@ -122,10 +122,8 @@ public class MainView extends javax.swing.JFrame {
         jTextFieldAutoresCadastro = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jTextFieldFornecedorCadastro = new javax.swing.JTextField();
-        jLabel32 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jComboBoxGênero = new javax.swing.JComboBox<>();
-        jComboBoxEstilo = new javax.swing.JComboBox<>();
         jLabel36 = new javax.swing.JLabel();
         jTextFieldEstanteCadastro = new javax.swing.JTextField();
         jLabel37 = new javax.swing.JLabel();
@@ -627,10 +625,6 @@ public class MainView extends javax.swing.JFrame {
         jTextFieldFornecedorCadastro.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
         jTextFieldFornecedorCadastro.setCaretColor(new java.awt.Color(68, 53, 48));
 
-        jLabel32.setForeground(new java.awt.Color(68, 53, 48));
-        jLabel32.setText("Estilo:");
-        jLabel32.setToolTipText("");
-
         jLabel35.setForeground(new java.awt.Color(68, 53, 48));
         jLabel35.setText("Gênero:");
         jLabel35.setToolTipText("");
@@ -638,11 +632,6 @@ public class MainView extends javax.swing.JFrame {
         jComboBoxGênero.setForeground(new java.awt.Color(68, 53, 48));
         jComboBoxGênero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sem Gênero", "Kodomo (Infantil)", "Shonen (Garotos)", "Shoujo (Garotas)", "Seinen (Adultos)", "Josei (Adultas)" }));
         jComboBoxGênero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 216, 207)));
-
-        jComboBoxEstilo.setForeground(new java.awt.Color(68, 53, 48));
-        jComboBoxEstilo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolher Estilo ", "Nekketsu (Ação)", "Spokon (Esporte)", "Gekiga (Drama)", "Magical Girls (Fantasia)", "Yuri & Yaoi (Amor LGBT)", "Mecha (Ficção)", "Hentai (Adulto)", "Aniparo (Paródia)", "Jidaimono (Histórico)", "Jôhô (Educativo)" }));
-        jComboBoxEstilo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 216, 207)));
-        jComboBoxEstilo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel36.setForeground(new java.awt.Color(68, 53, 48));
         jLabel36.setText("Estante:");
@@ -715,13 +704,9 @@ public class MainView extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jComboBoxGênero, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(9, 9, 9)
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel37)
-                                    .addComponent(jLabel32))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldPrateleiraCadastro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBoxEstilo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel37)
+                                .addGap(41, 41, 41)
+                                .addComponent(jTextFieldPrateleiraCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jTextFieldDescCadastro)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -757,10 +742,8 @@ public class MainView extends javax.swing.JFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
                     .addComponent(jTextFieldFornecedorCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel32)
                     .addComponent(jLabel35)
-                    .addComponent(jComboBoxGênero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxEstilo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxGênero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
@@ -861,7 +844,7 @@ public class MainView extends javax.swing.JFrame {
                     .addComponent(bttAddProdCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttAlteraProdCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttExcluiProdCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Cadastro de Produto", jPanel2);
@@ -1169,7 +1152,7 @@ public class MainView extends javax.swing.JFrame {
                     .addComponent(bttAddCadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttAlteraCadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttExcluiCadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Cadastro de Cliente", jPanel3);
@@ -1540,9 +1523,7 @@ public class MainView extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (prodController.addProduto(camposProduto)) {
 
-        } else {
-            System.out.println("ERRO ao add Prod");
-        }
+        } 
     }//GEN-LAST:event_bttAddProdCadastroActionPerformed
 
     private void bttAdicionarItemCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAdicionarItemCartActionPerformed
@@ -1689,7 +1670,6 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JButton bttPesquisaProd;
     private javax.swing.JButton bttPesquisaProdCart;
     private javax.swing.JButton bttVendasPesq;
-    private javax.swing.JComboBox<String> jComboBoxEstilo;
     private javax.swing.JComboBox<String> jComboBoxGênero;
     private javax.swing.JFormattedTextField jFormattedTextFieldCPFCart;
     private javax.swing.JLabel jLabel1;
@@ -1716,7 +1696,6 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
@@ -1822,9 +1801,7 @@ public class MainView extends javax.swing.JFrame {
                 jTextFieldQuantCadastro.setText(Integer.toString(prod.getQtd()));
 //                jTextFieldEstanteCadastro.setText(Integer.toString(pro.getEstanteId()));
 //                jTextFieldPrateleiraCadastro.setText(Integer.toString(pro.getPrateleiraId()));
-            } else {
-                jTextFieldCodCadastro.setText("PRODUTO NÃO ENCONTRADO!");
-            }
+            } 
         }
     }
 
@@ -1840,6 +1817,7 @@ public class MainView extends javax.swing.JFrame {
     public void cancelaCompras() {
         limpaCampos(camposCart);
         vendaController.cancelarCompra();
+        jLabelTotalDaVenda.setText("R$ 0,00");
     }
     
     public String getCPF(){

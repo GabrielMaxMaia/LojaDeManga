@@ -20,6 +20,9 @@ public class RelatorioContoller {
     private VendaTemporaria venda;
     public RelatorioContoller() {
         model = new RelatorioAnaliticoTableModel();
+        
+        
+        
     }
     
     public void puxaVenda(String idVenda){
@@ -50,7 +53,6 @@ public class RelatorioContoller {
                 qtdList.add(qtd);
                 qtd = 1;
             }else{
-                System.out.println("Atualiza qtd");
                 qtd++;
             }
         }
