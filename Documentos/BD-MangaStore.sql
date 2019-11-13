@@ -1,3 +1,4 @@
+#drop database mangastore;
 #select * from  ;
 create database if not exists MangaStore;
 use MangaStore;
@@ -51,11 +52,11 @@ for_status char not null,
 primary key (for_id)
 );
 
-#create table genero(
-#gen_id tinyint not null auto_increment,
-#gen_nome varchar(45)not null unique,
-#primary key (gen_id)
-#);
+create table genero(
+gen_id tinyint not null auto_increment,
+gen_nome varchar(45)unique not null ,
+primary key (gen_id)
+);
 
 create table prateleira(
 pt_id smallint not null auto_increment,
@@ -152,6 +153,19 @@ insert into funcionarios(func_nome)
  
 #insert into fornecedor (for_nome,for_status)
 	#values ('Panini','A');
- 
+
+
+insert into genero(gen_nome)
+values ('ação'),
+	   ('Aventura'),
+       ('Suspense'),
+       ('Shounen'),
+       ('Kodomo'),
+       ('Shoujo'),
+       ('Seinen'),
+       ('Josei'),
+       ('Esportes'),
+       ('Historico'),
+       ('Mecha');
 
 
