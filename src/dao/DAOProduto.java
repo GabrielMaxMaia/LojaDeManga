@@ -75,6 +75,20 @@ public class DAOProduto {
         } 
     }
     
+    public void vender(Produto produto, int qtd) throws SQLException{
+        
+        String sql = "Update Produto set pd_quantidade = pd_quantidade - ?"
+                + " WHERE pd_id = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, qtd);
+            stmt.setInt(2, produto.getId());
+            stmt.executeUpdate();
+            stmt.close();
+        } 
+    }
+    
+    
+    
     // Métodos de busca
     
     public ArrayList<Produto> buscaPorTitulo(String titulo) {

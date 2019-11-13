@@ -1,10 +1,14 @@
 package controller;
 
+import dao.DAOProduto;
 import dao.DAOVenda;
+import java.sql.SQLException;
 import java.sql.Time;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.tableModels.CarrinhoTableModel;
 import model.Produto;
 import model.VendaTemporaria;
@@ -54,6 +58,13 @@ public class VendaController {
         ArrayList<Produto> todosProd = new ArrayList<>();
 
         for (int i = 0; i < produtos.size(); i++) {
+            Produto prod = produtos.get(i);
+            DAOProduto dao = new DAOProduto();
+            try {
+                dao.vender(prod ,qtd.get(i));
+            } catch (SQLException ex) {
+                Logger.getLogger(VendaController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             for (int j = 0; j < qtd.get(i); j++) {
                 todosProd.add(produtos.get(i));
             }
