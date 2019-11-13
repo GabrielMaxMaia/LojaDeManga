@@ -151,8 +151,11 @@ insert into funcionarios(func_nome)
         ('Matheus AntiCristo Makoto');
         
  
-#insert into fornecedor (for_nome,for_status)
-	#values ('Panini','A');
+insert into fornecedor (for_nome,for_status)
+values ('Panini','A'),
+('JBC','A'),
+('NewPop','A');
+
 
 
 insert into genero(gen_nome)
