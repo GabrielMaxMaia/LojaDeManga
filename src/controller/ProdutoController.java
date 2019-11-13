@@ -39,7 +39,6 @@ public class ProdutoController {
         DAOProduto dao = new DAOProduto();
         Produto prod = dao.buscaPorId(id);
         if(prod != null){
-            System.out.println(prod.getId());
             return prod;
         }else{
             return null;
@@ -177,7 +176,6 @@ public class ProdutoController {
         
         prod.setStatus("A");
         
-        System.out.println(erros);
         if(erros.equals("")){
             return prod;
         }else{
