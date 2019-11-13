@@ -131,7 +131,7 @@ values  (12345678910,'Ana Maria Praga','am.praga@disgracamail.com','999999999','
 	#values ('Tite Kubo');
   
 insert into produto (pd_preco,pd_titulo,pd_autor,pd_quantidade)
-	values (10.02,'Bleach','Tite Kubo',100),
+	values (10.00,'Bleach','Tite Kubo',100),
 		   (10.00,'One Piece','Eichiro Oda',100),
 		   (10.00,'Naruto','Masashi Kishimoto',100),
 		   (10.00,'Samurai X','Nobuhiro Watsuki',100),
@@ -144,9 +144,9 @@ insert into produto (pd_preco,pd_titulo,pd_autor,pd_quantidade)
 		 
 insert into funcionarios(func_nome)
  values ('Rubens Toreto'),
-		('Raphaela Pistola Wagner'),
+		('Raphaela Fitness Wagner'),
         ('Max Jesus Maia'),
-        ('Rogerio Fitness Lucon'),
+        ('Rogerio POG Lucon'),
         ('Matheus AntiCristo Makoto');
         
  
