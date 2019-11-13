@@ -1337,14 +1337,15 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_bttAlteraCadastroClienteActionPerformed
 
     private void bttPesquisaClienteCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttPesquisaClienteCartActionPerformed
-        PesquisaCliente pe = new PesquisaCliente(this);
-        this.setEnabled(false);
+//        PesquisaCliente pe = new PesquisaCliente(this);
+//        this.setEnabled(false);
+            validaCodCli(jFormattedTextFieldCPFCart, jTextFieldNomeClienteCart);
     }//GEN-LAST:event_bttPesquisaClienteCartActionPerformed
 
     private void bttPesquisaProdCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttPesquisaProdCartActionPerformed
 //        PesquisaProduto pp = new PesquisaProduto(this);
 //        this.setEnabled(false);
-        validaCodProd(jTextFieldCodProdCart);
+        validaCodProd(jTextFieldCodProdCart, jTextFieldProdCart);
     }//GEN-LAST:event_bttPesquisaProdCartActionPerformed
 
     private void bttCancelarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttCancelarVendaActionPerformed
@@ -1453,24 +1454,8 @@ public class MainView extends javax.swing.JFrame {
 
     private void bttBuscaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttBuscaClienteActionPerformed
         // TODO add your handling code here:
-        if (!jTextFieldCPFCadastro.getText().trim().equals("")) {
-            if (cliController.filtrarPorCPF(jTextFieldCPFCadastro.getText())) {
-                puxaCliente(jTextFieldCPFCadastro.getText());
-            } else {
-                JOptionPane.showMessageDialog(null, "Cliente nao encontrado!");
-            }
-        } else if (!jTextFieldNomecadastro.getText().trim().equals("")) {
-            if (cliController.filtrarPorNome(jTextFieldNomecadastro.getText())) {
-                PesquisaCliente pp = new PesquisaCliente(this);
-                this.setEnabled(false);
-            } else {
-                JOptionPane.showMessageDialog(null, "Cliente nao encontrado!");
-            }
-
-        } else {
-            PesquisaCliente pp = new PesquisaCliente(this);
-            this.setEnabled(false);
-        }
+        validaCodCli(jTextFieldCPFCadastro, jTextFieldNomecadastro);
+        
     }//GEN-LAST:event_bttBuscaClienteActionPerformed
 
     private void bttAddProdCadastroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttAddProdCadastroMouseEntered
@@ -1521,7 +1506,7 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldQuantCadastroKeyTyped
 
     private void bttPesquisaProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttPesquisaProdActionPerformed
-        validaCodProd(jTextFieldCodCadastro);
+        validaCodProd(jTextFieldCodCadastro, jTextFieldDescCadastro);
     }//GEN-LAST:event_bttPesquisaProdActionPerformed
 
     private void bttPesquisaProdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttPesquisaProdMouseExited
@@ -1872,18 +1857,19 @@ public class MainView extends javax.swing.JFrame {
         JOptionPane.ERROR_MESSAGE);
         if(input == 0){
             PesquisaProduto pp = new PesquisaProduto(this);
+            this.setEnabled(false);
         }
     }
     
-    public void validaCodProd(JTextField textField){
-        if (!textField.getText().trim().equals("")) {
-            if (prodController.filtrarPorId(textField.getText())) {
-                puxaProduto(Integer.parseInt(textField.getText()));
+    public void validaCodProd(JTextField cod, JTextField nome){
+        if (!cod.getText().trim().equals("")) {
+            if (prodController.filtrarPorId(cod.getText())) {
+                puxaProduto(Integer.parseInt(cod.getText()));
             } else {
                 prodNaoEncontrado();
             }
-        } else if (!textField.getText().trim().equals("")) {
-            if (prodController.filtrarPorTitulo(textField.getText())) {
+        } else if (!nome.getText().trim().equals("")) {
+            if (prodController.filtrarPorTitulo(nome.getText())) {
                 PesquisaProduto pp = new PesquisaProduto(this);
                 this.setEnabled(false);
             } else {
@@ -1894,7 +1880,35 @@ public class MainView extends javax.swing.JFrame {
             this.setEnabled(false);
         }
     }
-    public void cliNaoEncontrado(){
     
+    public void cliNaoEncontrado(){
+        int input = JOptionPane.showConfirmDialog(null, "Abrir Lista de Clientes?",
+        "Cliente nao encontrado", JOptionPane.YES_NO_CANCEL_OPTION,
+        JOptionPane.ERROR_MESSAGE);
+        if(input == 0){
+            PesquisaCliente pc = new PesquisaCliente(this);
+            this.setEnabled(false);
+        }
+    }
+    
+    public void validaCodCli(JTextField cpf, JTextField nome){
+        if (!cpf.getText().trim().equals("")) {
+            if (cliController.filtrarPorCPF(cpf.getText())) {
+                puxaCliente(cpf.getText());
+            } else {
+                cliNaoEncontrado();
+            }
+        } else if (!nome.getText().trim().equals("")) {
+            if (cliController.filtrarPorNome(nome.getText())) {
+                PesquisaCliente pp = new PesquisaCliente(this);
+                this.setEnabled(false);
+            } else {
+                cliNaoEncontrado();
+            }
+
+        } else {
+            PesquisaCliente pp = new PesquisaCliente(this);
+            this.setEnabled(false);
+        }
     }
 }
