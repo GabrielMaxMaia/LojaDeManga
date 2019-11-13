@@ -1,3 +1,4 @@
+#select * from  ;
 create database if not exists MangaStore;
 use MangaStore;
 
@@ -119,7 +120,9 @@ foreign key (ep_prateleira) references prateleira(pt_id)
 ################################################################
 
 insert into cliente (cli_cpf,cli_nome,cli_email,cli_cel,cli_tel,cli_cep,cli_endereco,cli_cidade,cli_bairro,cli_complemento,cli_status)
-values (12345678910,'Ana Maria Praga','am.praga@disgracamail.com','999999999','54785236','21445855','Rua globo 666','Sao Paulo','Jardim iluminati','','A');
+values  (12345678910,'Ana Maria Praga','am.praga@disgracamail.com','999999999','54785236','21445855','Rua globo 666','Sao Paulo','Jardim iluminati','','A'),
+		(56487512345,'Lohan K-pop','lkpop@cortedegiromail.com','856478598','52487525','85475625','Rua Uber Eats 24','Sao Paulo','Jardim do Grau','','P'),
+        (15245875654,'Matheus Bareeeeeeeeeeto','Bareeeeeeeeeeeeto@crossfiremail.com','875498564','85475625','85478514','Rua Ruim de Mira 13','Sao Paulo','Jardim Bare Eeto','','A');
 
  #insert into titulo (ti_nome)
   #values ('Bleach');
@@ -128,10 +131,24 @@ values (12345678910,'Ana Maria Praga','am.praga@disgracamail.com','999999999','5
 	#values ('Tite Kubo');
   
 insert into produto (pd_preco,pd_titulo,pd_autor,pd_quantidade)
- values (10.02,'Bleach','Tite Kubo',100);
- 
+	values (10.02,'Bleach','Tite Kubo',100),
+		   (10.00,'One Piece','Eichiro Oda',100),
+		   (10.00,'Naruto','Masashi Kishimoto',100),
+		   (10.00,'Samurai X','Nobuhiro Watsuki',100),
+		   (10.00,'Belzebub','Ryuhei Tamura',100),
+		   (10.00,'Kuroko no Basket','Tadatoshi Fujimaki',100),
+		   (10.00,'Dragon Ball','Akira Toriyama',100),
+		   (10.00,'Yu Yu Hakusho','Yoshihiro Togashi',100),
+		   (10.00,'Yu-Gi-Oh','Kazuki Takahashi',100),
+		   (10.00,'Death Note','Tsugumi Ohba',100);
+		 
 insert into funcionarios(func_nome)
- values('Rubens Toreto');
+ values ('Rubens Toreto'),
+		('Raphaela Pistola Wagner'),
+        ('Max Jesus Maia'),
+        ('Rogerio Fitness Lucon'),
+        ('Matheus AntiCristo Makoto');
+        
  
 #insert into fornecedor (for_nome,for_status)
 	#values ('Panini','A');
