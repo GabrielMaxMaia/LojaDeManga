@@ -43,8 +43,7 @@ public class VendaController {
         int qtdInt = Integer.parseInt(qtd);
 
         if (prod != null && qtdInt > 0) {
-
-            if (prod.getQtd() >= qtdInt) {
+            if (prod.getQtd() - table.quantosEstaoNoCarrinho(prod) >= qtdInt) {
                 table.addProd(prod, qtdInt);
                 return true;
             }

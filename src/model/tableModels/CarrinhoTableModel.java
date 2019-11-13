@@ -59,11 +59,24 @@ public class CarrinhoTableModel extends AbstractTableModel{
     }
     
     public void addProd(Produto prod, int qtd){
-        lista.add(prod);
-        qtdLista.add(qtd);
-        float aux = prod.getPreco() * (float) qtd;
-        total.add(aux);
-        
+        for (int i = 0; i < lista.size(); i++) {
+            if(lista.get(i).getId() == prod.getId()){
+                qtdLista.add(i, qtdLista.get(i)+qtd);
+                float aux = prod.getPreco() * (float) qtd;
+                total.add(i, total.get(i)+aux);
+            }else{
+                lista.add(prod);
+                qtdLista.add(qtd);
+                float aux = prod.getPreco() * (float) qtd;
+                total.add(aux);
+            }
+        } 
+        if(lista.isEmpty()){
+            lista.add(prod);
+                qtdLista.add(qtd);
+                float aux = prod.getPreco() * (float) qtd;
+                total.add(aux);
+        }
         fireTableDataChanged();
     }
     
@@ -84,6 +97,15 @@ public class CarrinhoTableModel extends AbstractTableModel{
     
     public ArrayList<Float> getTotalLista(){
         return total;
+    }
+    
+    public int quantosEstaoNoCarrinho(Produto prod){
+        for (int i = 0; i < lista.size(); i++) {
+            if(lista.get(i).getId() == prod.getId()){
+                return qtdLista.get(i);
+            }
+        }
+        return 0;
     }
 //    public ArrayList<Integer> getDescontoLista() {
 //        return descontoLista;
