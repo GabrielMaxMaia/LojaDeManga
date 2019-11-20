@@ -1899,7 +1899,7 @@ public class MainView extends javax.swing.JFrame {
             }
         } else if (!nome.getText().trim().equals("")) {
             if (cliController.filtrarPorNome(nome.getText())) {
-                PesquisaCliente pp = new PesquisaCliente(this);
+                PesquisaCliente pc = new PesquisaCliente(this);
                 this.setEnabled(false);
             } else {
                 cliNaoEncontrado();

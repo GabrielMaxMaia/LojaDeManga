@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.ProdutoController;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -17,7 +18,9 @@ import model.tableModels.ProdutoTableModel;
  * @author Rogerio
  */
 public class PesquisaProduto extends javax.swing.JFrame {
-
+    
+    private ProdutoController prodController = ProdutoController.getProdutoController();
+    
     MainView parent;
     
     JTextField[] campos;
@@ -31,9 +34,7 @@ public class PesquisaProduto extends javax.swing.JFrame {
         setTitle("Mangá Store");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
-        ProdutoTableModel pd = new ProdutoTableModel();
-        pd.getProd();
-        jTable1.setModel(pd);
+        jTable1.setModel(prodController.getTableModel());
         
         this.addWindowListener(new WindowAdapter() {
 

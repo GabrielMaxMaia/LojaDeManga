@@ -186,7 +186,6 @@ public class ProdutoController {
         lista = dao.buscaPorTitulo(nome);
         if(!lista.isEmpty()){
             tableModel.setList(lista);
-            tableModel.atualiza();
             return true;
         }else{
             return false;

@@ -92,10 +92,11 @@ public class DAOProduto {
     // Métodos de busca
     
     public ArrayList<Produto> buscaPorTitulo(String titulo) {
-        String sql = "Select * from Produto where pd_titulo like '%"+titulo+"%'";
+        String sql = "Select * from Produto where pd_titulo like ?";
 
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, '%' + titulo + '%');
             ResultSet rs = stmt.executeQuery();
             ArrayList<Produto> list = new ArrayList<>();
 

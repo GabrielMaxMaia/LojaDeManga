@@ -42,11 +42,6 @@ public class ClienteController {
         lerClientes();
     }
     
-    //Metodos de acesso a DAO
-    public void pesquisaPorNome(String nome){
-        
-    }
-    
     public Cliente pesquisaPorCpf(String Cpf){
         DAOCliente dao = new DAOCliente();
         Cliente cli = dao.buscarPorCpf(Cpf);

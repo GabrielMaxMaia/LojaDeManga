@@ -47,10 +47,11 @@ public class DAOCliente {
     }
     
     public Cliente buscarPorCpf(String cpf){
-        String sql = "Select * from Cliente where cli_cpf = " + cpf;
+        String sql = "Select * from Cliente where cli_cpf = ?";
         
         try{
             PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, cpf);
             ResultSet rs = stmt.executeQuery();
             
             if(rs.next()){
@@ -80,10 +81,10 @@ public class DAOCliente {
     }
     
     public ArrayList<Cliente> buscaPorNome(String nome){
-        String sql = "Select * from Cliente where cli_nome like '%"+nome+"%'";
+        String sql = "Select * from Cliente where cli_nome like ?";
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
-//            stmt.setString(1, nome);
+            stmt.setString(1,'%' + nome + '%');
             ResultSet rs = stmt.executeQuery();
             ArrayList<Cliente> list = new ArrayList<>();
         

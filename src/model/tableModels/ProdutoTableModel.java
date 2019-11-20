@@ -65,6 +65,7 @@ public class ProdutoTableModel extends AbstractTableModel{
     
     public void setList(ArrayList<Produto> list) {
         this.lista = list;
+        fireTableDataChanged();
     }
     
     public void getProd(){
