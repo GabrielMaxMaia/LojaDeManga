@@ -1875,6 +1875,7 @@ public class MainView extends javax.swing.JFrame {
                 prodNaoEncontrado();
             }
         } else {
+            prodController.listaCompleta();
             PesquisaProduto pp = new PesquisaProduto(this);
             this.setEnabled(false);
         }
@@ -1906,6 +1907,7 @@ public class MainView extends javax.swing.JFrame {
             }
 
         } else {
+            cliController.listaCompleta();
             PesquisaCliente pp = new PesquisaCliente(this);
             this.setEnabled(false);
         }

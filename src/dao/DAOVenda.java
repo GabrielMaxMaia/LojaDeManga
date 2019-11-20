@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import lojademanga.ConnectionFactory;
 import model.Venda;
 import model.VendaTemporaria;
@@ -21,6 +23,7 @@ public class DAOVenda {
     public DAOVenda(){    
         conn = ConnectionFactory.getConnection();
     }
+    
     public void insert(Venda venda) throws SQLException {
         String sql = "INSERT INTO venda() VALUES (?,?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
@@ -29,7 +32,8 @@ public class DAOVenda {
         stmt.execute();
         stmt.close();
     }
-public ArrayList<Venda> selectAll() {
+    
+    public ArrayList<Venda> selectAll() {
         String sql = "Select * from Venda";
 
         try {
@@ -53,6 +57,26 @@ public ArrayList<Venda> selectAll() {
             return null;
         }
 
+    }
+    
+    public int pegaIdProximaVenda(){
+        
+        String sql = "select auto_increment from information_schema.tables"
+            + " where table_name = 'produto' and table_schema = 'mangastore'";
+        PreparedStatement stmt;
+        try {
+            stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()){
+                return rs.getInt("auto_increment");
+            }else{
+                return -1;
+            }  
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOVenda.class.getName()).log(Level.SEVERE, null, ex);
+            return -1;
+        }
+        
     }
     // Temporarior
     public void gerarVenda(VendaTemporaria venda){

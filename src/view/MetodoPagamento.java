@@ -225,7 +225,7 @@ public class MetodoPagamento extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldValorRecebidoActionPerformed
 
     private void bttFinalizarPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttFinalizarPagamentoActionPerformed
-        controller.finalizarCompra(parent.getCPF());
+        controller.finalizarCompraDois(parent.getCPF());
         controller.getModel().cancelarCompra();
         parent.cancelaCompras();
         close();

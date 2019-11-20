@@ -194,6 +194,10 @@ public class ClienteController {
             return false;
         }
     }
+    
+    public void listaCompleta(){
+        tableModel.getCli();
+    }
 //    public void setCpfSelecionado(String cpf){
 //        cpfSelecionado = cpf;
 //    }

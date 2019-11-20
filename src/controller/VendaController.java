@@ -1,5 +1,6 @@
 package controller;
 
+import dao.DAOItens;
 import dao.DAOProduto;
 import dao.DAOVenda;
 import java.sql.SQLException;
@@ -9,8 +10,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Itens;
 import model.tableModels.CarrinhoTableModel;
 import model.Produto;
+import model.Venda;
 import model.VendaTemporaria;
 import model.tableModels.RelatorioDinamicoTableModel;
 
@@ -50,24 +53,50 @@ public class VendaController {
         }
         return false;
     }
-
-    public void finalizarCompra(String cpf) {
-        ArrayList<Produto> produtos = table.getLista();
-        ArrayList<Integer> qtd = table.getQtdLista();
-        ArrayList<Produto> todosProd = new ArrayList<>();
-
-        for (int i = 0; i < produtos.size(); i++) {
-            Produto prod = produtos.get(i);
-            DAOProduto dao = new DAOProduto();
+    
+    public boolean finalizarCompraDois(String cpf){
+        
+        ArrayList<Produto> todosProd = pegaCarrinhoDeCompra();
+        
+        DAOVenda dao = new DAOVenda();
+        Venda venda = new Venda();
+        //Problemas Na Converçao 
+        System.out.println(cpf);
+        int aux = Integer.parseInt(cpf);
+        venda.setCliente(aux);
+        venda.setFuncionarios(1);
+        
+        try {
+            dao.insert(venda);
+        } catch (SQLException ex) {
+            Logger.getLogger(VendaController.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        
+        dao = new DAOVenda();
+        
+        int idCompra = dao.pegaIdProximaVenda() - 1;
+        
+        for (Produto produto : todosProd) {
+            Itens item = new Itens();
+            item.setCompras(idCompra);
+            item.setProduto(produto.getId());
+            DAOItens daoItens = new DAOItens();
             try {
-                dao.vender(prod ,qtd.get(i));
+                daoItens.insert(item);
             } catch (SQLException ex) {
                 Logger.getLogger(VendaController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            for (int j = 0; j < qtd.get(i); j++) {
-                todosProd.add(produtos.get(i));
+                return false;
             }
         }
+        
+        return true;
+    }
+    @Deprecated
+    public void finalizarCompra(String cpf) {
+        
+         ArrayList<Produto> todosProd = pegaCarrinhoDeCompra();
+        
         DAOVenda dao = new DAOVenda();
         Date d = new Date();
         String dStr = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);
@@ -110,6 +139,27 @@ public class VendaController {
             flag = false;
         }
         return flag;
+    }
+    
+    private ArrayList<Produto> pegaCarrinhoDeCompra(){
+        ArrayList<Produto> produtos = table.getLista();
+        ArrayList<Integer> qtd = table.getQtdLista();
+        ArrayList<Produto> todosProd = new ArrayList<>();
+
+        for (int i = 0; i < produtos.size(); i++) {
+            Produto prod = produtos.get(i);
+            DAOProduto dao = new DAOProduto();
+            try {
+                dao.vender(prod ,qtd.get(i));
+            } catch (SQLException ex) {
+                Logger.getLogger(VendaController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            for (int j = 0; j < qtd.get(i); j++) {
+                todosProd.add(produtos.get(i));
+            }
+        }
+        
+        return todosProd;
     }
     
 }

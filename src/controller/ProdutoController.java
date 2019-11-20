@@ -213,5 +213,7 @@ public class ProdutoController {
         return aux;
     }
     
-    
+    public void listaCompleta(){
+        tableModel.getProd();
+    }
 }
