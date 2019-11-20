@@ -190,7 +190,7 @@ public class MainView extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Logo_menor.png"))); // NOI18N
         jLabel1.setOpaque(true);
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Carrinho de Compras", 0, 0, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Carrinho de Compras", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
 
         jTableCarrinhoDeCompras.setForeground(new java.awt.Color(68, 53, 48));
         jTableCarrinhoDeCompras.setModel(new CarrinhoTableModel()
@@ -209,7 +209,7 @@ public class MainView extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(68, 53, 48)), "Dados do Cliente", 0, 0, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(68, 53, 48)), "Dados do Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
         jPanel6.setForeground(new java.awt.Color(68, 53, 48));
 
         jLabel2.setForeground(new java.awt.Color(68, 53, 48));
@@ -279,7 +279,7 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(68, 53, 48)), "Dados do Produto", 0, 0, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(68, 53, 48)), "Dados do Produto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
 
         jTextFieldCodProdCart.setForeground(new java.awt.Color(68, 53, 48));
         jTextFieldCodProdCart.setToolTipText("Insira o código do produto para pesquisar");
@@ -416,7 +416,7 @@ public class MainView extends javax.swing.JFrame {
 
         jLabel4.getAccessibleContext().setAccessibleName("Codigo");
 
-        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Total da Venda", 0, 0, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Total da Venda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
         jPanel8.setForeground(new java.awt.Color(68, 53, 48));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -527,7 +527,7 @@ public class MainView extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Tela de vendas", jPanel1);
 
-        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Dados do Produto", 0, 0, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Dados do Produto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
 
         jLabel12.setForeground(new java.awt.Color(68, 53, 48));
         jLabel12.setText("Código:");
@@ -814,6 +814,11 @@ public class MainView extends javax.swing.JFrame {
                 bttExcluiProdCadastroMouseExited(evt);
             }
         });
+        bttExcluiProdCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttExcluiProdCadastroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -855,7 +860,7 @@ public class MainView extends javax.swing.JFrame {
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Logo_clientes.png"))); // NOI18N
         jLabel20.setOpaque(true);
 
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Dados do Cliente", 0, 0, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Dados do Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
         jPanel10.setForeground(new java.awt.Color(68, 53, 48));
 
         jLabel19.setForeground(new java.awt.Color(68, 53, 48));
@@ -1163,7 +1168,7 @@ public class MainView extends javax.swing.JFrame {
         jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Logo_Relatorio.png"))); // NOI18N
         jLabel31.setOpaque(true);
 
-        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Consulta de vendas", 0, 0, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Consulta de vendas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
         jPanel11.setForeground(new java.awt.Color(68, 53, 48));
 
         jLabel33.setForeground(new java.awt.Color(68, 53, 48));
@@ -1311,12 +1316,20 @@ public class MainView extends javax.swing.JFrame {
 
     private void bttAlteraProdCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAlteraProdCadastroActionPerformed
         // TODO add your handling code here:
-        prodController.atualizaProduto(camposProduto);
+        if(prodController.atualizaProduto(camposProduto)){
+            JOptionPane.showMessageDialog(this, "Adicionado com sucesso");
+        }else{
+            JOptionPane.showMessageDialog(this, prodController.getErros());
+        }
     }//GEN-LAST:event_bttAlteraProdCadastroActionPerformed
 
     private void bttAlteraCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAlteraCadastroClienteActionPerformed
-        cliController.atualizaCliente(camposCadastro);
-        limpaCampos(camposCadastro);
+        if(cliController.atualizaCliente(camposCadastro)){
+            JOptionPane.showMessageDialog(this, "Adicionado com sucesso");
+            limpaCampos(camposCadastro);
+        }else{
+            JOptionPane.showMessageDialog(this, cliController.getErros());
+        }
     }//GEN-LAST:event_bttAlteraCadastroClienteActionPerformed
 
     private void bttPesquisaClienteCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttPesquisaClienteCartActionPerformed
@@ -1523,7 +1536,9 @@ public class MainView extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (prodController.addProduto(camposProduto)) {
 
-        } 
+        } else{
+            JOptionPane.showMessageDialog(this, prodController.getErros());
+        }
     }//GEN-LAST:event_bttAddProdCadastroActionPerformed
 
     private void bttAdicionarItemCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAdicionarItemCartActionPerformed
@@ -1599,6 +1614,8 @@ public class MainView extends javax.swing.JFrame {
     private void bttAddCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAddCadastroClienteActionPerformed
         if (cliController.addCliente(camposCadastro)) {
             limpaCampos(camposCadastro);
+        }else{
+            JOptionPane.showMessageDialog(this, cliController.getErros());
         }
     }//GEN-LAST:event_bttAddCadastroClienteActionPerformed
 
@@ -1619,6 +1636,10 @@ public class MainView extends javax.swing.JFrame {
         pa.setjLabelTotal(cont.getTotal());
         
     }//GEN-LAST:event_jTableVendaPesqMouseClicked
+
+    private void bttExcluiProdCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttExcluiProdCadastroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttExcluiProdCadastroActionPerformed
 
     /**
      * @param args the command line arguments

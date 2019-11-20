@@ -22,6 +22,7 @@ import model.Produto;
 public class ProdutoController {
     
     private static ProdutoController INSTANCE;
+    private String erros;
     
     private ProdutoTableModel tableModel = new ProdutoTableModel();
     
@@ -45,7 +46,7 @@ public class ProdutoController {
         }
     }
     
-    public void atualizaProduto(JTextField[] campos){
+    public boolean atualizaProduto(JTextField[] campos){
         Produto prod = validarDados(campos);
         
         if(prod != null){
@@ -53,12 +54,15 @@ public class ProdutoController {
             try {
                 dao.update(prod);
                 tableModel.getProd();
+                return true;
             } catch (SQLException ex) {
                 System.err.println("PC Erro Atualizar Produto");
                 Logger.getLogger(ProdutoController.class.getName())
                         .log(Level.SEVERE, null, ex);
+                return false;
             }
         }
+        return false;
     }
     
     public boolean addProduto(JTextField[] campos){
@@ -102,43 +106,37 @@ public class ProdutoController {
         if(!campos[0].getText().trim().equals("")){
             prod.setId(Integer.parseInt(campos[0].getText()));
         }else{
-           
+           erros +="\n - Codigo";
         }
 //        if(!campos[1].getText().trim().equals("")){
 //            prod.setTituloId(Integer.parseInt(campos[1].getText()));
 //        }else{
 //            erros +="\n - Título Campo Obrigatorio";
-//            campos[1].setBackground(Color.red);
 //        }
         if(!campos[1].getText().trim().equals("")){
             prod.setTitulo(campos[1].getText());
         }else{
-            erros +="\n - Título Campo Obrigatorio";
-            campos[1].setBackground(Color.red);
+            erros +="\n - Título";
         }
 //        if(!campos[2].getText().trim().equals("")){
 //            prod.setAutorId(Integer.parseInt(campos[2].getText()));
 //        }else{
 //            erros +="\n - Autor Campo Obrigatorio"; 
-//            campos[2].setBackground(Color.red);
 //        }
         if(!campos[2].getText().trim().equals("")){
             prod.setAutor(campos[2].getText());
         }else{
-            erros +="\n - Autor Campo Obrigatorio"; 
-            campos[2].setBackground(Color.red);
+            erros +="\n - Autor"; 
         }
 //        if(!campos[3].getText().trim().equals("")){
 //            prod.setFornecedorId(Integer.parseInt(campos[3].getText()));
 //        }else{
 //            erros +="\n - Fornecedor Campo Obrigatorio";
-//            campos[3].setBackground(Color.red);
 //        }
 //        if(!campos[4].getText().trim().equals("")){
 //            prod.setGeneroId(Integer.parseInt(campos[4].getText()));
 //        }else{
 //            erros +="\n - Gênero Campo Obrigatorio";
-//            campos[4].setBackground(Color.red);
 //        }
         if(!campos[5].getText().trim().equals("")){
             prod.setPreco(Float.parseFloat(campos[5].getText()));
@@ -147,25 +145,21 @@ public class ProdutoController {
 //            prod.setEstanteId(Integer.parseInt(campos[6].getText()));
 //        }else{
 //            erros +="\n - Estante Obrigatorio"; 
-//            campos[5].setBackground(Color.red);
 //        }
 //        if(!campos[7].getText().trim().equals("")){
 //            prod.setPrateleiraId(Integer.parseInt(campos[6].getText()));
 //        }else{
 //            erros +="\n - Prateleira Campo Obrigatorio";  
-//            campos[7].setBackground(Color.red);
 //        }
 //        if(!campos[8].getText().trim().equals("")){
 //            prod.setEdicao(Integer.parseInt(campos[7].getText()));
 //        }else{
 //            erros +="\n - Edição Campo Obrigatorio";
-//            campos[8].setBackground(Color.red);
 //        }
 //        if(!campos[10].getText().trim().equals("")){
 //            prod.setEstiloId(Integer.parseInt(campos[8].getText()));
 //        }else{
 //            erros +="\n - Estilo Campo Obrigatorio"; 
-//            campos[10].setBackground(Color.red);    
 //        }
 //        if(!campos[9].getText().trim().equals("")){
 //            prod.setStatus(campos[9].getText());
@@ -176,9 +170,12 @@ public class ProdutoController {
         
         prod.setStatus("A");
         
+        this.erros = erros;
+        
         if(erros.equals("")){
             return prod;
         }else{
+            erros = "Campos Obrigatorios: \n" + erros;
             return null;
         }
     }
@@ -210,4 +207,12 @@ public class ProdutoController {
             return false;
         }
     }
+
+    public String getErros() {
+        String aux = erros;
+        erros = "";
+        return aux;
+    }
+    
+    
 }

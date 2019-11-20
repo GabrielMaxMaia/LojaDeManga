@@ -57,19 +57,22 @@ public class ClienteController {
         }
     }
     
-    public void atualizaCliente(JTextField[] campos){
+    public boolean atualizaCliente(JTextField[] campos){
         Cliente cli = validarDados(campos);
         if(cli != null){
             DAOCliente dao = new DAOCliente();
             try {
                 dao.update(cli);
                 tableModel.getCli();
+                return true;
             } catch (SQLException ex) {
                 System.err.println("CC Erro Atualizar Cliente");
                 Logger.getLogger(ClienteController.class.getName()).
                         log(Level.SEVERE, null, ex);
+                return false;
             }
         }
+        return false;
     }
     
     public boolean addCliente(JTextField[] campos){
@@ -99,55 +102,46 @@ public class ClienteController {
             cli.setCpf(campos[0].getText());
         }else{
             erros +="\n - Cpf";
-            campos[0].setBackground(Color.red);
         }
         if(!campos[1].getText().trim().equals("")){
             cli.setNome(campos[1].getText());
         }else{
             erros +="\n - Nome";
-            campos[1].setBackground(Color.red);
         }
         if(!campos[2].getText().trim().equals("")){
             cli.setEmail(campos[2].getText());
         }else{
             erros +="\n - E-mail"; 
-            campos[2].setBackground(Color.red);
         }
         if(!campos[3].getText().trim().equals("")){
             cli.setCel(campos[3].getText());
         }else{
             erros +="\n - Celular";
-            campos[3].setBackground(Color.red);
         }
         if(!campos[4].getText().trim().equals("")){
             cli.setTel(campos[4].getText());
         }else{
             erros +="\n - Telefone";
-            campos[4].setBackground(Color.red);
         }
         if(!campos[5].getText().trim().equals("")){
             cli.setCep(campos[5].getText());
         }else{
             erros +="\n - CEP"; 
-            campos[5].setBackground(Color.red);
         }
         if(!campos[6].getText().trim().equals("")){
             cli.setEndereco(campos[6].getText());
         }else{
             erros +="\n - Endereço";  
-            campos[6].setBackground(Color.red);
         }
         if(!campos[7].getText().trim().equals("")){
             cli.setCidade(campos[7].getText());
         }else{
             erros +="\n - Cidade";
-            campos[7].setBackground(Color.red);
         }
         if(!campos[8].getText().trim().equals("")){
             cli.setBairro(campos[8].getText());
         }else{
             erros +="\n - Bairro"; 
-            campos[8].setBackground(Color.red);
         }if(!campos[9].getText().trim().equals("")){
             cli.setComplemento(campos[9].getText());
         }
