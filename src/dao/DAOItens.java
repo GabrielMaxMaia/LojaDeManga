@@ -26,7 +26,7 @@ public class DAOItens {
     }
     
        public void insert(Itens itens) throws SQLException {
-        String sql = "INSERT INTO itens(produto, compras) VALUES (?,?)";
+        String sql = "INSERT INTO itens(cp_produto, cp_compras) VALUES (?,?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.setInt(1, itens.getProduto());
         stmt.setInt(2, itens.getCompras());

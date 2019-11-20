@@ -25,9 +25,9 @@ public class DAOVenda {
     }
     
     public void insert(Venda venda) throws SQLException {
-        String sql = "INSERT INTO venda() VALUES (?,?)";
+        String sql = "INSERT INTO venda(ve_cliente, ve_funcionario) VALUES (?,?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
-        stmt.setInt(1, venda.getCliente());
+        stmt.setString(1, venda.getCliente());
         stmt.setInt(2, venda.getFuncionarios());
         stmt.execute();
         stmt.close();
@@ -45,7 +45,7 @@ public class DAOVenda {
                 Venda ve = new Venda();
                 ve.setId(rs.getInt("ve_id"));
                 ve.setFuncionarios(rs.getInt("ve_funcionario"));
-                ve.setCliente(rs.getInt("ve_cliente"));
+                ve.setCliente(rs.getString("ve_cliente"));
                 
 
                 list.add(ve);
@@ -62,7 +62,7 @@ public class DAOVenda {
     public int pegaIdProximaVenda(){
         
         String sql = "select auto_increment from information_schema.tables"
-            + " where table_name = 'produto' and table_schema = 'mangastore'";
+            + " where table_name = 'venda' and table_schema = 'mangastore'";
         PreparedStatement stmt;
         try {
             stmt = conn.prepareStatement(sql);

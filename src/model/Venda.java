@@ -11,9 +11,10 @@ package model;
  */
 public class Venda {
  
-    private int id, cliente, produtos, funcionarios;
+    private int id, produtos, funcionarios;
+    private String cliente;
 
-    public Venda(int id, int cliente, int produtos, int funcionarios) {
+    public Venda(int id, String cliente, int produtos, int funcionarios) {
         this.id = id;
         this.cliente = cliente;
         this.produtos = produtos;
@@ -31,11 +32,11 @@ public class Venda {
         this.id = id;
     }
 
-    public int getCliente() {
+    public String getCliente() {
         return cliente;
     }
 
-    public void setCliente(int cliente) {
+    public void setCliente(String cliente) {
         this.cliente = cliente;
     }
 

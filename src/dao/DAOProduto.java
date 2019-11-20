@@ -77,11 +77,11 @@ public class DAOProduto {
     
     public void vender(Produto produto, int qtd) throws SQLException{
         
-        String sql = "Update Produto set pd_quantidade = pd_quantidade - ?"
+        String sql = "Update Produto set pd_quantidade = pd_quantidade - 1"
                 + " WHERE pd_id = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, qtd);
-            stmt.setInt(2, produto.getId());
+            stmt.setInt(1, produto.getId());
             stmt.executeUpdate();
             stmt.close();
         } 

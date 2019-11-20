@@ -20,6 +20,7 @@ public class CarrinhoTableModel extends AbstractTableModel{
     ArrayList<Produto> lista = new ArrayList<Produto>();
     ArrayList<Integer> qtdLista = new ArrayList<Integer>();
     ArrayList<Float> total = new ArrayList<Float>();
+    private Cliente cli;
     
     String[] colunas = {"Codigo", "Produto", "QTD", "Preço","Subtotal"};
     
@@ -103,6 +104,14 @@ public class CarrinhoTableModel extends AbstractTableModel{
             }
         }
         return 0;
+    }
+    
+    public void setCliente(Cliente cliente){
+        this.cli = cliente;
+    }
+    
+    public Cliente getCliente(){
+        return cli;
     }
 //    public ArrayList<Integer> getDescontoLista() {
 //        return descontoLista;

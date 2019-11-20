@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Cliente;
 import model.Itens;
 import model.tableModels.CarrinhoTableModel;
 import model.Produto;
@@ -53,17 +54,15 @@ public class VendaController {
         }
         return false;
     }
-    
-    public boolean finalizarCompraDois(String cpf){
+
+    public boolean finalizarCompraDois(){
         
         ArrayList<Produto> todosProd = pegaCarrinhoDeCompra();
         
         DAOVenda dao = new DAOVenda();
         Venda venda = new Venda();
         //Problemas Na Converçao 
-        System.out.println(cpf);
-        int aux = Integer.parseInt(cpf);
-        venda.setCliente(aux);
+        venda.setCliente(table.getCliente().getCpf());
         venda.setFuncionarios(1);
         
         try {
@@ -84,12 +83,12 @@ public class VendaController {
             DAOItens daoItens = new DAOItens();
             try {
                 daoItens.insert(item);
+                DAOProduto daoProd = new DAOProduto();
             } catch (SQLException ex) {
                 Logger.getLogger(VendaController.class.getName()).log(Level.SEVERE, null, ex);
                 return false;
             }
         }
-        
         return true;
     }
     @Deprecated
@@ -158,8 +157,11 @@ public class VendaController {
                 todosProd.add(produtos.get(i));
             }
         }
-        
         return todosProd;
+    }
+    
+    public void setCliente(Cliente cliente){
+        table.setCliente(cliente);
     }
     
 }

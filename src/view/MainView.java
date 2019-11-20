@@ -1780,6 +1780,7 @@ public class MainView extends javax.swing.JFrame {
             if (abaAtual == 0) {
                 jTextFieldNomeClienteCart.setText(cli.getNome());
                 jFormattedTextFieldCPFCart.setText(cli.getCpf());
+                vendaController.setCliente(cli);
             } else if (abaAtual == 2) {
                 jTextFieldCPFCadastro.setText(cli.getCpf());
                 jTextFieldNomecadastro.setText(cli.getNome());
@@ -1841,8 +1842,9 @@ public class MainView extends javax.swing.JFrame {
         jLabelTotalDaVenda.setText("R$ 0,00");
     }
     
-    public String getCPF(){
-        return jFormattedTextFieldCPFCart.getText();
+    public void confirmaCompra(){
+        JOptionPane.showMessageDialog(this, "Compra realizada com sucesso");
+        cancelaCompras();
     }
     
     public String formataFloat(float valor){
