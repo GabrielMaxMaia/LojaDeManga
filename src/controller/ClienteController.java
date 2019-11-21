@@ -92,8 +92,11 @@ public class ClienteController {
                     Logger.getLogger(ClienteController.class.getName())
                         .log(Level.SEVERE, null, ex);
                     return false;
-            }
+                }
                 
+            }else{
+               erros = "CPF Ja existente";
+               return false;
             }
             
         } 
