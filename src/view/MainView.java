@@ -1341,7 +1341,7 @@ public class MainView extends javax.swing.JFrame {
     private void bttPesquisaProdCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttPesquisaProdCartActionPerformed
 //        PesquisaProduto pp = new PesquisaProduto(this);
 //        this.setEnabled(false);
-        validaCodProd(jTextFieldCodProdCart, jTextFieldProdCart);
+        validaCodProd(jTextFieldCodProdCart, null);
     }//GEN-LAST:event_bttPesquisaProdCartActionPerformed
 
     private void bttCancelarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttCancelarVendaActionPerformed
@@ -1868,7 +1868,7 @@ public class MainView extends javax.swing.JFrame {
             } else {
                 prodNaoEncontrado();
             }
-        } else if (!nome.getText().trim().equals("")) {
+        } else if (nome != null && !nome.getText().trim().equals("")) {
             if (prodController.filtrarPorTitulo(nome.getText())) {
                 PesquisaProduto pp = new PesquisaProduto(this);
                 this.setEnabled(false);
