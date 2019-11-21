@@ -170,5 +170,3 @@ values ('ação'),
        ('Esportes'),
        ('Historico'),
        ('Mecha');
-
-
