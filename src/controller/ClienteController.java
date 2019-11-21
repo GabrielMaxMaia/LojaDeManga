@@ -96,47 +96,47 @@ public class ClienteController {
         if(!campos[0].getText().trim().equals("")){
             cli.setCpf(campos[0].getText());
         }else{
-            erros +="\n - Cpf";
+            erros +="\n Campo Cpf Inválido";
         }
         if(!campos[1].getText().trim().equals("")){
             cli.setNome(campos[1].getText());
         }else{
-            erros +="\n - Nome";
+            erros +="\n Campo Nome Inválido";
         }
         if(!campos[2].getText().trim().equals("")){
             cli.setEmail(campos[2].getText());
         }else{
-            erros +="\n - E-mail"; 
+            erros +="\n Campo E-mail Inválido"; 
         }
         if(!campos[3].getText().trim().equals("")){
             cli.setCel(campos[3].getText());
         }else{
-            erros +="\n - Celular";
+            erros +="\n Campo Celular Inválido";
         }
         if(!campos[4].getText().trim().equals("")){
             cli.setTel(campos[4].getText());
         }else{
-            erros +="\n - Telefone";
+            erros +="\n Campo Telefone Inválido";
         }
         if(!campos[5].getText().trim().equals("")){
             cli.setCep(campos[5].getText());
         }else{
-            erros +="\n - CEP"; 
+            erros +="\n Campo CEP Inválido"; 
         }
         if(!campos[6].getText().trim().equals("")){
             cli.setEndereco(campos[6].getText());
         }else{
-            erros +="\n - Endereço";  
+            erros +="\n Campo Endereço Inválido";  
         }
         if(!campos[7].getText().trim().equals("")){
             cli.setCidade(campos[7].getText());
         }else{
-            erros +="\n - Cidade";
+            erros +="\n Campo Cidade Inválido";
         }
         if(!campos[8].getText().trim().equals("")){
             cli.setBairro(campos[8].getText());
         }else{
-            erros +="\n - Bairro"; 
+            erros +="\n Campo Bairro Inválido"; 
         }if(!campos[9].getText().trim().equals("")){
             cli.setComplemento(campos[9].getText());
         }
