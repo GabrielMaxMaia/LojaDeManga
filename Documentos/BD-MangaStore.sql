@@ -97,6 +97,7 @@ create table venda (
 ve_id int not null auto_increment unique,
 ve_cliente varchar(11)not null,
 ve_funcionario smallint not null,
+ve_data datetime default current_timestamp,
 foreign key (ve_cliente) references cliente(cli_cpf),
 foreign key (ve_funcionario) references funcionarios(func_id)
 );

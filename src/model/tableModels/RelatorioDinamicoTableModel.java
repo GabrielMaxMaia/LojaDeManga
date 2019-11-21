@@ -80,6 +80,7 @@ public class RelatorioDinamicoTableModel extends AbstractTableModel{
     }
     
     public void getQtd(){
+        listaQtd.clear();
         for (Venda venda : lista) {
             DAOItens dao = new DAOItens();
             listaQtd.add(dao.calculaQtdItens(venda.getId()));
@@ -88,6 +89,7 @@ public class RelatorioDinamicoTableModel extends AbstractTableModel{
     }
     
     public void getValorTotal(){
+        listaPreco.clear();
         for (Venda venda : lista) {
             DAOVenda dao = new DAOVenda();
             listaPreco.add(dao.calculaValorVenda(venda.getId()));

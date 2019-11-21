@@ -165,4 +165,8 @@ public class VendaController {
         table.setCliente(cliente);
     }
     
+    public void atualizaRelatorio(){
+        dinamico.atualiza();
+    }
+    
 }

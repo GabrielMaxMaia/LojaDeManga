@@ -1593,6 +1593,9 @@ evt.consume();
         } else if (abaAtual == 2) {
             limpaCampos(camposCadastro);
         }
+        if(index == 3){ 
+            vendaController.atualizaRelatorio();
+        }
         abaAtual = index;
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
