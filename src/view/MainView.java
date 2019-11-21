@@ -1603,7 +1603,7 @@ evt.consume();
         if (cliController.addCliente(camposCadastro)) {
             limpaCampos(camposCadastro);
         }else{
-            JOptionPane.showMessageDialog(this, "CPF ja existente");
+            JOptionPane.showMessageDialog(this,cliController.getErros());
         }
     }//GEN-LAST:event_bttAddCadastroClienteActionPerformed
 
