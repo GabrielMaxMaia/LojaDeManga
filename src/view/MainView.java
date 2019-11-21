@@ -1327,8 +1327,8 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_bttPesquisaProdCartActionPerformed
 
     private void bttCancelarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttCancelarVendaActionPerformed
-        int input = JOptionPane.showConfirmDialog(null, "Cancelar Compra?",
-                "Cancelando compra", JOptionPane.YES_NO_CANCEL_OPTION,
+        int input = JOptionPane.showConfirmDialog(null, "Cancelar compra?",
+                "Cancelando compra", JOptionPane.YES_NO_OPTION,
                 JOptionPane.ERROR_MESSAGE);
         if (input == 0) {
             cancelaCompras();
@@ -1336,14 +1336,11 @@ public class MainView extends javax.swing.JFrame {
         if (input == 1) {
 
         }
-        if (input == 2) {
-
-        }
     }//GEN-LAST:event_bttCancelarVendaActionPerformed
 
     private void bttPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttPagamentoActionPerformed
         if(vendaController.validaVenda(jFormattedTextFieldCPFCart.getText())){
-            int input = JOptionPane.showConfirmDialog(null, "Finalizar Compra?");
+            int input = JOptionPane.showConfirmDialog(null, "Finalizar compra?", "Finalizando compra", JOptionPane.YES_NO_OPTION);
             if (input == 0) {
                 this.setEnabled(false);
                 new MetodoPagamento(this);
