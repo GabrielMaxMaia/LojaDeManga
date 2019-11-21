@@ -630,6 +630,11 @@ public class MainView extends javax.swing.JFrame {
         jTextFieldEstanteCadastro.setToolTipText("Insira dados da estante");
         jTextFieldEstanteCadastro.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
         jTextFieldEstanteCadastro.setCaretColor(new java.awt.Color(68, 53, 48));
+        jTextFieldEstanteCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldEstanteCadastroActionPerformed(evt);
+            }
+        });
         jTextFieldEstanteCadastro.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldEstanteCadastroKeyTyped(evt);
@@ -1461,7 +1466,15 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_bttExcluiProdCadastroMouseExited
 
     private void jTextFieldEstanteCadastroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldEstanteCadastroKeyTyped
-        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(jTextFieldEstanteCadastro.getText().length()>=2)
+{
+evt.consume();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+
+            evt.consume();
+        }
+}
     }//GEN-LAST:event_jTextFieldEstanteCadastroKeyTyped
 
     private void jTextFieldQuantCadastroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldQuantCadastroKeyTyped
@@ -1615,6 +1628,10 @@ public class MainView extends javax.swing.JFrame {
     private void bttExcluiProdCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttExcluiProdCadastroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bttExcluiProdCadastroActionPerformed
+
+    private void jTextFieldEstanteCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEstanteCadastroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldEstanteCadastroActionPerformed
 
     /**
      * @param args the command line arguments
