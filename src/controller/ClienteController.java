@@ -73,18 +73,29 @@ public class ClienteController {
     public boolean addCliente(JTextField[] campos){
         Cliente cli = validarDados(campos);
         
+        
+        
         if(cli != null){
-            try {
-                DAOCliente dao = new DAOCliente();
-                dao.insert(cli);
-                tableModel.addLinha(cli);
+            DAOCliente daocli = new DAOCliente();        
+            Cliente aux = daocli.buscarPorCpf(cli.getCpf());
+            if(aux == null){
+                try {
+                    DAOCliente dao = new DAOCliente();
+                    dao.insert(cli);
+                    tableModel.addLinha(cli);
+                                
+                
+                
                 return true;
-            } catch (SQLException ex) {
-                System.err.println("CC Erro addCliente");
-                Logger.getLogger(ClienteController.class.getName())
+                } catch (SQLException ex) {
+                    System.err.println("CC Erro addCliente");
+                    Logger.getLogger(ClienteController.class.getName())
                         .log(Level.SEVERE, null, ex);
-                return false;
+                    return false;
             }
+                
+            }
+            
         } 
         return false;
     }
