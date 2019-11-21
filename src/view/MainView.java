@@ -637,10 +637,10 @@ public class MainView extends javax.swing.JFrame {
         });
 
         jLabel37.setForeground(new java.awt.Color(68, 53, 48));
-        jLabel37.setText("Prat.:");
+        jLabel37.setText("Prateleira:");
 
-        jComboBoxPrat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxPrat.setToolTipText("A\nB\nC\nD\nE\nF");
+        jComboBoxPrat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F", "G" }));
+        jComboBoxPrat.setToolTipText("");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -681,7 +681,7 @@ public class MainView extends javax.swing.JFrame {
                                 .addGap(18, 18, 18))
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addComponent(jTextFieldFornecedorCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)))
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel36)
@@ -692,10 +692,10 @@ public class MainView extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jComboBoxGênero, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(9, 9, 9)
-                        .addComponent(jLabel37)
-                        .addGap(18, 18, 18)
+                        .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jComboBoxPrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(99, 99, 99))
+                        .addGap(69, 69, 69))
                     .addComponent(jTextFieldDescCadastro, javax.swing.GroupLayout.Alignment.LEADING))
                 .addContainerGap())
         );
