@@ -1516,6 +1516,9 @@ public class MainView extends javax.swing.JFrame {
     private void bttAdicionarItemCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAdicionarItemCartActionPerformed
         vendaController.addCarrinho(jTextFieldCodProdCart.getText(), jTextFieldQntCart.getText());
         jLabelTotalDaVenda.setText(formataFloat(vendaController.getTotal()));
+        JTextField[] aux = {jTextFieldPrecoCart,
+            jTextFieldCodProdCart, jTextFieldQntCart,jTextFieldProdCart};
+        limpaCampos(aux);
 
     }//GEN-LAST:event_bttAdicionarItemCartActionPerformed
 
