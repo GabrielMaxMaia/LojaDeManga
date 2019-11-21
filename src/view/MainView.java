@@ -1346,7 +1346,7 @@ public class MainView extends javax.swing.JFrame {
             int input = JOptionPane.showConfirmDialog(null, "Finalizar Compra?");
             if (input == 0) {
                 this.setEnabled(false);
-                new MetodoPagamento(this);
+                new MetodoPagamento(this, jLabelTotalDaVenda.getText());
             } else if (input == 1) {
 
             } else if (input == 2) {

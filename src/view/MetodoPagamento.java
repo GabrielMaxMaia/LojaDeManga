@@ -19,13 +19,14 @@ import javax.swing.JFrame;
 public class MetodoPagamento extends javax.swing.JFrame {
     MainView parent;
     VendaController controller;
-    public MetodoPagamento(MainView parent) {
+    public MetodoPagamento(MainView parent, String total) {
         this.parent = parent;
         this.controller = VendaController.getVendaController();
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        jLabelTotalCompra.setText(total);
         this.addWindowListener(new WindowAdapter() {
 
             @Override
