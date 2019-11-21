@@ -1171,6 +1171,11 @@ public class MainView extends javax.swing.JFrame {
                 bttVendasPesqMouseExited(evt);
             }
         });
+        bttVendasPesq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttVendasPesqActionPerformed(evt);
+            }
+        });
 
         jTableVendaPesq.setForeground(new java.awt.Color(68, 53, 48));
         jTableVendaPesq.setModel(new javax.swing.table.DefaultTableModel(
@@ -1293,7 +1298,7 @@ public class MainView extends javax.swing.JFrame {
     private void bttAlteraProdCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAlteraProdCadastroActionPerformed
         // TODO add your handling code here:
         if(prodController.atualizaProduto(camposProduto)){
-            JOptionPane.showMessageDialog(this, "Adicionado com sucesso");
+            JOptionPane.showMessageDialog(this, "Alterado com sucesso");
         }else{
             JOptionPane.showMessageDialog(this, prodController.getErros());
         }
@@ -1511,9 +1516,10 @@ evt.consume();
     private void bttAddProdCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAddProdCadastroActionPerformed
         // TODO add your handling code here:
         if (prodController.addProduto(camposProduto)) {
-
+            JOptionPane.showMessageDialog(this, "Produto Adicionado");
+            limpaCampos(camposProduto);
         } else{
-            JOptionPane.showMessageDialog(this, prodController.getErros());
+            JOptionPane.showMessageDialog(this, "ID do Produto existente");
         }
     }//GEN-LAST:event_bttAddProdCadastroActionPerformed
 
@@ -1623,6 +1629,11 @@ evt.consume();
     private void jTextFieldEstanteCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEstanteCadastroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldEstanteCadastroActionPerformed
+
+    private void bttVendasPesqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttVendasPesqActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_bttVendasPesqActionPerformed
 
     /**
      * @param args the command line arguments

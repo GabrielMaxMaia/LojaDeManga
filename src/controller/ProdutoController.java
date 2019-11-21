@@ -106,7 +106,7 @@ public class ProdutoController {
         if(!campos[0].getText().trim().equals("")){
             prod.setId(Integer.parseInt(campos[0].getText()));
         }else{
-           erros +="\n - Codigo";
+           erros +="\n Campo Código inválido";
         }
 //        if(!campos[1].getText().trim().equals("")){
 //            prod.setTituloId(Integer.parseInt(campos[1].getText()));
@@ -116,7 +116,7 @@ public class ProdutoController {
         if(!campos[1].getText().trim().equals("")){
             prod.setTitulo(campos[1].getText());
         }else{
-            erros +="\n - Título";
+            erros +="\n Campo Título inválido";
         }
 //        if(!campos[2].getText().trim().equals("")){
 //            prod.setAutorId(Integer.parseInt(campos[2].getText()));
@@ -126,7 +126,7 @@ public class ProdutoController {
         if(!campos[2].getText().trim().equals("")){
             prod.setAutor(campos[2].getText());
         }else{
-            erros +="\n - Autor"; 
+            erros +="\n Campo Autor inválido"; 
         }
 //        if(!campos[3].getText().trim().equals("")){
 //            prod.setFornecedorId(Integer.parseInt(campos[3].getText()));
@@ -164,8 +164,8 @@ public class ProdutoController {
 //        if(!campos[9].getText().trim().equals("")){
 //            prod.setStatus(campos[9].getText());
 //        }
-        if(!campos[11].getText().trim().equals("")){
-            prod.setQtd(Integer.parseInt(campos[11].getText()));
+        if(!campos[9].getText().trim().equals("")){
+            prod.setQtd(Integer.parseInt(campos[9].getText()));
         }
         
         prod.setStatus("A");
