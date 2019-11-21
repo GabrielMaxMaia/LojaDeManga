@@ -11,6 +11,8 @@ import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -27,6 +29,22 @@ public class MetodoPagamento extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         jLabelTotalCompra.setText(total);
+        jTextFieldValorRecebido.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                alterado();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                alterado();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                alterado();
+            }
+        });
         this.addWindowListener(new WindowAdapter() {
 
             @Override
@@ -60,6 +78,9 @@ public class MetodoPagamento extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabelTroco = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabelTotalCompra1 = new javax.swing.JLabel();
+        jLabelTotalCompra2 = new javax.swing.JLabel();
+        jLabelTotalCompra3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,7 +91,7 @@ public class MetodoPagamento extends javax.swing.JFrame {
         jLabelTotalCompra.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelTotalCompra.setForeground(new java.awt.Color(68, 53, 48));
         jLabelTotalCompra.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelTotalCompra.setText("R$ 00,00");
+        jLabelTotalCompra.setText("00,00");
         jLabelTotalCompra.setToolTipText("");
         jLabelTotalCompra.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
 
@@ -115,7 +136,7 @@ public class MetodoPagamento extends javax.swing.JFrame {
         jTextFieldValorRecebido.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldValorRecebido.setForeground(new java.awt.Color(68, 53, 48));
         jTextFieldValorRecebido.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldValorRecebido.setText("R$ 00,00");
+        jTextFieldValorRecebido.setText("00,00");
         jTextFieldValorRecebido.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
         jTextFieldValorRecebido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,12 +156,33 @@ public class MetodoPagamento extends javax.swing.JFrame {
         jLabelTroco.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelTroco.setForeground(new java.awt.Color(68, 53, 48));
         jLabelTroco.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelTroco.setText("R$ 00,00");
+        jLabelTroco.setText("00,00");
         jLabelTroco.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(68, 53, 48));
         jLabel6.setText("Selecione a forma de pagamento:");
+
+        jLabelTotalCompra1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelTotalCompra1.setForeground(new java.awt.Color(68, 53, 48));
+        jLabelTotalCompra1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelTotalCompra1.setText("R$");
+        jLabelTotalCompra1.setToolTipText("");
+        jLabelTotalCompra1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+
+        jLabelTotalCompra2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelTotalCompra2.setForeground(new java.awt.Color(68, 53, 48));
+        jLabelTotalCompra2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelTotalCompra2.setText("R$");
+        jLabelTotalCompra2.setToolTipText("");
+        jLabelTotalCompra2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
+
+        jLabelTotalCompra3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelTotalCompra3.setForeground(new java.awt.Color(68, 53, 48));
+        jLabelTotalCompra3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelTotalCompra3.setText("R$");
+        jLabelTotalCompra3.setToolTipText("");
+        jLabelTotalCompra3.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -149,19 +191,26 @@ public class MetodoPagamento extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4))
-                                .addGap(46, 46, 46)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabelTotalCompra, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldValorRecebido)
-                                    .addComponent(jLabelTroco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jLabel6)))
+                                .addComponent(jLabel4)
+                                .addGap(208, 208, 208)
+                                .addComponent(jLabelTotalCompra3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(136, 136, 136)
+                                .addComponent(jLabelTotalCompra2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(74, 74, 74)
+                                .addComponent(jLabelTotalCompra1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelTroco, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextFieldValorRecebido, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabelTotalCompra, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE))))
+                    .addComponent(jLabel6)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(99, 99, 99)
                         .addComponent(jRadioButtonCredito)
@@ -180,15 +229,18 @@ public class MetodoPagamento extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelTotalCompra))
+                    .addComponent(jLabelTotalCompra)
+                    .addComponent(jLabelTotalCompra1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel3)
-                    .addComponent(jTextFieldValorRecebido, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldValorRecebido, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelTotalCompra2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel4)
-                    .addComponent(jLabelTroco))
+                    .addComponent(jLabelTroco)
+                    .addComponent(jLabelTotalCompra3))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
@@ -206,7 +258,7 @@ public class MetodoPagamento extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(57, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -280,7 +332,7 @@ public class MetodoPagamento extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-//                new MetodoPagamento().setVisible(true);
+                new MetodoPagamento(null, "10").setVisible(true);
             }
         });
         
@@ -294,6 +346,9 @@ public class MetodoPagamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelTotalCompra;
+    private javax.swing.JLabel jLabelTotalCompra1;
+    private javax.swing.JLabel jLabelTotalCompra2;
+    private javax.swing.JLabel jLabelTotalCompra3;
     private javax.swing.JLabel jLabelTroco;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButtonCredito;
@@ -305,5 +360,25 @@ public class MetodoPagamento extends javax.swing.JFrame {
     private void close(){
         parent.setEnabled(true);
         dispose();
+    }
+    
+    private void alterado(){
+        if(jTextFieldValorRecebido.getText().length() > 0){
+            float aux = stringToFloat(jLabelTotalCompra.getText()) 
+                    - stringToFloat(jTextFieldValorRecebido.getText());
+            jLabelTroco.setText(floatToString(aux));
+        }
+    }
+    
+    private float stringToFloat(String texto){
+        String aux = texto.replaceAll(",", ".");
+        System.out.println(aux);
+        return Float.parseFloat(aux);
+    }
+    
+    private String floatToString(float valor){
+        System.out.println(Float.toString(valor));
+        String aux = Float.toString(valor).replaceAll(".", ",");
+        return aux;
     }
 }

@@ -1304,7 +1304,7 @@ public class MainView extends javax.swing.JFrame {
     private void bttAlteraProdCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAlteraProdCadastroActionPerformed
         // TODO add your handling code here:
         if(prodController.atualizaProduto(camposProduto)){
-            JOptionPane.showMessageDialog(this, "Adicionado com sucesso");
+            JOptionPane.showMessageDialog(this, "Alterado com sucesso");
         }else{
             JOptionPane.showMessageDialog(this, prodController.getErros());
         }
