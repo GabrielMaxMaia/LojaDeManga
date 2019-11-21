@@ -126,15 +126,15 @@ public class VendaController {
         return total;
     }
     
-    public boolean validaVenda(String cpf, String id){
+    public boolean validaVenda(String cpf){
         boolean flag = true;
-        if(cpf.equals("") || id.equals("")){
+        if(cpf.equals("")){
             flag = false;
         }
         if(flag && !cliController.filtrarPorCPF(cpf)){
             flag = false;
         }
-        if(flag && !prodController.filtrarPorId(id)){
+        if(table.isEmpty()){
             flag = false;
         }
         return flag;

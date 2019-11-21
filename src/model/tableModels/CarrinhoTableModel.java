@@ -116,6 +116,10 @@ public class CarrinhoTableModel extends AbstractTableModel{
 //    public ArrayList<Integer> getDescontoLista() {
 //        return descontoLista;
 //    }
+
+    public boolean isEmpty() {
+        return lista.isEmpty();
+    }
     
     
 }

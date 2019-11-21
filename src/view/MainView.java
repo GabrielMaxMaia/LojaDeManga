@@ -1360,8 +1360,7 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_bttCancelarVendaActionPerformed
 
     private void bttPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttPagamentoActionPerformed
-        if(vendaController.validaVenda(jFormattedTextFieldCPFCart.getText(),
-                jTextFieldCodProdCart.getText())){
+        if(vendaController.validaVenda(jFormattedTextFieldCPFCart.getText())){
             int input = JOptionPane.showConfirmDialog(null, "Finalizar Compra?");
             if (input == 0) {
                 this.setEnabled(false);
