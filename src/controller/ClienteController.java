@@ -73,18 +73,32 @@ public class ClienteController {
     public boolean addCliente(JTextField[] campos){
         Cliente cli = validarDados(campos);
         
+        
+        
         if(cli != null){
-            try {
-                DAOCliente dao = new DAOCliente();
-                dao.insert(cli);
-                tableModel.addLinha(cli);
+            DAOCliente daocli = new DAOCliente();        
+            Cliente aux = daocli.buscarPorCpf(cli.getCpf());
+            if(aux == null){
+                try {
+                    DAOCliente dao = new DAOCliente();
+                    dao.insert(cli);
+                    tableModel.addLinha(cli);
+                                
+                
+                JOptionPane.showMessageDialog(null,"Cadastro Realizado");
                 return true;
-            } catch (SQLException ex) {
-                System.err.println("CC Erro addCliente");
-                Logger.getLogger(ClienteController.class.getName())
+                } catch (SQLException ex) {
+                    System.err.println("CC Erro addCliente");
+                    Logger.getLogger(ClienteController.class.getName())
                         .log(Level.SEVERE, null, ex);
-                return false;
+                    return false;
+                }
+                
+            }else{
+               erros = "CPF Ja existente";
+               return false;
             }
+            
         } 
         return false;
     }
