@@ -85,7 +85,7 @@ public class ClienteController {
                     tableModel.addLinha(cli);
                                 
                 
-                
+                JOptionPane.showMessageDialog(null,"Cadastro Realizado");
                 return true;
                 } catch (SQLException ex) {
                     System.err.println("CC Erro addCliente");
