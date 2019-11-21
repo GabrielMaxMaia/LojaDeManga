@@ -5,21 +5,25 @@
  */
 package model.tableModels;
 
+import dao.DAOItens;
 import dao.DAOVenda;
 import java.util.ArrayList;
 import java.util.Set;
 import javax.swing.table.AbstractTableModel;
-import model.VendaTemporaria;
+import model.Venda;
+
 
 /**
  *
  * @author rogerio.slucon
  */
 public class RelatorioDinamicoTableModel extends AbstractTableModel{
-    ArrayList<VendaTemporaria> lista = new ArrayList<>();
+    ArrayList<Venda> lista = new ArrayList<>();
+    ArrayList<Integer> listaQtd = new ArrayList<>();
+    ArrayList<Integer> listaPreco = new ArrayList<>();
     
     String[] colunas = {"Codigo da Venda", "Cliente", "Quantidade de Produtos",
-        "Valor da Venda"};
+        "Valor da Venda", "Data Venda"};
     
     @Override
     public String getColumnName(int column) {
@@ -44,15 +48,17 @@ public class RelatorioDinamicoTableModel extends AbstractTableModel{
             case 1:
                 return lista.get(linha).getCliente();
             case 2:
-                return lista.get(linha).getQtd(); 
+                return listaQtd.get(linha); 
             case 3:
-                return lista.get(linha).getValor();
+                return listaPreco.get(linha);
+            case 4:
+                return lista.get(linha).getData();
         }
         
         return null;
     }
     
-    public void addLinha(VendaTemporaria prod){
+    public void addLinha(Venda prod){
         lista.add(prod);
         fireTableDataChanged();
     }
@@ -62,21 +68,43 @@ public class RelatorioDinamicoTableModel extends AbstractTableModel{
         fireTableDataChanged();
     }
     
-    public void setList(ArrayList<VendaTemporaria> list) {
+    public void setList(ArrayList<Venda> list) {
         this.lista = list;
     }
     
-    //Temporario
     public void getComprar(){
         lista.clear();
         DAOVenda dao = new DAOVenda();
-        Set<String> keys = dao.getKey();
-        
-        for (String key : keys) {
-            VendaTemporaria venda = dao.getVendaItens(key);
-            venda.setId(key);
-            lista.add(venda);
+        lista = dao.selectAll();
+        getQtd();
+    }
+    
+    public void getQtd(){
+        for (Venda venda : lista) {
+            DAOItens dao = new DAOItens();
+            listaQtd.add(dao.calculaQtdItens(venda.getId()));
+        }
+        getValorTotal();
+    }
+    
+    public void getValorTotal(){
+        for (Venda venda : lista) {
+            DAOVenda dao = new DAOVenda();
+            listaPreco.add(dao.calculaValorVenda(venda.getId()));
         }
     }
+//    //Temporario
+//    public void getComprar(){
+//        lista.clear();
+//        DAOVenda dao = new DAOVenda();
+//        Set<String> keys = dao.getKey();
+//        
+//        for (String key : keys) {
+//            VendaTemporaria venda = dao.getVendaItens(key);
+//            venda.setId(key);
+//            lista.add(venda);
+//        }
+//    }
+    
     
 }

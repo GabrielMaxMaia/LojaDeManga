@@ -57,7 +57,26 @@ public class DAOItens {
         }
 
     }
+    public int calculaQtdItens(int id){
+        String sql = "select Count(*) from itens where cp_compras = ?;";
+        
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
 
+            if (rs.next()) {
+              return rs.getInt("Count(*)");
+            }
+            
+            ConnectionFactory.closeConnection(conn, stmt,rs);
+            return -1;        
+        } catch (SQLException ex) {
+            System.err.println("DAO ITENS: " + ex);
+            return -1;
+        }
+    }
+    
 }
 
 

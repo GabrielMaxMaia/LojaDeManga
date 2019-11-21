@@ -114,6 +114,7 @@ public class VendaController {
     }
     
     public RelatorioDinamicoTableModel getRelatorioDinamicoTableModel(){
+        dinamico.getComprar();
         return dinamico;
     }
     
