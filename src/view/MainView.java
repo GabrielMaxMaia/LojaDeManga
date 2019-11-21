@@ -1343,7 +1343,7 @@ public class MainView extends javax.swing.JFrame {
             int input = JOptionPane.showConfirmDialog(null, "Finalizar compra?", "Finalizando compra", JOptionPane.YES_NO_OPTION);
             if (input == 0) {
                 this.setEnabled(false);
-                new MetodoPagamento(this);
+                new MetodoPagamento(this, jLabelTotalDaVenda.getText());
             } else if (input == 1) {
 
             } else if (input == 2) {
@@ -1600,7 +1600,7 @@ evt.consume();
         if (cliController.addCliente(camposCadastro)) {
             limpaCampos(camposCadastro);
         }else{
-            JOptionPane.showMessageDialog(this, "CPF ja existente");
+            JOptionPane.showMessageDialog(this,cliController.getErros());
         }
     }//GEN-LAST:event_bttAddCadastroClienteActionPerformed
 
