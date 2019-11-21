@@ -164,8 +164,8 @@ public class ProdutoController {
 //        if(!campos[9].getText().trim().equals("")){
 //            prod.setStatus(campos[9].getText());
 //        }
-        if(!campos[11].getText().trim().equals("")){
-            prod.setQtd(Integer.parseInt(campos[11].getText()));
+        if(!campos[9].getText().trim().equals("")){
+            prod.setQtd(Integer.parseInt(campos[9].getText()));
         }
         
         prod.setStatus("A");
