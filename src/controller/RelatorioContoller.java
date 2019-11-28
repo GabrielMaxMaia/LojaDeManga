@@ -20,7 +20,7 @@ import model.tableModels.RelatorioDinamicoTableModel;
 public class RelatorioContoller {
     private RelatorioAnaliticoTableModel analitico;
     private RelatorioDinamicoTableModel dinamico;
-    private VendaTemporaria venda;
+    private Venda venda;
     
     public RelatorioContoller() {
         analitico = new RelatorioAnaliticoTableModel();
@@ -31,23 +31,19 @@ public class RelatorioContoller {
     
     public void puxaVenda(String idVenda){
         DAOVenda dao = new DAOVenda();
-        VendaTemporaria venda = dao.getVendaItens(idVenda);
-        if(venda != null){
+        Venda venda = dao.pegarVendaItens(idVenda);
+        if(venda != null)
             atualizaRelatorio(venda);
-        }else{
-
-        }
-        
     }
-    
-    public void atualizaRelatorio(VendaTemporaria venda){
+        
+    public void atualizaRelatorio(Venda venda){
         this.venda = venda;
-        ArrayList<Produto> vendaProd = venda.getProdutos();
+        ArrayList<Produto> vendaListaProd = venda.getListaProdutos();
         ArrayList<Produto> aux = new ArrayList<Produto>();
         ArrayList<Integer> qtdList = new ArrayList<Integer>();
         Produto prod = null;
         int qtd = 1;
-        for (Produto produto : vendaProd) {
+        for (Produto produto : vendaListaProd) {
             if(prod == null){
                 prod = produto;
                 aux.add(prod);
@@ -64,19 +60,19 @@ public class RelatorioContoller {
         analitico.setLista(aux);
         analitico.setQtdLista(qtdList);
     }
-    
-    public RelatorioAnaliticoTableModel getModel() {
+//    
+    public RelatorioAnaliticoTableModel getModelAnalitica() {
         return analitico;
     }
     
     public String getCPF(){
         return venda.getCliente();
     }
-    public String getId(){
+    public int getId(){
         return venda.getId();
     }
-    public String getTotal(){
-        return Float.toString(venda.getValor());
+    public Float getTotal(){
+        return venda.getValor();
     }
     
     public void filtrarPorData(String dataInicio, String dataFinal){

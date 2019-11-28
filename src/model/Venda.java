@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author rogerio.slucon
@@ -12,7 +14,9 @@ package model;
 public class Venda {
  
     private int id, produtos, funcionarios;
+    private float valor;
     private String cliente, data;
+    private ArrayList<Produto> listaProdutos;
 
     public Venda(int id, String cliente, int produtos, int funcionarios) {
         this.id = id;
@@ -44,10 +48,18 @@ public class Venda {
         return produtos;
     }
 
-    public void setProdutos(int produtos) {
-        this.produtos = produtos;
+    public void setListaProdutos(ArrayList listaProdutos) {
+        this.listaProdutos = listaProdutos;
     }
 
+    public ArrayList<Produto> getListaProdutos() {
+        return listaProdutos;
+    }
+
+    public void setProdutos(ArrayList<Produto> listaProdutos) {
+        this.listaProdutos = listaProdutos; 
+    }
+    
     public int getFuncionarios() {
         return funcionarios;
     }
@@ -62,5 +74,13 @@ public class Venda {
 
     public void setData(String data) {
         this.data = data;
-    }  
+    }
+    
+    public float getValor() {
+        return valor;
+    }
+
+    public void setValor(float valor) {
+        this.valor = valor;
+    }
 }

@@ -1550,11 +1550,12 @@ public class MainView extends javax.swing.JFrame {
         int index = jTableVendaPesq.getSelectedRow();
         String idVenda = model.getValueAt(index, 0).toString();
         //Temporario
-//        cont.puxaVenda(idVenda);
-//        PesquisaAnalitica pa = new PesquisaAnalitica(cont.getModel());
-//        pa.setjLabelCFP(cont.getCPF());
-//        pa.setjLabelCodCompra(cont.getId());
-//        pa.setjLabelTotal(cont.getTotal());
+        relatorioController.puxaVenda(idVenda);
+        PesquisaAnalitica pa = new PesquisaAnalitica(relatorioController.getModelAnalitica());
+        pa.setjLabelCFP(relatorioController.getCPF());
+        pa.setjLabelCodCompra(Integer.toString(relatorioController.getId()));
+        pa.setjLabelTotal(Float.toString(relatorioController.getTotal()));
+        pa.setjLabelCodCompra(idVenda);
         
     }//GEN-LAST:event_jTableVendaPesqMouseClicked
 

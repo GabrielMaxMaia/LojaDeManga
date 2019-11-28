@@ -16,8 +16,10 @@ import model.VendaTemporaria;
 public class DAOVenda {
     private Connection conn;
     //Temporario
-    private static HashMap<String, VendaTemporaria> listaVenda = new HashMap<String, VendaTemporaria>();
+    //private static HashMap<String, VendaTemporaria> listaVenda = new HashMap<String, VendaTemporaria>();
 
+    private static ArrayList<Venda> listaVenda = new ArrayList<Venda>();
+    
     private static int idVenda = 0;
     
     public DAOVenda(){    
@@ -101,6 +103,10 @@ public class DAOVenda {
         }
     }
     
+     /*Nome, CPF, Codigo do Produto, Nome do Produto,
+        Valor Produto, Quantidade, Valor SubTotal,
+     Código da Compra*/
+     
     public Venda pegarVendaItens(String id){
         String sql = "select sum(produto.pd_preco) as soma from produto, "
                 + "itens where itens.cp_compras = ? and "
@@ -117,21 +123,24 @@ public class DAOVenda {
             
         }
         
-    }
-     
-    // Temporarior
-    public void gerarVenda(VendaTemporaria venda){
-        String aux = Integer.toString(idVenda);
-        listaVenda.put(aux, venda);
-        idVenda++;
-    }
-    
-    public VendaTemporaria getVendaItens(String idVenda){
         return listaVenda.get(idVenda);
     }
-    
-    public Set<String> getKey() {
-        return listaVenda.keySet();
-    }
+     
+     
+    // TEMPORARIO
+     
+//    public void gerarVenda(VendaTemporaria venda){
+//        String aux = Integer.toString(idVenda);
+//        listaVenda.put(aux, venda);
+//        idVenda++;
+//    }
+//    
+//    public VendaTemporaria getVendaItens(String idVenda){
+//        return listaVenda.get(idVenda);
+//    }
+//    
+//    public Set<String> getKey() {
+//        return listaVenda.keySet();
+//    }
     
 }

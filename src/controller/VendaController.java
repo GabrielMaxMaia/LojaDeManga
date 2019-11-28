@@ -91,19 +91,19 @@ public class VendaController {
         }
         return true;
     }
-    @Deprecated
-    public void finalizarCompra(String cpf) {
-        
-         ArrayList<Produto> todosProd = pegaCarrinhoDeCompra();
-        
-        DAOVenda dao = new DAOVenda();
-        Date d = new Date();
-        String dStr = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);
-        VendaTemporaria venda = new VendaTemporaria(todosProd);
-        venda.setCliente(cpf);
-        dao.gerarVenda(venda);
-        dinamico.atualiza();
-    }
+//    @Deprecated
+//    public void finalizarCompra(String cpf) {
+//        
+//         ArrayList<Produto> todosProd = pegaCarrinhoDeCompra();
+//        
+//        DAOVenda dao = new DAOVenda();
+//        Date d = new Date();
+//        String dStr = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);
+//        VendaTemporaria venda = new VendaTemporaria(todosProd);
+//        venda.setCliente(cpf);
+//        dao.gerarVenda(venda);
+//        dinamico.atualiza();
+//    }
 
     public void cancelarCompra() {
         table.cancelarCompra();

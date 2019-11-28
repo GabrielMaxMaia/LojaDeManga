@@ -37,8 +37,7 @@ public class VendaTemporaria {
     }
 
     public void setProdutos(ArrayList<Produto> produtos) {
-        this.produtos = produtos;
-        
+        this.produtos = produtos; 
     }
 
     public int getQtd() {

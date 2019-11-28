@@ -8,7 +8,6 @@ package model.tableModels;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 import model.Produto;
-import model.VendaTemporaria;
 
 /**
  *
@@ -18,8 +17,8 @@ public class RelatorioAnaliticoTableModel extends AbstractTableModel{
     ArrayList<Produto> lista = new ArrayList<>();
     ArrayList<Integer> qtdLista = new ArrayList<>();
     
-    String[] colunas = {"Codigo da Produto", "Nome do Produto", "Quantidade",
-        "Valor do Total"};
+    String[] colunas = {"Codigo do Produto", "Nome do Produto",
+        "Valor Produto", "Quantidade", "Valor SubTotal"};
     
     @Override
     public String getColumnName(int column) {
@@ -59,4 +58,6 @@ public class RelatorioAnaliticoTableModel extends AbstractTableModel{
     public void setQtdLista(ArrayList<Integer> qtdLista) {
         this.qtdLista = qtdLista;
     }   
+    
+    
 }
