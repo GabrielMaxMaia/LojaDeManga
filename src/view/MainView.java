@@ -1524,11 +1524,16 @@ evt.consume();
     }//GEN-LAST:event_bttAddProdCadastroActionPerformed
 
     private void bttAdicionarItemCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAdicionarItemCartActionPerformed
-        vendaController.addCarrinho(jTextFieldCodProdCart.getText(), jTextFieldQntCart.getText());
-        jLabelTotalDaVenda.setText(formataFloat(vendaController.getTotal()));
-        JTextField[] aux = {jTextFieldPrecoCart,
-            jTextFieldCodProdCart, jTextFieldQntCart,jTextFieldProdCart};
-        limpaCampos(aux);
+        if(!jTextFieldCodProdCart.getText().trim().equalsIgnoreCase("")){
+            vendaController.addCarrinho(jTextFieldCodProdCart.getText(), jTextFieldQntCart.getText());
+            jLabelTotalDaVenda.setText(formataFloat(vendaController.getTotal()));
+            JTextField[] aux = {jTextFieldPrecoCart,
+                jTextFieldCodProdCart, jTextFieldQntCart,jTextFieldProdCart};
+            limpaCampos(aux);
+        }else{
+            JOptionPane.showMessageDialog(null, "Digite um codigo de produto");
+        }
+        
 
     }//GEN-LAST:event_bttAdicionarItemCartActionPerformed
 
