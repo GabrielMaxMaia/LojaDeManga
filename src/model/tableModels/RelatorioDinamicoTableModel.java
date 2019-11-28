@@ -69,8 +69,14 @@ public class RelatorioDinamicoTableModel extends AbstractTableModel{
     }
     
     public void setList(ArrayList<Venda> list) {
+//        this.lista.clear();
+//        this.listaPreco.clear();
+//        this.listaQtd.clear();
+        System.out.println(lista.size());
+        this.fireTableRowsDeleted(0, 2);
         this.lista = list;
-        getQtd();
+//        getQtd();
+        fireTableDataChanged();
     }
     
     public void getComprar(){

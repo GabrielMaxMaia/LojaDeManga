@@ -144,28 +144,28 @@ public class DAOVenda {
 //    }
     
     public ArrayList<Venda> PesqData(java.sql.Date dateI, java.sql.Date dateF){
-        String sql = "select ve_data from venda where ve_data between ? and ?;";
+        String sql = "select * from venda where ve_data between ? and ?;";
         ArrayList<Venda> lista = new ArrayList<>();
         
             try {
                 PreparedStatement stmt = conn.prepareStatement(sql);
-                ArrayList<Venda> list = new ArrayList<>();
                 stmt = conn.prepareStatement(sql);
                 stmt.setDate(1, dateI);
                 stmt.setDate(2, dateF);
                 ResultSet rs = stmt.executeQuery();
                 
                 while (rs.next()) {
-                Venda ve = new Venda();
-                ve.setId(rs.getInt("ve_id"));
-                ve.setFuncionarios(rs.getInt("ve_funcionario"));
-                ve.setCliente(rs.getString("ve_cliente"));
-                ve.setData(rs.getString("ve_data"));
+                    Venda ve = new Venda();
+                    ve.setId(rs.getInt("ve_id"));
+                    ve.setFuncionarios(rs.getInt("ve_funcionario"));
+                    ve.setCliente(rs.getString("ve_cliente"));
+                    ve.setData(rs.getString("ve_data"));
 
-                list.add(ve);
+                    lista.add(ve);
             }
                 ConnectionFactory.closeConnection(conn, stmt, rs);
-                return list;
+                System.out.println("Retornando DAOVENDA:   " + lista);
+                return lista;
             } catch (SQLException ex) {
                 Logger.getLogger(DAOVenda.class.getName()).log(Level.SEVERE, null, ex);
                 return null;

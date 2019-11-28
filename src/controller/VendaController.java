@@ -27,7 +27,6 @@ public class VendaController {
     private CarrinhoTableModel table = new CarrinhoTableModel();
     private ClienteController cliController;
     private ProdutoController prodController;
-    private RelatorioDinamicoTableModel dinamico = new RelatorioDinamicoTableModel();
 
     public static VendaController getVendaController(){
         if(INSTANCE != null){
@@ -112,12 +111,7 @@ public class VendaController {
     public CarrinhoTableModel getModel() {
         return table;
     }
-    
-    public RelatorioDinamicoTableModel getRelatorioDinamicoTableModel(){
-        dinamico.getComprar();
-        return dinamico;
-    }
-    
+     
     public float getTotal (){
         float total = 0;
         ArrayList<Float> aux = table.getTotalLista();
@@ -163,10 +157,6 @@ public class VendaController {
     
     public void setCliente(Cliente cliente){
         table.setCliente(cliente);
-    }
-    
-    public void atualizaRelatorio(){
-        dinamico.atualiza();
     }
     
 }

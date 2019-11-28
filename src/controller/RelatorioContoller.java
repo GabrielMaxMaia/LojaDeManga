@@ -86,7 +86,7 @@ public class RelatorioContoller {
         try {
             dataI = formatar.parse(dataInicio);
             dataF = formatar.parse(dataFinal);
-            
+
             java.sql.Date dataSQLI = new java.sql.Date(dataI.getTime());
             java.sql.Date dataSQLF = new java.sql.Date(dataF.getTime());
             
@@ -102,5 +102,13 @@ public class RelatorioContoller {
         }
         
         
+    }
+    
+    public void atualizaRelatorio(){
+        dinamico.atualiza();
+    }
+    
+    public RelatorioDinamicoTableModel getDinamico() {
+        return dinamico;
     }
 }

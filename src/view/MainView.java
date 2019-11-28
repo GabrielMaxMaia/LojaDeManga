@@ -63,7 +63,7 @@ public class MainView extends javax.swing.JFrame {
         camposProduto = aux3;
 
         jTableCarrinhoDeCompras.setModel(vendaController.getModel());
-        jTableVendaPesq.setModel(vendaController.getRelatorioDinamicoTableModel());
+        jTableVendaPesq.setModel(relatorioController.getDinamico());
     }
 
     /**
@@ -1162,8 +1162,15 @@ public class MainView extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTableVendaPesq);
 
         jFormattedTextFieldDataIncial.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        jFormattedTextFieldDataIncial.setText("10/10/2019");
 
         jFormattedTextFieldDataFinal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        jFormattedTextFieldDataFinal.setText("10/10/2020");
+        jFormattedTextFieldDataFinal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldDataFinalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -1528,7 +1535,7 @@ public class MainView extends javax.swing.JFrame {
             limpaCampos(camposCadastro);
         }
         if(index == 3){ 
-            vendaController.atualizaRelatorio();
+            relatorioController.atualizaRelatorio();
         }
         abaAtual = index;
     }//GEN-LAST:event_jTabbedPane1StateChanged
@@ -1570,14 +1577,21 @@ public class MainView extends javax.swing.JFrame {
                     , jFormattedTextFieldDataFinal.getText().trim());
         }else if(!jFormattedTextFieldDataIncial.getText().trim().equalsIgnoreCase("")){
             System.out.println("Pesquisa so com inicio");
+            relatorioController.filtrarPorData(jFormattedTextFieldDataIncial.getText().trim()
+                    , "31/12/3000");
         }else if(!jFormattedTextFieldDataFinal.getText().trim().equalsIgnoreCase("")){
-            System.out.println("Pesquisa so com final");
+            relatorioController.filtrarPorData("01/01/1000"
+                    , jFormattedTextFieldDataFinal.getText().trim());
         }else{
             //sem data
-            System.out.println("Nenhuma data digitada");
+            JOptionPane.showMessageDialog(null, "Entre uma data de inicio e/ou final");
         }
         
     }//GEN-LAST:event_bttVendasPesqActionPerformed
+
+    private void jFormattedTextFieldDataFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldDataFinalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldDataFinalActionPerformed
 
     /**
      * @param args the command line arguments
