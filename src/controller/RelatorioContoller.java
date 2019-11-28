@@ -6,7 +6,12 @@
 package controller;
 
 import dao.DAOVenda;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Produto;
 import model.Venda;
 import model.VendaTemporaria;
@@ -76,11 +81,26 @@ public class RelatorioContoller {
     }
     
     public void filtrarPorData(String dataInicio, String dataFinal){
-        ArrayList<Venda> lista = new ArrayList<>();
-        //Lista recebe da dao Vendas
-        if(lista != null){
-            dinamico.setList(lista);
+        SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
+        Date dataI ,dataF;
+        try {
+            dataI = formatar.parse(dataInicio);
+            dataF = formatar.parse(dataFinal);
+            
+            java.sql.Date dataSQLI = new java.sql.Date(dataI.getTime());
+            java.sql.Date dataSQLF = new java.sql.Date(dataF.getTime());
+            
+            ArrayList<Venda> lista = new ArrayList<>();
+            //Lista recebe da dao Vendas
+            DAOVenda ve = new DAOVenda();
+            lista = ve.PesqData(dataSQLI, dataSQLF);
+            if(lista != null){
+                dinamico.setList(lista);
+            }
+        } catch (ParseException ex) {
+            Logger.getLogger(RelatorioContoller.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         
     }
 }
