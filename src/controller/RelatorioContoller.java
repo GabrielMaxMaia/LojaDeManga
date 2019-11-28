@@ -9,25 +9,29 @@ import dao.DAOVenda;
 import java.util.ArrayList;
 import model.Produto;
 import model.Venda;
+import model.VendaTemporaria;
 import model.tableModels.RelatorioAnaliticoTableModel;
+import model.tableModels.RelatorioDinamicoTableModel;
 
 /**
  *
  * @author Rogerio
  */
 public class RelatorioContoller {
-    private RelatorioAnaliticoTableModel model;
-    private Venda venda;
+    private RelatorioAnaliticoTableModel analitico;
+    private RelatorioDinamicoTableModel dinamico;
+    private VendaTemporaria venda;
+    
     public RelatorioContoller() {
-        model = new RelatorioAnaliticoTableModel();
-        
+        analitico = new RelatorioAnaliticoTableModel();
+        dinamico = new RelatorioDinamicoTableModel();
         
         
     }
     
     public void puxaVenda(String idVenda){
         DAOVenda dao = new DAOVenda();
-        Venda venda = dao.pegarVendaItens(idVenda);
+        VendaTemporaria venda = dao.getVendaItens(idVenda);
         if(venda != null){
             atualizaRelatorio(venda);
         }else{
@@ -57,12 +61,12 @@ public class RelatorioContoller {
             }
         }
         qtdList.add(qtd);
-        model.setLista(aux);
-        model.setQtdLista(qtdList);
+        analitico.setLista(aux);
+        analitico.setQtdLista(qtdList);
     }
     
     public RelatorioAnaliticoTableModel getModel() {
-        return model;
+        return analitico;
     }
     
     public String getCPF(){
@@ -75,4 +79,12 @@ public class RelatorioContoller {
         return Float.toString(venda.getValor());
     }
     
+    public void filtrarPorData(String dataInicio, String dataFinal){
+        ArrayList<Venda> lista = new ArrayList<>();
+        //Lista recebe da dao Vendas
+        if(lista != null){
+            dinamico.setList(lista);
+        }
+        
+    }
 }
