@@ -371,14 +371,14 @@ public class MetodoPagamento extends javax.swing.JFrame {
     }
     
     private float stringToFloat(String texto){
-        String aux = texto.replaceAll(",", ".");
+        String aux = texto.replace(",", ".");
         System.out.println(aux);
         return Float.parseFloat(aux);
     }
     
+    //NAO FUNCIONANDO Implementar quando pronto para ajustar texto
     private String floatToString(float valor){
-        System.out.println(Float.toString(valor));
-        String aux = Float.toString(valor).replaceAll(".", ",");
+        String aux = Float.toString(valor).replace(".", ",");
         return aux;
     }
 }
