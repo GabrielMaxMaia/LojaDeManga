@@ -19,7 +19,7 @@ public class RelatorioAnaliticoTableModel extends AbstractTableModel{
     ArrayList<Integer> qtdLista = new ArrayList<>();
     
     String[] colunas = {"Codigo da Produto", "Nome do Produto", "Quantidade",
-        "Valor da Total"};
+        "Valor do Total"};
     
     @Override
     public String getColumnName(int column) {
@@ -58,9 +58,5 @@ public class RelatorioAnaliticoTableModel extends AbstractTableModel{
 
     public void setQtdLista(ArrayList<Integer> qtdLista) {
         this.qtdLista = qtdLista;
-    }
-    
-    
-    
-    
+    }   
 }

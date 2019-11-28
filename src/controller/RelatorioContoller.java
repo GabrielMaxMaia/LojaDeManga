@@ -8,7 +8,7 @@ package controller;
 import dao.DAOVenda;
 import java.util.ArrayList;
 import model.Produto;
-import model.VendaTemporaria;
+import model.Venda;
 import model.tableModels.RelatorioAnaliticoTableModel;
 
 /**
@@ -17,7 +17,7 @@ import model.tableModels.RelatorioAnaliticoTableModel;
  */
 public class RelatorioContoller {
     private RelatorioAnaliticoTableModel model;
-    private VendaTemporaria venda;
+    private Venda venda;
     public RelatorioContoller() {
         model = new RelatorioAnaliticoTableModel();
         
@@ -27,7 +27,7 @@ public class RelatorioContoller {
     
     public void puxaVenda(String idVenda){
         DAOVenda dao = new DAOVenda();
-        VendaTemporaria venda = dao.getVendaItens(idVenda);
+        Venda venda = dao.pegarVendaItens(idVenda);
         if(venda != null){
             atualizaRelatorio(venda);
         }else{
