@@ -164,11 +164,11 @@ public class MainView extends javax.swing.JFrame {
         jPanel11 = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
-        jTextFieldInicioPesq = new javax.swing.JTextField();
-        jTextFieldFimPesquisa = new javax.swing.JTextField();
         bttVendasPesq = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableVendaPesq = new javax.swing.JTable();
+        jFormattedTextFieldDataIncial = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldDataFinal = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -188,7 +188,7 @@ public class MainView extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Logo_menor.png"))); // NOI18N
         jLabel1.setOpaque(true);
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Carrinho de Compras", 0, 0, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Carrinho de Compras", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
 
         jTableCarrinhoDeCompras.setForeground(new java.awt.Color(68, 53, 48));
         jTableCarrinhoDeCompras.setModel(new CarrinhoTableModel()
@@ -207,7 +207,7 @@ public class MainView extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(68, 53, 48)), "Dados do Cliente", 0, 0, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(68, 53, 48)), "Dados do Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
         jPanel6.setForeground(new java.awt.Color(68, 53, 48));
 
         jLabel2.setForeground(new java.awt.Color(68, 53, 48));
@@ -277,7 +277,7 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(68, 53, 48)), "Dados do Produto", 0, 0, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(68, 53, 48)), "Dados do Produto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
 
         jTextFieldCodProdCart.setForeground(new java.awt.Color(68, 53, 48));
         jTextFieldCodProdCart.setToolTipText("Insira o código do produto para pesquisar");
@@ -387,7 +387,7 @@ public class MainView extends javax.swing.JFrame {
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(156, 156, 156)
                         .addComponent(bttAdicionarItemCart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -414,7 +414,7 @@ public class MainView extends javax.swing.JFrame {
 
         jLabel4.getAccessibleContext().setAccessibleName("Codigo");
 
-        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Total da Venda", 0, 0, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Total da Venda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
         jPanel8.setForeground(new java.awt.Color(68, 53, 48));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -525,7 +525,7 @@ public class MainView extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Tela de vendas", jPanel1);
 
-        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Dados do Produto", 0, 0, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Dados do Produto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
 
         jLabel12.setForeground(new java.awt.Color(68, 53, 48));
         jLabel12.setText("Código:");
@@ -842,7 +842,7 @@ public class MainView extends javax.swing.JFrame {
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Logo_clientes.png"))); // NOI18N
         jLabel20.setOpaque(true);
 
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Dados do Cliente", 0, 0, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Dados do Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
         jPanel10.setForeground(new java.awt.Color(68, 53, 48));
 
         jLabel19.setForeground(new java.awt.Color(68, 53, 48));
@@ -1150,7 +1150,7 @@ public class MainView extends javax.swing.JFrame {
         jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Logo_Relatorio.png"))); // NOI18N
         jLabel31.setOpaque(true);
 
-        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Consulta de vendas", 0, 0, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(68, 53, 48)), "Consulta de vendas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ink Free", 0, 15), new java.awt.Color(68, 53, 48))); // NOI18N
         jPanel11.setForeground(new java.awt.Color(68, 53, 48));
 
         jLabel33.setForeground(new java.awt.Color(68, 53, 48));
@@ -1158,16 +1158,6 @@ public class MainView extends javax.swing.JFrame {
 
         jLabel34.setForeground(new java.awt.Color(68, 53, 48));
         jLabel34.setText("Data final:");
-
-        jTextFieldInicioPesq.setForeground(new java.awt.Color(68, 53, 48));
-        jTextFieldInicioPesq.setToolTipText("Insira a data inicial para pesquisar");
-        jTextFieldInicioPesq.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextFieldInicioPesq.setCaretColor(new java.awt.Color(68, 53, 48));
-
-        jTextFieldFimPesquisa.setForeground(new java.awt.Color(68, 53, 48));
-        jTextFieldFimPesquisa.setToolTipText("Insira a data final para pesquisar");
-        jTextFieldFimPesquisa.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 216, 207), null));
-        jTextFieldFimPesquisa.setCaretColor(new java.awt.Color(68, 53, 48));
 
         bttVendasPesq.setBackground(new java.awt.Color(153, 216, 207));
         bttVendasPesq.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -1179,6 +1169,11 @@ public class MainView extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 bttVendasPesqMouseExited(evt);
+            }
+        });
+        bttVendasPesq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttVendasPesqActionPerformed(evt);
             }
         });
 
@@ -1225,23 +1220,27 @@ public class MainView extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTableVendaPesq);
 
+        jFormattedTextFieldDataIncial.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+
+        jFormattedTextFieldDataFinal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGap(111, 111, 111)
                 .addComponent(jLabel33)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldInicioPesq, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jFormattedTextFieldDataIncial, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel34)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldFimPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jFormattedTextFieldDataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(bttVendasPesq, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane2)
+                .addContainerGap(200, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1249,10 +1248,10 @@ public class MainView extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(bttVendasPesq, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldFimPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel34)
-                    .addComponent(jTextFieldInicioPesq, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel33))
+                    .addComponent(jLabel33)
+                    .addComponent(jFormattedTextFieldDataIncial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFormattedTextFieldDataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1327,8 +1326,8 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_bttPesquisaProdCartActionPerformed
 
     private void bttCancelarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttCancelarVendaActionPerformed
-        int input = JOptionPane.showConfirmDialog(null, "Cancelar Compra?",
-                "Cancelando compra", JOptionPane.YES_NO_CANCEL_OPTION,
+        int input = JOptionPane.showConfirmDialog(null, "Cancelar compra?",
+                "Cancelando compra", JOptionPane.YES_NO_OPTION,
                 JOptionPane.ERROR_MESSAGE);
         if (input == 0) {
             cancelaCompras();
@@ -1336,14 +1335,11 @@ public class MainView extends javax.swing.JFrame {
         if (input == 1) {
 
         }
-        if (input == 2) {
-
-        }
     }//GEN-LAST:event_bttCancelarVendaActionPerformed
 
     private void bttPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttPagamentoActionPerformed
         if(vendaController.validaVenda(jFormattedTextFieldCPFCart.getText())){
-            int input = JOptionPane.showConfirmDialog(null, "Finalizar Compra?");
+            int input = JOptionPane.showConfirmDialog(null, "Finalizar compra?", "Finalizando compra", JOptionPane.YES_NO_OPTION);
             if (input == 0) {
                 this.setEnabled(false);
                 new MetodoPagamento(this, jLabelTotalDaVenda.getText());
@@ -1520,9 +1516,10 @@ evt.consume();
     private void bttAddProdCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttAddProdCadastroActionPerformed
         // TODO add your handling code here:
         if (prodController.addProduto(camposProduto)) {
-
+            JOptionPane.showMessageDialog(this, "Produto Adicionado");
+            limpaCampos(camposProduto);
         } else{
-            JOptionPane.showMessageDialog(this, prodController.getErros());
+            JOptionPane.showMessageDialog(this, "ID do Produto existente");
         }
     }//GEN-LAST:event_bttAddProdCadastroActionPerformed
 
@@ -1596,6 +1593,9 @@ evt.consume();
         } else if (abaAtual == 2) {
             limpaCampos(camposCadastro);
         }
+        if(index == 3){ 
+            vendaController.atualizaRelatorio();
+        }
         abaAtual = index;
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
@@ -1632,6 +1632,11 @@ evt.consume();
     private void jTextFieldEstanteCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEstanteCadastroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldEstanteCadastroActionPerformed
+
+    private void bttVendasPesqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttVendasPesqActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_bttVendasPesqActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1686,6 +1691,8 @@ evt.consume();
     private javax.swing.JComboBox<String> jComboBoxGênero;
     private javax.swing.JComboBox<String> jComboBoxPrat;
     private javax.swing.JFormattedTextField jFormattedTextFieldCPFCart;
+    private javax.swing.JFormattedTextField jFormattedTextFieldDataFinal;
+    private javax.swing.JFormattedTextField jFormattedTextFieldDataIncial;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1749,10 +1756,8 @@ evt.consume();
     private javax.swing.JTextField jTextFieldEmailCadastro;
     private javax.swing.JTextField jTextFieldEnderecoCadastro;
     private javax.swing.JTextField jTextFieldEstanteCadastro;
-    private javax.swing.JTextField jTextFieldFimPesquisa;
     private javax.swing.JTextField jTextFieldFixoCadastro;
     private javax.swing.JTextField jTextFieldFornecedorCadastro;
-    private javax.swing.JTextField jTextFieldInicioPesq;
     private javax.swing.JTextField jTextFieldNomeClienteCart;
     private javax.swing.JTextField jTextFieldNomecadastro;
     private javax.swing.JTextField jTextFieldNumCadastro;
@@ -1875,7 +1880,7 @@ evt.consume();
     
     public void cliNaoEncontrado(){
         int input = JOptionPane.showConfirmDialog(null, "Abrir Lista de Clientes?",
-        "Cliente nao encontrado", JOptionPane.YES_NO_CANCEL_OPTION,
+        "Cliente nao encontrado", JOptionPane.YES_NO_OPTION,
         JOptionPane.ERROR_MESSAGE);
         if(input == 0){
             PesquisaCliente pc = new PesquisaCliente(this);

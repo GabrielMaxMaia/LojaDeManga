@@ -46,7 +46,7 @@ public class DAOVenda {
                 ve.setId(rs.getInt("ve_id"));
                 ve.setFuncionarios(rs.getInt("ve_funcionario"));
                 ve.setCliente(rs.getString("ve_cliente"));
-                
+                ve.setData(rs.getString("ve_data"));
 
                 list.add(ve);
             }
@@ -78,6 +78,29 @@ public class DAOVenda {
         }
         
     }
+    
+     public int calculaValorVenda(int id){
+        String sql = "select sum(produto.pd_preco) as soma from produto, "
+                + "itens where itens.cp_compras = ? and "
+                + "produto.pd_id = itens.cp_produto;";
+        
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+              return rs.getInt("soma");
+            }
+            
+            ConnectionFactory.closeConnection(conn, stmt,rs);
+            return -1;        
+        } catch (SQLException ex) {
+            System.err.println("DAO ITENS: " + ex);
+            return -1;
+        }
+    }
+    
     // Temporarior
     public void gerarVenda(VendaTemporaria venda){
         String aux = Integer.toString(idVenda);

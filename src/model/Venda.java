@@ -12,7 +12,7 @@ package model;
 public class Venda {
  
     private int id, produtos, funcionarios;
-    private String cliente;
+    private String cliente, data;
 
     public Venda(int id, String cliente, int produtos, int funcionarios) {
         this.id = id;
@@ -55,6 +55,15 @@ public class Venda {
     public void setFuncionarios(int funcionarios) {
         this.funcionarios = funcionarios;
     }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+    
     
     
 }

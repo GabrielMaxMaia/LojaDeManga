@@ -11,6 +11,7 @@ import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
@@ -278,10 +279,16 @@ public class MetodoPagamento extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldValorRecebidoActionPerformed
 
     private void bttFinalizarPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttFinalizarPagamentoActionPerformed
-        if(controller.finalizarCompraDois()){
-            parent.confirmaCompra();
+        if(stringToFloat(jLabelTroco.getText()) >= 0){
+            if(controller.finalizarCompraDois()){
+                parent.confirmaCompra();
+                
+            }
+            close();
         }
-        close();
+        else{
+                JOptionPane.showMessageDialog(null, "Valor insuficiente!");
+        }
     }//GEN-LAST:event_bttFinalizarPagamentoActionPerformed
 
     private void bttFinalizarPagamentoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bttFinalizarPagamentoMouseEntered
@@ -364,9 +371,10 @@ public class MetodoPagamento extends javax.swing.JFrame {
     
     private void alterado(){
         if(jTextFieldValorRecebido.getText().length() > 0){
-            float aux = stringToFloat(jLabelTotalCompra.getText()) 
-                    - stringToFloat(jTextFieldValorRecebido.getText());
-            jLabelTroco.setText(floatToString(aux));
+            float aux = stringToFloat(jTextFieldValorRecebido.getText()) 
+                    - stringToFloat(jLabelTotalCompra.getText()); 
+                    
+            jLabelTroco.setText(Float.toString((aux)));
         }
     }
     

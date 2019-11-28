@@ -114,6 +114,7 @@ public class VendaController {
     }
     
     public RelatorioDinamicoTableModel getRelatorioDinamicoTableModel(){
+        dinamico.getComprar();
         return dinamico;
     }
     
@@ -162,6 +163,10 @@ public class VendaController {
     
     public void setCliente(Cliente cliente){
         table.setCliente(cliente);
+    }
+    
+    public void atualizaRelatorio(){
+        dinamico.atualiza();
     }
     
 }
