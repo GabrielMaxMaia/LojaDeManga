@@ -27,7 +27,6 @@ public class RelatorioContoller {
     private RelatorioDinamicoTableModel dinamico;
     private VendaTemporaria venda;
     
-    
     public RelatorioContoller() {
         analitico = new RelatorioAnaliticoTableModel();
         dinamico = new RelatorioDinamicoTableModel();

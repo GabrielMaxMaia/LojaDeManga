@@ -101,6 +101,24 @@ public class DAOVenda {
         }
     }
     
+    public Venda pegarVendaItens(String id){
+        String sql = "select sum(produto.pd_preco) as soma from produto, "
+                + "itens where itens.cp_compras = ? and "
+                + "produto.pd_id = itens.cp_produto;";
+        
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, id);
+            ResultSet rs = stmt.executeQuery();
+            
+            ConnectionFactory.closeConnection(conn, stmt,rs);
+        } catch (SQLException ex) {
+            System.err.println("DAO ITENS: " + ex);
+            
+        }
+        
+    }
+     
     // Temporarior
     public void gerarVenda(VendaTemporaria venda){
         String aux = Integer.toString(idVenda);

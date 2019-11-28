@@ -62,8 +62,5 @@ public class Venda {
 
     public void setData(String data) {
         this.data = data;
-    }
-    
-    
-    
+    }  
 }
