@@ -24,6 +24,7 @@ public class MainView extends javax.swing.JFrame {
 
     private ClienteController cliController;
     private ProdutoController prodController;
+    private RelatorioContoller relatorioController = new RelatorioContoller();
     private int abaAtual = 1;
     private JTextField[] camposCadastro;
     private JTextField[] camposCart;
@@ -1621,12 +1622,11 @@ evt.consume();
         int index = jTableVendaPesq.getSelectedRow();
         String idVenda = model.getValueAt(index, 0).toString();
         //Temporario
-        RelatorioContoller cont = new RelatorioContoller();
-        cont.puxaVenda(idVenda);
-        PesquisaAnalitica pa = new PesquisaAnalitica(cont.getModel());
-        pa.setjLabelCFP(cont.getCPF());
-        pa.setjLabelCodCompra(cont.getId());
-        pa.setjLabelTotal(cont.getTotal());
+//        cont.puxaVenda(idVenda);
+//        PesquisaAnalitica pa = new PesquisaAnalitica(cont.getModel());
+//        pa.setjLabelCFP(cont.getCPF());
+//        pa.setjLabelCodCompra(cont.getId());
+//        pa.setjLabelTotal(cont.getTotal());
         
     }//GEN-LAST:event_jTableVendaPesqMouseClicked
 
@@ -1639,7 +1639,18 @@ evt.consume();
     }//GEN-LAST:event_jTextFieldEstanteCadastroActionPerformed
 
     private void bttVendasPesqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttVendasPesqActionPerformed
-        // TODO add your handling code here:
+        if(!jFormattedTextFieldDataIncial.getText().trim().equalsIgnoreCase("")
+                && !jFormattedTextFieldDataFinal.getText().trim().equalsIgnoreCase("")){
+            relatorioController.filtrarPorData(jFormattedTextFieldDataIncial.getText().trim()
+                    , jFormattedTextFieldDataFinal.getText().trim());
+        }else if(!jFormattedTextFieldDataIncial.getText().trim().equalsIgnoreCase("")){
+            System.out.println("Pesquisa so com inicio");
+        }else if(!jFormattedTextFieldDataFinal.getText().trim().equalsIgnoreCase("")){
+            System.out.println("Pesquisa so com final");
+        }else{
+            //sem data
+            System.out.println("Nenhuma data digitada");
+        }
         
     }//GEN-LAST:event_bttVendasPesqActionPerformed
 

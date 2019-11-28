@@ -70,6 +70,7 @@ public class RelatorioDinamicoTableModel extends AbstractTableModel{
     
     public void setList(ArrayList<Venda> list) {
         this.lista = list;
+        getQtd();
     }
     
     public void getComprar(){
