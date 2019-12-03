@@ -20,6 +20,9 @@ import model.Cliente;
 /**
  *
  * @author raphaela.crwagner
+ * @see dao.DAOCliente
+ * @see model.Cliente
+ * @see model.tableModels.ClienteTableModel;
  */
 public class ClienteController {   
     private static ClienteController INSTANCE;
@@ -30,6 +33,7 @@ public class ClienteController {
 //    private String cpfSelecionado = "";
     
     //Padrao de Projeto SINGLETON, garante uma unica instancia dessa classe
+    //@return Instance
     public static ClienteController getClienteController(){
         if(INSTANCE != null){
             return INSTANCE;
@@ -41,7 +45,8 @@ public class ClienteController {
     public ClienteController() {
         lerClientes();
     }
-    
+    /*@param Cpf objeto do tipo String
+      @ return cliente: se cli existir, null: se não encontrar o cliente*/
     public Cliente pesquisaPorCpf(String Cpf){
         DAOCliente dao = new DAOCliente();
         Cliente cli = dao.buscarPorCpf(Cpf);
@@ -51,7 +56,8 @@ public class ClienteController {
             return null;
         }
     }
-    
+    /*@param array campos do tipo JTextField
+      @ return boolean - true: se encontrar cliente, false: se não encontrar cliente*/
     public boolean atualizaCliente(JTextField[] campos){
         Cliente cli = validarDados(campos);
         if(cli != null){
@@ -69,7 +75,8 @@ public class ClienteController {
         }
         return false;
     }
-    
+    /*@ param array campos do tipo JTextField
+      @ return boolean - true: Cadastro Realizado, false: Não conseguir cadastrar*/
     public boolean addCliente(JTextField[] campos){
         Cliente cli = validarDados(campos);
         
@@ -102,7 +109,8 @@ public class ClienteController {
         } 
         return false;
     }
-    
+    /*@param array campos do tipo JTextField
+      @return cliente: se nao houver erros, null: se houver erros*/
     public Cliente validarDados(JTextField[] campos){
         Cliente cli = new Cliente();
         erros = "";
@@ -165,23 +173,26 @@ public class ClienteController {
         }
     }
     
-    //Temporario
+    //@deprecated
     public void lerClientes(){
         DAOCliente dao = new DAOCliente();
         tableModel.setList(dao.selectAll());
     }
     
-    //Getters e Setters
+    /*Getters e Setters
+    @return tabela cliente*/
     public ClienteTableModel getTableModel() {
         return tableModel;
     }
-    
+    /*@return erro do tipo String */
     public String getErros(){
         String aux = erros;
         erros = "";
         return aux;
     }
     
+    /*@param nome do tipo String
+      @return boolean - true: lista estiver cheia, false: lista vazia*/
     public boolean filtrarPorNome(String nome){
         DAOCliente dao = new DAOCliente();
         ArrayList<Cliente> lista = new ArrayList<>();
@@ -194,7 +205,8 @@ public class ClienteController {
             return false;
         }
     }
-    
+    /*@param cpf do tipo String
+      @return boolean-true: se existir cliente, false: se não houver cliente*/
     public boolean filtrarPorCPF(String cpf){
         DAOCliente dao = new DAOCliente();
         Cliente cli = dao.buscarPorCpf(cpf);

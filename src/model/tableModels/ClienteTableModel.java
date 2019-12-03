@@ -39,6 +39,8 @@ public class ClienteTableModel extends AbstractTableModel{
     }
 
     @Override
+    /*@param linha do tipo Inteiro, coluna do tipo Inteiro
+      @return Nome,Cpf,tel,Email: se coluna encontrada, null: se não encontrar coluna*/
     public Object getValueAt(int linha, int coluna) {
         switch(coluna){
             case 0:

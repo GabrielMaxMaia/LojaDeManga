@@ -12,6 +12,7 @@ import model.Produto;
 /**
  *
  * @author Rogerio
+ * @see model.Produto
  */
 public class RelatorioAnaliticoTableModel extends AbstractTableModel{
     ArrayList<Produto> lista = new ArrayList<>();
@@ -36,6 +37,8 @@ public class RelatorioAnaliticoTableModel extends AbstractTableModel{
     }
 
     @Override
+    /*@param linha do tipo Inteiro, coluna do tipo Inteiro
+      @return Id,Titulo,Quantidade,Preço: se coluna encontrada, null: se não encontrar coluna*/
     public Object getValueAt(int linha, int coluna) {
         switch(coluna){
             case 0:
@@ -60,6 +63,7 @@ public class RelatorioAnaliticoTableModel extends AbstractTableModel{
         this.qtdLista = qtdLista;
     }   
     
+    //@return aux: valor total da compra
     public float getTotal(){
         float aux = 0;
         

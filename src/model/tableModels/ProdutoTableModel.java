@@ -13,6 +13,8 @@ import model.Produto;
 /**
  *
  * @author gabriel.mmcarmo
+ * @see dao.DAOProduto
+ * @see model.Produto
  */
 
 public class ProdutoTableModel extends AbstractTableModel{
@@ -39,6 +41,8 @@ public class ProdutoTableModel extends AbstractTableModel{
     }
 
     @Override
+    /*@param linha do tipo Inteiro, coluna do tipo Inteiro
+      @return Id,Titulo,Quantidade,Preço: se coluna encontrada, null: se não encontrar coluna*/
     public Object getValueAt(int linha, int coluna) {
         switch(coluna){
             case 0:
@@ -53,7 +57,7 @@ public class ProdutoTableModel extends AbstractTableModel{
         
         return null;
     }
-    
+    /*@param prod objeto do tipo Produto*/
     public void addLinha(Produto prod){
         lista.add(prod);
         fireTableDataChanged();
@@ -62,7 +66,7 @@ public class ProdutoTableModel extends AbstractTableModel{
     public void atualiza(){
         fireTableDataChanged();
     }
-    
+    /*@param list objeto do tipo arrayList*/
     public void setList(ArrayList<Produto> list) {
         this.lista = list;
         fireTableDataChanged();

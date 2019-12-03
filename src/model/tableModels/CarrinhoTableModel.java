@@ -15,6 +15,9 @@ import model.Produto;
 /**
  *
  * @author rogerio.slucon
+ * @see dao.DAOCliente
+ * @see model.Cliente
+ * @see model.Produto
  */
 public class CarrinhoTableModel extends AbstractTableModel{ 
     ArrayList<Produto> lista = new ArrayList<Produto>();
@@ -59,7 +62,7 @@ public class CarrinhoTableModel extends AbstractTableModel{
         }
         return null;
     }
-    
+    /*@param prod objeto do tipo Produto, qtd do tipo inteiro*/
     public void addProd(Produto prod, int qtd){
         boolean flag = true;
         for (Produto produto : lista) {
@@ -96,7 +99,8 @@ public class CarrinhoTableModel extends AbstractTableModel{
     public ArrayList<Float> getTotalLista(){
         return total;
     }
-    
+    /*@param prod objeto do tipo Produto
+      @return qtdLista: quantidade de produtos em lista se Id forem iguais, 0: não encontrado*/
     public int quantosEstaoNoCarrinho(Produto prod){
         for (int i = 0; i < lista.size(); i++) {
             if(lista.get(i).getId() == prod.getId()){

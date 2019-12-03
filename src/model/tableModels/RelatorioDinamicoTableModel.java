@@ -16,6 +16,9 @@ import model.Venda;
 /**
  *
  * @author rogerio.slucon
+ * @see dao.DAOItens
+ * @see dao.DAOVenda
+ * @see model.Venda
  */
 public class RelatorioDinamicoTableModel extends AbstractTableModel{
     ArrayList<Venda> lista = new ArrayList<>();
@@ -41,6 +44,8 @@ public class RelatorioDinamicoTableModel extends AbstractTableModel{
     }
 
     @Override
+    /*@param linha do tipo Inteiro, coluna do tipo Inteiro
+      @return Id,Cliente,Quantidade,Preço,Data: se coluna encontrada, null: se não encontrar coluna*/
     public Object getValueAt(int linha, int coluna) {
         switch(coluna){
             case 0:
