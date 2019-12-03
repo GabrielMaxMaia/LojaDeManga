@@ -61,6 +61,30 @@ public class DAOVenda {
 
     }
     
+    public Venda pegarVenda(int id) {
+        String sql = "Select * from Venda where ve_id = ?";
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            
+            Venda ve = new Venda();
+            if (rs.next()) {
+                ve.setId(rs.getInt("ve_id"));
+                ve.setFuncionarios(rs.getInt("ve_funcionario"));
+                ve.setCliente(rs.getString("ve_cliente"));
+                ve.setData(rs.getString("ve_data"));      
+            }
+            ConnectionFactory.closeConnection(conn, stmt, rs);
+            return ve;
+        } catch (SQLException ex) {
+            System.err.println("DAO Venda: " + ex);
+            return null;
+        }
+
+    }
+    
     public int pegaIdProximaVenda(){
         
         String sql = "select auto_increment from information_schema.tables"
@@ -116,14 +140,22 @@ public class DAOVenda {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, id);
             ResultSet rs = stmt.executeQuery();
-            
+            Venda ve = new Venda();
+                if(rs.next()){
+                ve.setId(rs.getInt("ve_id"));
+                ve.setFuncionarios(rs.getInt("ve_funcionario"));
+                ve.setCliente(rs.getString("ve_cliente"));
+                ve.setData(rs.getString("ve_data"));
+                }
             ConnectionFactory.closeConnection(conn, stmt,rs);
+            return ve;
         } catch (SQLException ex) {
             System.err.println("DAO ITENS: " + ex);
+            return null;
             
         }
         
-        return listaVenda.get(idVenda);
+//        return listaVenda.get(idVenda);
     }
      
      

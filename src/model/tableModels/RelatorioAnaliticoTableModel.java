@@ -43,11 +43,12 @@ public class RelatorioAnaliticoTableModel extends AbstractTableModel{
             case 1:
                 return lista.get(linha).getTitulo();
             case 2:
-                return qtdLista.get(linha); 
+                return lista.get(linha).getPreco();
             case 3:
+                return qtdLista.get(linha); 
+            case 4:
                 return lista.get(linha).getPreco() * (float) qtdLista.get(linha);
         }
-        
         return null;
     }
 
@@ -59,5 +60,12 @@ public class RelatorioAnaliticoTableModel extends AbstractTableModel{
         this.qtdLista = qtdLista;
     }   
     
-    
+    public float getTotal(){
+        float aux = 0;
+        
+        for (int i = 0; i < lista.size(); i++) {
+            aux += lista.get(i).getPreco() * (float) qtdLista.get(i);
+        }
+        return aux;
+    }
 }

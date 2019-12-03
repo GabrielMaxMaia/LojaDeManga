@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dao.DAOProduto;
 import dao.DAOVenda;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,7 +26,7 @@ import model.tableModels.RelatorioDinamicoTableModel;
 public class RelatorioContoller {
     private RelatorioAnaliticoTableModel analitico;
     private RelatorioDinamicoTableModel dinamico;
-    private Venda venda;
+    private Venda vendaPuxada;
     
     public RelatorioContoller() {
         analitico = new RelatorioAnaliticoTableModel();
@@ -35,24 +36,28 @@ public class RelatorioContoller {
     }
     
     public void puxaVenda(String idVenda){
-        DAOVenda dao = new DAOVenda();
-        Venda venda = dao.pegarVendaItens(idVenda);
-        if(venda != null)
-            atualizaRelatorio(venda);
+        DAOVenda daoVenda = new DAOVenda();
+        DAOProduto dao = new DAOProduto();
+        try{
+            vendaPuxada = daoVenda.pegarVenda(Integer.parseInt(idVenda));
+            ArrayList venda = dao.produtosDeUmaVenda(Integer.parseInt(idVenda));
+            if(venda != null)
+                atualizaRelatorio(venda);
+        }catch(Exception ex){
+            
+        }
     }
         
-    public void atualizaRelatorio(Venda venda){
-        this.venda = venda;
-        ArrayList<Produto> vendaListaProd = venda.getListaProdutos();
+    public void atualizaRelatorio(ArrayList<Produto> venda){
         ArrayList<Produto> aux = new ArrayList<Produto>();
         ArrayList<Integer> qtdList = new ArrayList<Integer>();
         Produto prod = null;
         int qtd = 1;
-        for (Produto produto : vendaListaProd) {
+        for (Produto produto : venda) {
             if(prod == null){
                 prod = produto;
                 aux.add(prod);
-            }else if(produto.getTitulo() != prod.getTitulo()){
+            }else if(produto.getId() != prod.getId()){
                 prod = produto;
                 aux.add(prod);
                 qtdList.add(qtd);
@@ -71,13 +76,13 @@ public class RelatorioContoller {
     }
     
     public String getCPF(){
-        return venda.getCliente();
+        return vendaPuxada.getCliente();
     }
     public int getId(){
-        return venda.getId();
+        return vendaPuxada.getId();
     }
     public Float getTotal(){
-        return venda.getValor();
+        return analitico.getTotal();
     }
     
     public void filtrarPorData(String dataInicio, String dataFinal){

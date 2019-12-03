@@ -1560,6 +1560,8 @@ public class MainView extends javax.swing.JFrame {
         relatorioController.puxaVenda(idVenda);
         PesquisaAnalitica pa = new PesquisaAnalitica(relatorioController.getModelAnalitica());
         pa.setjLabelCFP(relatorioController.getCPF());
+        Cliente aux = cliController.pesquisaPorCpf(relatorioController.getCPF());
+        pa.setjLabelNomeCli(aux.getNome());
         pa.setjLabelCodCompra(Integer.toString(relatorioController.getId()));
         pa.setjLabelTotal(Float.toString(relatorioController.getTotal()));
         pa.setjLabelCodCompra(idVenda);
