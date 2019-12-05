@@ -21,6 +21,15 @@ import model.tableModels.RelatorioDinamicoTableModel;
 /**
  *
  * @author rogerio.slucon
+ * @see dao.DAOItens
+ * @see dao.DAOProduto
+ * @see dao.DAOVenda
+ * @see model.Cliente
+ * @see model.Itens
+ * @see model.Produto
+ * @see model.tableModels.CarrinhoTableModel
+ * @see model.Venda
+ * @see model.tableModels..RelatorioDInamicoTableModel
  */
 public class VendaController {
     private static VendaController INSTANCE;
@@ -40,7 +49,8 @@ public class VendaController {
         cliController = ClienteController.getClienteController();
         prodController = ProdutoController.getProdutoController();
     }
-
+    /*@param id fo produto do tipo String, quantidade do tipo String
+    @return boolean true se quantidade de produto for maior ou igual ao estoque, false: o contrário*/
     public boolean addCarrinho(String idProd, String qtd) {
         Produto prod = prodController.pesquisaPorId(Integer.parseInt(idProd));
         int qtdInt = Integer.parseInt(qtd);
@@ -53,7 +63,7 @@ public class VendaController {
         }
         return false;
     }
-
+    //@return boolean true se sem erros, falso se achar problemas;
     public boolean finalizarCompraDois(){
         
         ArrayList<Produto> todosProd = pegaCarrinhoDeCompra();
@@ -120,7 +130,8 @@ public class VendaController {
         }
         return total;
     }
-    
+    /*@param cpf do tipo String
+    @return boolean true: validar cpf, false se não existir e validar o cpf*/
     public boolean validaVenda(String cpf){
         boolean flag = true;
         if(cpf.equals("")){
@@ -134,7 +145,7 @@ public class VendaController {
         }
         return flag;
     }
-    
+    //@return lista de produtos do tipo array list
     private ArrayList<Produto> pegaCarrinhoDeCompra(){
         ArrayList<Produto> produtos = table.getLista();
         ArrayList<Integer> qtd = table.getQtdLista();

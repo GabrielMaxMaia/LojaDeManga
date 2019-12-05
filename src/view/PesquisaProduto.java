@@ -16,6 +16,8 @@ import model.tableModels.ProdutoTableModel;
 /**
  *
  * @author Rogerio
+ * @see controller.ProdutoController
+ * @see model.tableModels.ProdutoTableModel
  */
 public class PesquisaProduto extends javax.swing.JFrame {
     

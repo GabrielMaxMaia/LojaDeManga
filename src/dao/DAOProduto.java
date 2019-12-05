@@ -14,31 +14,34 @@ import lojademanga.ConnectionFactory;
 import model.Prateleira;
 import model.Produto;
 
-
 /**
  *
  * @author raphaela.crwagner
+ * @see model.Prateleira
+ * @see model.Produto
  */
 public class DAOProduto {
+
     private Connection conn;
 
     public DAOProduto() {
         conn = ConnectionFactory.getConnection();
     }
-    
+
     //Métodos CRUD
-    
+    //@param produto objeto do tipo produto
     public void insert(Produto produto) throws SQLException {
         String sql = "INSERT INTO produto(pd_titulo, pd_autor, pd_preco,pd_quantidade) VALUES (?,?,?,?)";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, produto.getTitulo());
             stmt.setString(2, produto.getAutor());
             stmt.setFloat(3, produto.getPreco());
-            stmt.setInt(4,produto.getQtd());
+            stmt.setInt(4, produto.getQtd());
             stmt.executeUpdate();
             stmt.close();
         }
     }
+//    @deprecated
 //    public void insert(Produto produto) throws SQLException {
 //        String sql = "INSERT INTO produto(pd_titulo, pd_autor, pd_fornecedor, pd_genero, pd_preco, pd_estante, "
 //                + "pd_prateleira, pd_edicao, pd_status, pd_estilo, pd_quant) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
@@ -58,25 +61,27 @@ public class DAOProduto {
 //            stmt.close();
 //        }
 //    }
+    //@param produto objeto do tipo Produto 
 
-    public void update(Produto produto) throws SQLException{
-        
+    public void update(Produto produto) throws SQLException {
+
         String sql = "Update Produto set pd_preco = ?, pd_titulo = ?,"
                 + " pd_autor = ?, pd_quantidade = ?"
                 + " WHERE pd_id = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setFloat(1, produto.getPreco());
             stmt.setString(2, produto.getTitulo());
-            stmt.setString(3,produto.getAutor());
-            stmt.setInt(4,produto.getQtd());
+            stmt.setString(3, produto.getAutor());
+            stmt.setInt(4, produto.getQtd());
             stmt.setInt(5, produto.getId());
             stmt.executeUpdate();
             stmt.close();
-        } 
+        }
     }
-    
-    public void vender(Produto produto, int qtd) throws SQLException{
-        
+
+    //@param protudo objeto do tipo produto
+    public void vender(Produto produto, int qtd) throws SQLException {
+
         String sql = "Update Produto set pd_quantidade = pd_quantidade - 1"
                 + " WHERE pd_id = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -84,13 +89,12 @@ public class DAOProduto {
             stmt.setInt(1, produto.getId());
             stmt.executeUpdate();
             stmt.close();
-        } 
+        }
     }
-    
-    
-    
+
     // Métodos de busca
-    
+    //@param titulo do tipo String
+    //@return produto do tipo Array List se sem erros, null se com erros
     public ArrayList<Produto> buscaPorTitulo(String titulo) {
         String sql = "Select * from Produto where pd_titulo like ?";
 
@@ -127,15 +131,17 @@ public class DAOProduto {
             return null;
         }
     }
-    
-    public Produto buscaPorId(int id){
+
+    //@param id do tipo inteiro
+    //@return produto se sem erros, null se com erros
+    public Produto buscaPorId(int id) {
         String sql = "Select * from Produto where pd_id = " + id;
-        
-        try{
+
+        try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
-            
-            if(rs.next()){
+
+            if (rs.next()) {
                 Produto prod = new Produto();
                 prod.setId(rs.getInt("pd_id"));
                 prod.setTitulo(rs.getString("pd_titulo"));
@@ -144,17 +150,18 @@ public class DAOProduto {
                 prod.setPreco(rs.getFloat("pd_preco"));
                 //prod.setStatus(rs.getString("prod_status"));
 
-                ConnectionFactory.closeConnection(conn, stmt,rs);
+                ConnectionFactory.closeConnection(conn, stmt, rs);
                 return prod;
-            } else{
+            } else {
                 return null;
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("Select Prod " + e);
             return null;
         }
     }
-    
+    //@return produto do tipo Array List se sem erros, null se com erros
+
     public ArrayList<Produto> selectAll() {
         String sql = "Select * from Produto";
 
@@ -190,9 +197,10 @@ public class DAOProduto {
             return null;
         }
     }
-    
-    public ArrayList<Produto> produtosDeUmaVenda(int idVenda){
-    
+    //@param id da venda do tipo Inteiro
+    //@return produto do tipo Array List se sem erros, null se com erros
+    public ArrayList<Produto> produtosDeUmaVenda(int idVenda) {
+
         String sql = "select * from produto join itens on itens.cp_produto = produto.pd_id where itens.cp_compras = ?";
 
         try {
@@ -227,6 +235,6 @@ public class DAOProduto {
             System.err.println("DAO PRODUTO: " + ex);
             return null;
         }
-    
+
     }
 }

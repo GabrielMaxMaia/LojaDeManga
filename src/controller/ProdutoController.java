@@ -17,8 +17,13 @@ import model.Produto;
 /**
  *
  * @author gabriel.mmcarmo
+ * @see model.Cliente
+ * @see model.Produto
+ * @see model.tableModels.ProdutoTableModel
+ * @see dao.DAOCliente
+ * @see dao.DAOProduto
  */
-
+//Controlador dos produtos
 public class ProdutoController {
     
     private static ProdutoController INSTANCE;
@@ -35,7 +40,9 @@ public class ProdutoController {
         }
     }
     
-    // Métodos de acesso a DAO
+    /*Métodos de acesso a DAO
+    @param id do tipo inteiro
+    @ retorna o produto: se encontrado, Null: se não encontrado*/
     public Produto pesquisaPorId (int id){
         DAOProduto dao = new DAOProduto();
         Produto prod = dao.buscaPorId(id);
@@ -45,7 +52,9 @@ public class ProdutoController {
             return null;
         }
     }
-    
+    /*Atualiza os dados do produto
+    @param array campos do tipo JTextField
+    @return boolean: true se objeto encontrado, null: se não encontrado*/
     public boolean atualizaProduto(JTextField[] campos){
         Produto prod = validarDados(campos);
         
@@ -64,7 +73,9 @@ public class ProdutoController {
         }
         return false;
     }
-    
+    /*Adiciona produto
+    @param array campos do tipo JTextField
+    @return boolean: true se objeto encontrado, null: se não encontrado*/
     public boolean addProduto(JTextField[] campos){
         Produto prod = validarDados(campos);
         
@@ -82,12 +93,12 @@ public class ProdutoController {
         } 
         return false;
     }
-    
+    //Não está sendo utilizada
     public void excluirProduto(JTextField[] campos){
         
     }
     
-    //Temporario
+    //@deprecated
     public void lerProdutos(){
         DAOProduto dao = new DAOProduto();
         tableModel.setList(dao.selectAll());
@@ -98,7 +109,9 @@ public class ProdutoController {
         return tableModel;
     }
     
-    // Método de validação de campos
+    /* Método de validação de campos
+    array campos do tipo JTextField
+    @return produto: true se sem erros, null: se erro for encontrado*/
     public Produto validarDados(JTextField[] campos){
         Produto prod = new Produto();
         String erros = "";
@@ -179,7 +192,8 @@ public class ProdutoController {
             return null;
         }
     }
-    
+    /*@param nome do tipo String
+    @return boolean: true se lista estiver cheia, false: lista vazia*/
     public boolean filtrarPorTitulo(String nome){
         DAOProduto dao = new DAOProduto();
         ArrayList<Produto> lista = new ArrayList<>();
@@ -191,7 +205,8 @@ public class ProdutoController {
             return false;
         }
     }
-    
+    /*@param id do tipo String
+    @ return bollean: true se produto existir, false: se não existir*/
     public boolean filtrarPorId(String id){
         int aux = Integer.parseInt(id);
         DAOProduto dao = new DAOProduto();

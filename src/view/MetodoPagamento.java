@@ -18,6 +18,7 @@ import javax.swing.event.DocumentListener;
 /**
  *
  * @author Rogerio
+ * @see controller.VendaController
  */
 public class MetodoPagamento extends javax.swing.JFrame {
     MainView parent;

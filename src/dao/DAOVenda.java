@@ -12,9 +12,12 @@ import java.util.logging.Logger;
 import lojademanga.ConnectionFactory;
 import model.Venda;
 import model.VendaTemporaria;
-
+/*
+@see model.Venda
+*/
 public class DAOVenda {
     private Connection conn;
+    
     //Temporario
     //private static HashMap<String, VendaTemporaria> listaVenda = new HashMap<String, VendaTemporaria>();
 
@@ -25,7 +28,7 @@ public class DAOVenda {
     public DAOVenda(){    
         conn = ConnectionFactory.getConnection();
     }
-    
+    //@param venda objeto do tipo venda
     public void insert(Venda venda) throws SQLException {
         String sql = "INSERT INTO venda(ve_cliente, ve_funcionario) VALUES (?,?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
@@ -34,7 +37,7 @@ public class DAOVenda {
         stmt.execute();
         stmt.close();
     }
-    
+        //@return venda do tipo Array List se sem erros, null se com erros
     public ArrayList<Venda> selectAll() {
         String sql = "Select * from Venda";
 
@@ -60,7 +63,8 @@ public class DAOVenda {
         }
 
     }
-    
+    //@param id do tipo Inteiro
+    //@return venda objeto do tipo venda se sem erros, null se houver erros
     public Venda pegarVenda(int id) {
         String sql = "Select * from Venda where ve_id = ?";
 
@@ -84,7 +88,7 @@ public class DAOVenda {
         }
 
     }
-    
+        //@return inteiro se sem erros, null se com erros
     public int pegaIdProximaVenda(){
         
         String sql = "select auto_increment from information_schema.tables"
@@ -104,7 +108,8 @@ public class DAOVenda {
         }
         
     }
-    
+        //@param id do tipo inteiro
+        //@return inteiro se sem erros, null se com erros
      public int calculaValorVenda(int id){
         String sql = "select sum(produto.pd_preco) as soma from produto, "
                 + "itens where itens.cp_compras = ? and "
@@ -130,7 +135,8 @@ public class DAOVenda {
      /*Nome, CPF, Codigo do Produto, Nome do Produto,
         Valor Produto, Quantidade, Valor SubTotal,
      Código da Compra*/
-     
+    //@param id do tipo String
+    //@return venda objeto do tipo Venda se sem erros, null se com erros
     public Venda pegarVendaItens(String id){
         String sql = "select sum(produto.pd_preco) as soma from produto, "
                 + "itens where itens.cp_compras = ? and "
@@ -158,7 +164,7 @@ public class DAOVenda {
 //        return listaVenda.get(idVenda);
     }
      
-     
+    //@deprecated 
     // TEMPORARIO
      
 //    public void gerarVenda(VendaTemporaria venda){
@@ -174,7 +180,8 @@ public class DAOVenda {
 //    public Set<String> getKey() {
 //        return listaVenda.keySet();
 //    }
-    
+    //@param data
+    //@return venda do tipo array List se sem erros, null com erros
     public ArrayList<Venda> PesqData(java.sql.Date dateI, java.sql.Date dateF){
         String sql = "select * from venda where ve_data between ? and ?;";
         ArrayList<Venda> lista = new ArrayList<>();

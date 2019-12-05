@@ -17,6 +17,8 @@ import model.Cliente;
 /**
  *
  * @author raphaela.crwagner
+ * @see model.Autor
+ * @see model.Cliente
  */
 public class DAOCliente {
     private Connection conn;
@@ -24,7 +26,7 @@ public class DAOCliente {
     public DAOCliente() {
         conn = ConnectionFactory.getConnection();
     }
-    
+    //@param cliente objeto do tipo cliente
     public void insert(Cliente cliente) throws SQLException {
         String sql = "INSERT INTO cliente(cli_cpf, cli_nome, cli_email,"
                 + " cli_cel, cli_tel, cli_cep, cli_endereco, cli_cidade,"
@@ -45,7 +47,8 @@ public class DAOCliente {
         stmt.executeUpdate();
         stmt.close();
     }
-    
+    /*@param cpf do tipo String
+    @return Cliente se encontrado, null se não encontrado*/
     public Cliente buscarPorCpf(String cpf){
         String sql = "Select * from Cliente where cli_cpf = ?";
         
@@ -79,7 +82,8 @@ public class DAOCliente {
         }
             
     }
-    
+    /*@param nome do tipo String
+    @return Cliente do tipo array List se sem erros, null se erro for encontrado*/
     public ArrayList<Cliente> buscaPorNome(String nome){
         String sql = "Select * from Cliente where cli_nome like ?";
         try {
@@ -111,7 +115,7 @@ public class DAOCliente {
             return null;
         }
     }
-    
+    /*@param cliente objeto do tipo cliente*/
     public void update(Cliente cliente) throws SQLException{
         String sql = "Update Cliente set cli_nome = ?, cli_email = ?,"
                 + " cli_cel = ?, cli_tel = ?, cli_cep = ?, cli_endereco = ?,"
@@ -132,7 +136,7 @@ public class DAOCliente {
         stmt.executeUpdate();
         stmt.close();
     }
-    
+    //@return cliente do tipo Array List se sem erros, null se erro for encontrado
     public ArrayList<Cliente> selectAll(){
         String sql = "Select * from Cliente";
         

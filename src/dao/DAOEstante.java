@@ -16,6 +16,7 @@ import model.Estante;
 /**
  *
  * @author raphaela.crwagner
+ * @see model.Estante
  */
 public class DAOEstante {
     private Connection conn;
@@ -23,7 +24,7 @@ public class DAOEstante {
     public DAOEstante() {
         conn = ConnectionFactory.getConnection();
     }
-    
+    /*@param estando objeto do tipo estante*/
     public void insert(Estante estante) throws SQLException {
         String sql = "INSERT INTO estante(prateleiraId) VALUES (?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
@@ -31,7 +32,7 @@ public class DAOEstante {
         stmt.execute();
         stmt.close();
     }
-    
+    //@return estante do tipo Array List se sem erros, null se com erros
     public ArrayList<Estante> selectAll(){
         String sql = "Select * from Estante";
         
@@ -52,13 +53,8 @@ public class DAOEstante {
            System.err.println("DAO ESTANTE: " + ex);
             return null;
         }
-        
-       
-        
-        
+            
     }
-    
-    
 }
 
 

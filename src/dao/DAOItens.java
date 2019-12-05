@@ -17,6 +17,8 @@ import model.Itens;
 /**
  *
  * @author raphaela.crwagner
+ * @see model.Genero
+ * #see model.Itens
  */
 public class DAOItens {
     private Connection conn;
@@ -24,7 +26,7 @@ public class DAOItens {
     public DAOItens() {
         conn = ConnectionFactory.getConnection();
     }
-    
+    //@param itens objeto do tipo itens
        public void insert(Itens itens) throws SQLException {
         String sql = "INSERT INTO itens(cp_produto, cp_compras) VALUES (?,?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
@@ -33,7 +35,7 @@ public class DAOItens {
         stmt.execute();
         stmt.close();
     }
-
+    //@return itens do tipo Array List se sem erros, null se com erros
     public ArrayList<Itens> selectAll() {
         String sql = "Select * from Itens";
 

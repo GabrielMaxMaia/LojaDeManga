@@ -7,6 +7,7 @@ import model.tableModels.RelatorioAnaliticoTableModel;
 /**
  *
  * @author Matheus Makoto
+ * @see model.tableModels.RelatorioAnaliticoTableModel
  */
 public class PesquisaAnalitica extends javax.swing.JFrame {
 

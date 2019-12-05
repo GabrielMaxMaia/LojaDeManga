@@ -17,6 +17,8 @@ import model.Prateleira;
 /**
  *
  * @author raphaela.crwagner
+ * @see model.Itens
+ * @see model.Prateleira
  */
 public class DAOPrateleira {
 
@@ -25,7 +27,7 @@ public class DAOPrateleira {
     public DAOPrateleira() {
         conn = ConnectionFactory.getConnection();
     }
-    
+    //@param prateleira objeto do tipo prateleira
      public void insert(Prateleira prateleira) throws SQLException {
         String sql = "INSERT INTO prateleira(produto, compras) VALUES (?,?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
@@ -33,7 +35,7 @@ public class DAOPrateleira {
         stmt.execute();
         stmt.close();
     }
-
+    //@return prateleira do tipo Array List se sem erros, null se com erros
     public ArrayList<Prateleira> selectAll() {
         String sql = "Select * from Prateleira";
 

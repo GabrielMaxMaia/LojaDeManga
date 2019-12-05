@@ -7,13 +7,21 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import lojademanga.ConnectionFactory;
 import model.Titulo;
+
+/*
+@see model.Titulo
+
+ */
 public class DAOTitulo {
+
     private Connection conn;
-    
-    public DAOTitulo(){
-        
+
+    public DAOTitulo() {
+
         conn = ConnectionFactory.getConnection();
     }
+
+    //@param titulo objeto do tipo titulo
     public void insert(Titulo titulo) throws SQLException {
         String sql = "INSERT INTO titulo() VALUES (?,?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
@@ -22,7 +30,8 @@ public class DAOTitulo {
         stmt.execute();
         stmt.close();
     }
-public ArrayList<Titulo> selectAll() {
+    //@return titulo do tipo Array List se sem erros, null se com erros
+    public ArrayList<Titulo> selectAll() {
         String sql = "Select * from Produto";
 
         try {

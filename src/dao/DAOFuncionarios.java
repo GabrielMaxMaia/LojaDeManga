@@ -17,6 +17,8 @@ import model.Funcionarios;
 /**
  *
  * @author raphaela.crwagner
+ * @see model.Fornecedor
+ * @see model.Funcionarios
  */
 public class DAOFuncionarios {
     private Connection conn;
@@ -24,7 +26,7 @@ public class DAOFuncionarios {
     public DAOFuncionarios() {
         conn = ConnectionFactory.getConnection();
     }
-    
+    //@param funcionario objeto do tipo funcionario
     public void insert(Funcionarios funcionarios) throws SQLException {
         String sql = "INSERT INTO funcionarios(nome) VALUES (?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
@@ -32,7 +34,7 @@ public class DAOFuncionarios {
         stmt.execute();
         stmt.close();
     }
-    
+        //@return Funcionario do tipo Array List se sem erros, null se com erros
     public ArrayList<Funcionarios> selectAll(){
         String sql = "Select * from Funcionarios";
         

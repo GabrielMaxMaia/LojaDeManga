@@ -17,6 +17,7 @@ import model.Genero;
 /**
  *
  * @author raphaela.crwagner
+ * @see model.Genero
  */
 public class DAOGenero {
     private Connection conn;
@@ -24,7 +25,7 @@ public class DAOGenero {
     public DAOGenero() {
         conn = ConnectionFactory.getConnection();
     }
-    
+    //@param genero objeto do tipo genero
     public void insert(Genero genero) throws SQLException {
         String sql = "INSERT INTO genero(nome) VALUES (?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
@@ -32,7 +33,7 @@ public class DAOGenero {
         stmt.execute();
         stmt.close();
     }
-
+    //@return genero do tipo Array List se sem erros, null se com erros
     public ArrayList<Genero> selectAll() {
         String sql = "Select * from Genero";
 

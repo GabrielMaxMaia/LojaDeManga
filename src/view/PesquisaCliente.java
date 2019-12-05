@@ -21,6 +21,9 @@ import model.Cliente;
 /**
  *
  * @author Rogerio
+ * @see controller.ClienteController
+ * @see model.Cliente
+ * @see model.tableModels.ClienteTableModel
  */
 public class PesquisaCliente extends javax.swing.JFrame {
 

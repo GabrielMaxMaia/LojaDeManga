@@ -16,6 +16,7 @@ import model.Autor;
 /**
  *
  * @author raphaela.crwagner
+ * @see model.Autor
  */
 public class DAOAutor {
 
@@ -24,7 +25,7 @@ public class DAOAutor {
     public DAOAutor() {
         conn = ConnectionFactory.getConnection();
     }
-
+    //@param autor objeto do tipo autor
     public void insert(Autor autor) throws SQLException {
         String sql = "INSERT INTO autor(nome) VALUES (?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
@@ -32,7 +33,7 @@ public class DAOAutor {
         stmt.execute();
         stmt.close();
     }
-
+    //@return autor do tipo array list se sem erros, null se tiver erros
     public ArrayList<Autor> selectAll() {
         String sql = "Select * from Autor";
 

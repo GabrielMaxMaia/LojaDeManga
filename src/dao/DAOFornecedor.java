@@ -17,6 +17,8 @@ import model.Fornecedor;
 /**
  *
  * @author raphaela.crwagner
+ * @see model.Estilo
+ * @see model.Fornecedor
  */
 public class DAOFornecedor {
     private Connection conn;
@@ -24,7 +26,7 @@ public class DAOFornecedor {
     public DAOFornecedor() {
         conn = ConnectionFactory.getConnection();
     }
-    
+    //@param fornecedor objeto do tipo fornecedor
     public void insert(Fornecedor fornecedor) throws SQLException {
         String sql = "INSERT INTO fornecedor(nome, status) VALUES (?,?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
@@ -33,7 +35,7 @@ public class DAOFornecedor {
         stmt.execute();
         stmt.close();
     }
-    
+    //@return fornecedor do tipo Array List se sem erros, null se com erros
     public ArrayList<Fornecedor> selectAll(){
         String sql = "Select * from Fornecedor";
         
@@ -56,10 +58,7 @@ public class DAOFornecedor {
            System.err.println("DAO FORNECEDOR: " + ex);
             return null;
         }
-        
-       
-        
-        
+             
     }
     
     

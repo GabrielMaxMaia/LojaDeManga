@@ -22,6 +22,13 @@ import model.tableModels.RelatorioDinamicoTableModel;
 /**
  *
  * @author Rogerio
+ * @see dao.DAOProduto
+ * @see da.DAOVenda
+ * @see model.Produto;
+    @see model.Venda;
+    @see model.VendaTemporaria;
+    @see model.tableModels.RelatorioAnaliticoTableModel;
+    @see model.tableModels.RelatorioDinamicoTableModel;
  */
 public class RelatorioContoller {
     private RelatorioAnaliticoTableModel analitico;
@@ -34,7 +41,7 @@ public class RelatorioContoller {
         
         
     }
-    
+    /*@param id da Venda do tipo String*/
     public void puxaVenda(String idVenda){
         DAOVenda daoVenda = new DAOVenda();
         DAOProduto dao = new DAOProduto();
@@ -47,7 +54,7 @@ public class RelatorioContoller {
             
         }
     }
-        
+    //@param venda do tipo arraylist    
     public void atualizaRelatorio(ArrayList<Produto> venda){
         ArrayList<Produto> aux = new ArrayList<Produto>();
         ArrayList<Integer> qtdList = new ArrayList<Integer>();
@@ -84,7 +91,7 @@ public class RelatorioContoller {
     public Float getTotal(){
         return analitico.getTotal();
     }
-    
+    //@return data de inicio do tipo String, datafinal do tipo String
     public void filtrarPorData(String dataInicio, String dataFinal){
         SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
         Date dataI ,dataF;

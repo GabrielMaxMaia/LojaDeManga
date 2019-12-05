@@ -17,6 +17,8 @@ import model.Estilo;
 /**
  *
  * @author raphaela.crwagner
+ * @see model.Estante
+ * @see model.Estilo
  */
 public class DAOEstilo {
     private Connection conn;
@@ -24,7 +26,7 @@ public class DAOEstilo {
     public DAOEstilo() {
         conn = ConnectionFactory.getConnection();
     }
-    
+    //@param estilo objeto do tipo estilo
     public void insert(Estilo estilo) throws SQLException {
         String sql = "INSERT INTO estilo(nome) VALUES (?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
@@ -32,7 +34,7 @@ public class DAOEstilo {
         stmt.execute();
         stmt.close();
     }
-    
+    //@return estilo do tipo Array List se sem erros, null se com erros
     public ArrayList<Estilo> selectAll(){
         String sql = "Select * from Estilo";
         

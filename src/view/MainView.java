@@ -19,6 +19,13 @@ import model.Produto;
 /**
  *
  * @author raphaela.crwagner
+ * @see controller.ClienteController
+ * @see controller.VendaController
+ * @see controller.ProdutoController
+ * @see controller.RelatorioContoller
+ * @see model.Cliente
+ * @see model.Produto
+ * @see model.tableModels.CarrinhoTableModel
  */
 public class MainView extends javax.swing.JFrame {
 
